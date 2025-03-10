@@ -19,11 +19,11 @@ color: white
 
 p{
    
-    width: 1000px;  /* Largura do retângulo */
-    height: 8vh;  /* Altura do retângulo */
-    background-color: #008F8C; /* Cor de fundo */
-    margin: 18px; /* Espaçamento externo */
-    display: inline-block; /* Para manter os retângulos lado a lado */
+    width: 1000px;
+    height: 8vh;
+    background-color: #008F8C;
+    margin: 18px;
+    display: inline-block; 
     border-radius: 10px;
     text-shadow: 5px 3px 5px #0FC2C0;
     color: white;
