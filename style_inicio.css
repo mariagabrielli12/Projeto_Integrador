@@ -1,0 +1,72 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right, white, rgba(255, 255, 255, 0.178), #0F5959);
+    font-family: Arial, sans-serif;
+}
+
+/* Estilização do cabeçalho */
+div {
+    background: #008F8C;
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Playwrite IT Moderna", sans-serif;
+    color: white;
+}
+
+
+
+/* Botões */
+button {
+    width: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #0FC2C0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+ 
+}
+
+button:hover {
+    background-color: #008F8C;
+}
+
+/* Navegação */
+nav {
+    background-color: #0F5959;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ff6347;  /* Muda para uma cor laranja */
+}
+

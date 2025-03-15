@@ -1,0 +1,84 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-image: linear-gradient(to right, white, rgba(255, 255, 255, 0.178), #0F5959);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Estilização do container principal */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsivo */
+    gap: 20px;
+    max-width: 900px;
+    
+}
+
+/* Cartões */
+p {
+    background-color: #008F8C;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1em;
+    text-shadow: 2px 2px 5px #0FC2C0;
+    transition: transform 0.3s ease-in-out;
+}
+
+p:hover {
+    transform: scale(1.05);
+}
+
+/* Botões */
+button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: #0FC2C0;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #007575;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition: color 0.3s;
+    text-align: center;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
