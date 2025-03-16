@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="cadastro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar aluno</title>
+</head>
+<body>
+        <div>
+            <h1>Cadastro de alunos </h1>  
+            <p><strong>Complete as informações:</strong></p>
+            
+        </div>
+
+        <form> 
+            <fieldset>
+                <div>
+                    <label><strong>Nome:</strong></label>
+                    <input type="text" name="Nome" id="nome" required>
+                </div>
+                <div>
+                    <label><strong>Sobrenome:</strong></label>
+                    <input type="text" name="Sobrenome" id="sobrenome" required>
+                </div>
+               
+            </fieldset>
+            <br>
+            <div>
+                <label><STRONG>Email:</STRONG></label>
+                <input type="email" name="Email" id="email" required>
+            </div>
+            <br>
+            <div>
+                <label><strong>Idade:</strong></label>
+                <input type="number" name="idade" id="idade" required>
+            </div>
+            <br>
+            <div>
+                <label for="Celular"><strong>Celular:</strong></label>
+                <input type="tel" name="Celular" id="Celular" required>
+            </div>
+            <br>
+            <div>
+                <label>A criança é PCD?</label>
+                <label>
+                    <input type="radio"><strong>Sim</strong>
+                </label>
+                <BR>
+                <label>
+                    
+                    <input type="radio"><strong>Não</strong>
+                </label>
+            </div>
+            <button type="submit"> <strong>Cadastrar</strong></button>
+        </form>
+</body>
+</html>
