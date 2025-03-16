@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="cadastro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar aluno</title>
+</head>
+<body>
+        
+            <h1>Cadastro de alunos </h1>
+            <br>
+            <h2>Complete as informações:</h2>
+            
+    
+
+        <form> 
+            <fieldset>
+                <p>
+                    
+                        <label><br><strong>Nome:</strong></label>
+                        <input type="text" name="Nome" id="nome" required>
+                </p>
+                
+                <p>
+                        <label><br><strong>Sobrenome:</strong></label>
+                        <input type="text" name="Sobrenome" id="sobrenome" required>
+                </p>
+               
+            <br>
+            <p>
+                    <label><br><STRONG>Email:</STRONG></label>
+                    <input type="email" name="Email" id="email" required>
+            </p>
+            <br>
+            <p>
+                    <label><br><strong>Data de nascimento:</strong></label>
+                    <input type="date" name="idade" id="idade" required>
+            </p>
+            <br>
+            <p>
+                    <label for="Celular"><strong>Celular:</strong></label>
+                    <input type="tel" name="Celular" id="Celular" required>
+            </p>
+            <br>
+            <p>
+                    <label for="sexo" id="sexo" value="sexo"><STRONG>Sexo:</STRONG></label>
+                    <label>
+                        <input type="radio" name="sexo" id="sexo-feminino" value="sexo-feminino">
+                    </label>
+                    <label for="sexo-feminino">Sexo feminino</label>
+                    <label>
+                        <input type="radio" name="sexo" id="sexo-masculino" value="sexo-masculino">
+                    </label>
+                    <br>
+                    <label for="sexo-masculino"> Sexo masculino</label>
+            </p>
+            <p>
+                    <label><br><STRONG>Responsável:</STRONG></label>
+                    <input type="r" name="sexo" id="sexo" required>
+            </p>
+            <p>
+                    <label><br><STRONG>Endereço:</STRONG></label>
+                    <input type="text" name="endereco" id="endereco" required>
+            </p>
+            <p>
+                <label><br><STRONG>Data da matrícula:</STRONG></label>
+                <input type="date" name="data_matricula" id="data_matricula" required>
+        </p>
+        <p>
+            <label><br><STRONG>Status:</STRONG></label>
+            <input type="text" name="status" id="status" required>
+    </p>
+            <p>
+                    <label for="crianca_pcd" id="crianca_pcd" value="crianca_pcd">A criança é PCD?
+                    </label>
+                      <label>
+                        <input type="radio" name="crianca_pcd" id="sim" value="sim"><strong>Sim</strong>
+                    </label>
+                    <BR>
+                    <label>
+                        <input type="radio" name="crianca_pcd" id="não" value="não"><strong>Não</strong>
+                    </label>  
+            </p>
+            <label for=></label>
+            <br>
+            <button type="submit"> <strong>Cadastrar</strong></button>
+        </fieldset>
+        </form>
+</body>
+</html>

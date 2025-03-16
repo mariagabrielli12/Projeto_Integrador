@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt -br">
+<head>
+    <link rel="stylesheet" href="cadastro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    label{
+        font-size: 200px;
+    }
+
+    h1{
+        font-size: 200PX;
+    }
+    
+    </style>
+    <title>Cadastrar novo Professor</title>
+</head>
+<body>
+       <h1>Troca de professor</h1>
+    <fieldset>
+        <p>
+            <label for="datatroca">Data da troca:</label>
+            <input type="date" name="datatroca" id="datatroca">
+        </p>
+        <p>
+            <label for="antigo">Professor Antigo:</label>
+            <input type="text" name="antigo" id="antigo">
+        </p>
+        <p>
+            <label for="novo">Professor Novo:</label>
+            <input type="text" name="novo" id="novo">
+        </p>
+        <button type="button" oneclik="mansagem();">Enviar Dados</button>
+    </fieldset>
+    
+</body>
+</html>
