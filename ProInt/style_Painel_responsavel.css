@@ -13,7 +13,7 @@ body {
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #2f4050;
+    background-color: #015958;
     color: #fff;
     padding: 20px;
     position: fixed;
@@ -51,13 +51,13 @@ body {
     font-size: 16px;
     display: block;
     padding: 10px;
-    background-color: #3e5c6d;
+    background-color: #023535;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .menu a:hover {
-    background-color: #4f6d7a;
+    background-color: #008F8C;
 }
 
 .content {
