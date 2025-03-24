@@ -85,8 +85,8 @@ body {
     width: 35%; /* Largura do container */
     margin: 50 auto; /* Centraliza horizontalmente */
     padding: 20px; /* Espaçamento interno */
-    background-color: #f4f4f4; /* Cor de fundo opcional */
-    border-radius: 8px; /* Bordas arredondadas (opcional) */
+    background-color: #f4f4f4; 
+    border-radius: 8px; 
 }
 
 
