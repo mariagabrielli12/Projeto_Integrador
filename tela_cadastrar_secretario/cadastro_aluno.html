@@ -5,27 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar aluno</title>
-    <style>
-        h1{
-                font-size: 6em;
-        }
-
-        h2{
-                font-size: 3em;
-        }
-    </style>
 </head>
 <body>
-        
-            <h1>Cadastro de alunos </h1>
+        <div class="sidebar">
+                <div class="user-info">
+                    <img src="user.jpg" alt="Usuário" class="user-avatar">
+                    <p class="user-name">Usuario</p>
+                </div>
+                <ul class="menu">
+                    <li><a href="#">Início</a></li>
+                    <li><a href="/ProInt/tela_responsavel_perfil.html">Perfil</a></li>
+                    li>
+                    <li><a href="/ProInt/tela_responsavel_justificativa.html">Justificar Falta</a></li>
+                    <li><a href="/tela_login/telaaluno.html">Sair</a></li>
+                </ul>
+
+            </div>
             <br>
-            <br>
-            <h2>Complete as informações:</h2>
+
+            <fieldset><h2>Complete as informações:</h2></fieldset>
+            
             
     
             <div class="container3">
-        <form> 
-            <fieldset>
+       
+            
                 <p>
                     
                         <label><br><strong>Nome:</strong></label>
@@ -87,19 +91,14 @@
                       <label>
                         <input type="radio" name="crianca_pcd" id="sim" value="sim"><strong>Sim</strong>
                     </label>
-                    <BR>
                     <label>
-                        <input type="radio" name="crianca_pcd" id="não" value="não"><strong>Não</strong>
-                    </label>  
-            </p>
-            <label for=></label>
-            <br>
-            
-        </fieldset>
-        </form>
-
-        <button type="submit"> <strong>Cadastrar</strong></button>
-
+                       
+                        <input type="radio" name="crianca_pcd" id="não"
+                         value="não"><strong>Não</strong>
+                    </label>
+                    <div>
+                </div>
+        <button type="submit" class="btn-enviar">Enviar</button>
         </div>
 </body>
 </html>

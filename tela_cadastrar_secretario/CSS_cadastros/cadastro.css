@@ -1,59 +1,17 @@
 @charset "UTF-8";
 
-p{
-    transform: scale(0.5);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-size: 40px;
-    text-align: center;
-
-
-    
-}
-input{
-    background-color: white;
-   font-size: 1em;
-   border-radius: 10px;
-}
-
-.name{
-    flex: 1 0 130px;
-}
-
-.email{
-    flex: 1 0 130px;
-}
-
-button{
-    flex: 1 0 40px;
-}
 
 *{
+
+    margin: 0;
     padding: 0;
-    margin: 0
-    ;
-   
+    box-sizing: border-box;
 }
 
-
-body{
-    font-size: 5px;
-   background-color: #ffffff;
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
 }
-
-h1{
-    text-align: center;
-    font-size: 6em;
-    font-family:'Times New Roman', Times, serif, Helvetica, sans-serif;
-    color: #015958;
-    box-shadow: 9px 9px 4px 4px;
-}
-label{
-    font-family:Arial, Helvetica, sans-serif ;
-    font-size: 1em;
-}
-   
 
 
 p{
@@ -62,35 +20,24 @@ p{
     color:black ;
 }
 
-button{
-    background-color:#008F8C;
+.btn-enviar {
+    background-color: #008F8C;
+    color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 15px;
     border-radius: 5px;
-   transform: translate(50%, -18%);
-   font-size: 3em;
-  color: white;
-  width: 200px;
-   
-   
-}
-h2{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 5em;
-    color:#023535;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-button:hover {
-    background-color:#0FC2C0;
-    
-    
+.btn-enviar:hover {
+    background-color: #015958;
 }
 
 fieldset{
-    width: 50%;
+    
     margin: 0 auto;
-    text-align: center; 
-    border-radius: 2%;
+    border: none;
 }
 
 .container3 {
@@ -125,5 +72,38 @@ fieldset{
     margin-bottom: 5px;
 }
 
+h2 {
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+}  
 
-   
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    margin-bottom: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    background-color: #023535;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #008F8C;
+}
+
+
+
+
+
+

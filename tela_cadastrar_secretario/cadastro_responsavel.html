@@ -8,14 +8,24 @@
 </head>
 <body>
 
-    <h1>Cadastro de Responsáveis </h1>
-    <br>
-    <br>
-    <h2>Complete as informações:</h2>
-    <br>
+    <div class="sidebar">
+        <div class="user-info">
+            <img src="user.jpg" alt="Usuário" class="user-avatar">
+            <p class="user-name">Usuario</p>
+        </div>
+        <ul class="menu">
+            <li><a href="#">Início</a></li>
+            <li><a href="/ProInt/tela_responsavel_perfil.html">Perfil</a></li>
+        
+            <li><a href="/ProInt/tela_responsavel_justificativa.html">Justificar Falta</a></li>
+            <li><a href="/tela_login/telaaluno.html">Sair</a></li>
+        </ul>
 
-  <fieldset>
-      
+    </div>
+    <fieldset><h2>Complete as informações:</h2></fieldset>
+    <br>  
+
+    <div class="container3">
       <p>
               <label for="nome"> Digite seu nome completo:</label>
               <input type="text"name="nome" id="nome">
@@ -32,12 +42,8 @@
               <label for="rg">Digite seu CPF/RG:</label>
               <input type="text" name="rg" id="rg">
           </p>
-  </fieldset>
 
-        <p>
-            <form action="">
-                <fieldset>
-                    <p>
+                  <p>
                         <label for="genero"> Qual seu gênero</label>
                     </p>
                     <p>
@@ -55,22 +61,17 @@
                     <br>
             <p>
                 <label for="parentesco">Qual o se grau de parentesco com o aluno?</label>
-                <select name="parentesco" id="parentesco">
+    
                     <option value="0" selected disabled>Escolha uma opção</option>
                         <option value="mãe">Mãe</option>
                         <option value="pai">Pai</option>
                         <option value="avô/avó">Avô/Avó</option>
                         <option value="tio/tia">Tio/Tia</option>
-                </select>
+               
             </p>
 
-           
-        </p>
 
         <p>
-
-           
-      
             <label for="endereco">Digite seu endereço completo:</label>
             <input type="text" name="endereco" id="endereco">
         </p>
@@ -80,10 +81,8 @@
             <input type="text" name="observacoes" id="observacoes">
         </p>
 
-    </form>
-            
-
-
         <button type="button" oneclik="mansagem();">Cadastrar</button>
+
+        </div>
 </body>
 </html>
