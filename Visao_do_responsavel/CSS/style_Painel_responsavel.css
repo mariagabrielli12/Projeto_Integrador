@@ -156,4 +156,78 @@ h2 {
 }
 
 
+/* Contêiner principal do boletim */
+.boletim-container {
+    margin-top: 40px;
+  }
+  
+  .boletim-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .boletim-header h2 {
+    font-size: 24px;
+    color: #023535;
+  }
+  
+  .boletim-info {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .boletim-info p {
+    font-size: 16px;
+    color: #023535;
+  }
+  
+  .boletim-table {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+  }
+  
+  .boletim-table th, .boletim-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  .boletim-table th {
+    background-color: #015958;
+    color: #fff;
+  }
+  
+  .boletim-table td {
+    background-color: #f4f4f4;
+  }
+  
+  .boletim-table td:hover {
+    background-color: #023535;
+    color: #fff;
+  }
+  
+  .boletim-footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .boletim-footer button {
+    padding: 10px 20px;
+    background-color: #015958;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .boletim-footer button:hover {
+    background-color: #008F8C;
+  }
+  
+
 
