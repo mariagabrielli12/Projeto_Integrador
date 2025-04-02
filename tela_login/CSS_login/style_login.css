@@ -53,7 +53,9 @@ input{
 
 a{
     font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    font-size: 12px;
+    color: black;
+    font-size: 19px;
+    text-decoration: none;
+  
 }
 

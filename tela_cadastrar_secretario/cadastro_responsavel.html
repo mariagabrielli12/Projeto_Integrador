@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt -br">
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="CSS_cadastros/cadastro.css">
     <meta charset="UTF-8">
@@ -18,7 +18,7 @@
             <li><a href="/ProInt/tela_responsavel_perfil.html">Perfil</a></li>
         
             <li><a href="/ProInt/tela_responsavel_justificativa.html">Justificar Falta</a></li>
-            <li><a href="/tela_login/telaaluno.html">Sair</a></li>
+            <li><a href="../tela_login/telasecretario.html">Sair</a></li>
         </ul>
 
     </div>
@@ -59,28 +59,76 @@
                         <label for="outro">Outro</label>
                     </p>
                     <br>
+          <details>
+            <summary>aluno</summary>
             <p>
-                <label for="parentesco">Qual o se grau de parentesco com o aluno?</label>
-    
-                    <option value="0" selected disabled>Escolha uma opção</option>
-                        <option value="mãe">Mãe</option>
-                        <option value="pai">Pai</option>
-                        <option value="avô/avó">Avô/Avó</option>
-                        <option value="tio/tia">Tio/Tia</option>
+                    
+                <label><br><strong>Nome:</strong></label>
+                <input type="text" name="Nome" id="nome" required>
+        </p>
+        
+        <p>
+                <label><br><strong>Sobrenome:</strong></label>
+                <input type="text" name="Sobrenome" id="sobrenome" required>
+        </p>
+       
+    <br>
+    <p>
+            <label><br><STRONG>Email:</STRONG></label>
+            <input type="email" name="Email" id="email" required>
+    </p>
+    <br>
+    <p>
+            <label><br><strong>Data de nascimento:</strong></label>
+            <input type="date" name="idade" id="idade" required>
+    </p>
+    <br>
+    <p>
+            <label for="Celular"><strong>Celular:</strong></label>
+            <input type="tel" name="Celular" id="Celular" required>
+    </p>
+    <br>
+    <p>
+            <label for="sexo" id="sexo" value="sexo"><STRONG>Sexo:</STRONG></label>
+            <label>
+                <input type="radio" name="sexo" id="sexo-feminino" value="sexo-feminino">
+            </label>
+            <label for="sexo-feminino">Sexo feminino</label>
+            <label>
+                <input type="radio" name="sexo" id="sexo-masculino" value="sexo-masculino">
+            </label>
+            <br>
+            <label for="sexo-masculino"> Sexo masculino</label>
+    </p>
+    <p>
+            <label><br><STRONG>Responsável:</STRONG></label>
+            <input type="r" name="sexo" id="sexo" required>
+    </p>
+    <p>
+            <label><br><STRONG>Endereço:</STRONG></label>
+            <input type="text" name="endereco" id="endereco" required>
+    </p>
+    <p>
+        <label><br><STRONG>Data da matrícula:</STRONG></label>
+        <input type="date" name="data_matricula" id="data_matricula" required>
+</p>
+<p>
+    <label><br><STRONG>Status:</STRONG></label>
+    <input type="text" name="status" id="status" required>
+</p>
+    <p>
+            <label for="crianca_pcd" id="crianca_pcd" value="crianca_pcd">A criança é deficiente?
+            </label>
+              <label>
+                <input type="radio" name="crianca_pcd" id="sim" value="sim"><strong>Sim</strong>
+            </label>
+            <label>
                
-            </p>
-
-
-        <p>
-            <label for="endereco">Digite seu endereço completo:</label>
-            <input type="text" name="endereco" id="endereco">
-        </p>
-
-        <p>
-            <label for="observacoes">Observações adicionais:</label>
-            <input type="text" name="observacoes" id="observacoes">
-        </p>
-
+                <input type="radio" name="crianca_pcd" id="não"
+                 value="não"><strong>Não</strong>
+            </label>
+            <div>
+    </details>
         <button type="button" oneclik="mansagem();">Cadastrar</button>
 
         </div>
