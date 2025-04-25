@@ -68,23 +68,23 @@ body {
 .container {
     text-align: center;
     position: absolute;
-    top: 85px;  /* Distância do topo */
-    left: 300px; /* Distância da esquerda */
-    width: 35%; /* Largura do container */
-    margin: 50 auto; /* Centraliza horizontalmente */
-    padding: 20px; /* Espaçamento interno */
-    background-color: #f4f4f4; /* Cor de fundo opcional */
-    border-radius: 8px; /* Bordas arredondadas (opcional) */
+    top: 85px;
+    left: 300px;
+    width: 35%;
+    margin: 50 auto;
+    padding: 20px;
+    background-color: #f4f4f4; 
+    border-radius: 8px;
 }
 
 .container2 {
     text-align: center;
     position: absolute;
-    top: 85px;  /* Distância do topo */
-    left: 900px; /* Distância da esquerda */
-    width: 35%; /* Largura do container */
-    margin: 50 auto; /* Centraliza horizontalmente */
-    padding: 20px; /* Espaçamento interno */
+    top: 85px;  
+    left: 900px;
+    width: 35%;
+    margin: 50 auto;
+    padding: 20px;
     background-color: #f4f4f4; 
     border-radius: 8px; 
 }
