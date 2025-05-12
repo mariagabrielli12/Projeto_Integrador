@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="CSS_cadastros/cadastro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar aluno</title>
+</head>
+<body>
+        <div class="sidebar">
+                <div class="user-info">
+                    <img src="user.jpg" alt="Usuário" class="user-avatar">
+                    <p class="user-name">Usuario</p>
+                </div>
+                <ul class="menu">
+                    <li><a href="#">Início</a></li>
+                    <li><a href="/ProInt/tela_responsavel_perfil.html">Perfil</a></li>
+                    <li><a href="../tela_login/telaaluno.html">Sair</a></li>
+                </ul>
+
+            </div>
+            <br>
+
+            <fieldset><h2>Complete as informações:</h2></fieldset>
+            
+            
+    
+            <div class="container3">
+       
+            
+                <p>
+                    
+                        <label><br><strong>Nome:</strong></label>
+                        <input type="text" name="Nome" id="nome" required>
+                </p>
+                
+                <p>
+                        <label><br><strong>Sobrenome:</strong></label>
+                        <input type="text" name="Sobrenome" id="sobrenome" required>
+                </p>
+               
+            <br>
+            <p>
+                    <label><br><STRONG>Email:</STRONG></label>
+                    <input type="email" name="Email" id="email" required>
+            </p>
+            <br>
+            <p>
+                    <label><br><strong>Data de nascimento:</strong></label>
+                    <input type="date" name="idade" id="idade" required>
+            </p>
+            <br>
+            <p>
+                    <label for="Celular"><strong>Celular:</strong></label>
+                    <input type="tel" name="Celular" id="Celular" required>
+            </p>
+            <br>
+            <p>
+                    <label for="sexo" id="sexo" value="sexo"><STRONG>Sexo:</STRONG></label>
+                    <label>
+                        <input type="radio" name="sexo" id="sexo-feminino" value="sexo-feminino">
+                    </label>
+                    <label for="sexo-feminino">Sexo feminino</label>
+                    <label>
+                        <input type="radio" name="sexo" id="sexo-masculino" value="sexo-masculino">
+                    </label>
+                    <br>
+                    <label for="sexo-masculino"> Sexo masculino</label>
+            </p>
+            <p>
+                <label><br>Endereço:</label>
+                    <label>
+                    <input type="text" name="endereco" id="endereco" required>
+                </label>
+            </p>
+            <br>
+                <label for="número da casa">N°:</label>
+                <input type="number" name="numero da casa" id="numero">
+            <br>
+    
+            
+        <button type="submit" class="btn-enviar">Enviar</button>
+        </div>
+</body>
+</html>

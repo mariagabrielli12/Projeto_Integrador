@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="CSS_cadastros/cadastro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de ocorrências</title>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="user-info">
+            <img src="imagem/user.webp" alt="Usuário" class="user-avatar">
+            <p class="user-name">Usuario</p>
+        </div>
+        <ul class="menu">
+            <li><a href="#">Início</a></li>
+            <li><a href="/ProInt/tela_responsavel_perfil.html">Perfil</a></li>
+          
+            <li><a href="/ProInt/tela_responsavel_justificativa.html">Atestados</a></li>
+            <li><a href="../tela_login/telasecretario.html">Sair</a></li>
+        </ul>
+
+    </div>
+    <fieldset><h2>Complete as informações:</h2></fieldset>
+
+    <div class="container3">
+    <fieldset>
+        <p>
+            <label><strong>Número do aluno:</strong></label>
+            <input type="number" name="Num_Aluno" id="num_aluno" required> <br>
+        </p>
+        <p>
+            <label> <strong>Número do professor:</strong></label>
+            <input type="number" name="Num_Prof" id="Num_Prof" required> <br>
+        </p>
+        <p>
+            <strong>Descrição:</strong>
+            <input type="text" name="Desc_Ocorrencia" id="Desc_Ocorrencia" required size="60"> <br>
+        </p>
+        <p>
+            <strong>Data:</strong>
+            <input type="date" name="Data_Ocorrido" id="Data_Ocorrido" required>
+        </p>
+    </fieldset>
+
+    <br>
+
+    <button type="submit" class="btn-enviar">Enviar</button>
+</div>
+</body>
+</html>
