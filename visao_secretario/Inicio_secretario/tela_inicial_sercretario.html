@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Secretário</title>
+  <link rel="stylesheet" href="style_inicio_secretario.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="layout">
+    
+
+    <!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2><i data-lucide="school"></i> Secretaria</h2>
+    <nav>
+      <ul>
+        <li class="active"><i data-lucide="home"></i> <a href="#">Início</a></li>
+        <li><i data-lucide="user"></i> <a href="../tela_cadastrar_secretario/cadastro_aluno_responsaveis.html">Cadastro Gerais</a></li>
+        <li><i data-lucide="building-2"></i> <a href="../tela_cadastrar_secretario/cadastro_salas.html">Cadastro de Salas</a></li>
+        <li><i data-lucide="file-text"></i> <a href="../tela_cadastrar_secretario/cadastro_atestados.html">Cadastro de Atestados</a></li>
+        <li><i data-lucide="file-text"></i> <a href="../tela_cadastrar_secretario/cadastro_turmas.html">Cadastro de Turmas</a></li>
+        <li><i data-lucide="refresh-cw"></i> <a href="../tela_cadastrar_secretario/troca_de_turma.html">Troca de Turma</a></li>
+        <li><i data-lucide="book-text"></i> <a href="../tela_cadastrar_secretario/cadastro_ocorrencias.html">Ocorrências</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+     <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+      <header class="topbar">
+        <span>Usuário</span>
+        <i data-lucide="user-circle"></i>
+      </header>
+
+      <section class="painel">
+        <h1>Painel</h1>
+        <div class="grid">
+            <div class="card">
+              <i data-lucide="user"></i> <a href="../tela_cadastrar_secretario/cadastro_aluno_responsaveis.html"></a>
+              <div class="card-content">
+                <h3>Cadastro Gerais</h3>
+                <p>Adicione, edite e gerencie informações dos alunos e responsáveis</p>
+              </div>
+            </div>
+            
+            
+            <div class="card"> 
+              <i data-lucide="layout-grid"></i><a href="../tela_cadastrar_secretario/cadastro_salas.html"></a>
+              <div class="card-content">
+                <h3>Cadastro de Salas</h3>
+                <p>Gerencie as aulas oferecidas pela instituição</p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <i data-lucide="building-2"></i> <a href="../tela_cadastrar_secretario/cadastro_atestados.html"></a>
+              <div class="card-content">
+                <h3>Cadastro de Atestados</h3>
+                <p>Organize e gerencie as salas de aula</p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <i data-lucide="file-text"></i> <a href="../tela_cadastrar_secretario/cadastro_turmas.html"></a>
+              <div class="card-content">
+                <h3>Cadastro de Turmas</h3>
+                <p>Registre e acompanhe os atestados médicos dos alunos</p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <i data-lucide="refresh-cw"></i> <a href="../tela_cadastrar_secretario/troca_de_turma.html"></a>
+              <div class="card-content">
+                <h3>troca de Turma</h3>
+                <p>Realize alterações nas turmas conforme necessário</p>
+              </div>
+            </div>
+            
+            <div class="card">
+              <i data-lucide="book-text"></i> <a href="../tela_cadastrar_secretario/cadastro_ocorrencias.html"></a>
+              <div class="card-content">
+                <h3>Gerenciamento de Ocorrências</h3>
+                <p>Registre e acompanhe as ocorrências na escola</p>
+              </div>
+            </div>
+          </div>
+           
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

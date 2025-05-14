@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: #f5f7f8;
+  }
+  
+  .layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* SIDEBAR */
+  .sidebar {
+    background-color: #1d4b3f; /* cor original mantida */
+    color: #fff;
+    width: 250px;
+    padding: 20px;
+  }
+  
+  .sidebar h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+  }
+  
+  .sidebar li {
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    flex: 1;
+  }
+  
+  .sidebar li:hover {
+    background-color: #1c7861;
+  }
+  
+  .sidebar li.active {
+    background-color: #0e3f33;
+  }
+  
+  /* MAIN CONTENT */
+  .main-content {
+    flex: 1;
+    padding: 30px 50px;
+    background-color: #f5f7f8;
+    overflow-y: auto;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .topbar i {
+    width: 28px;
+    height: 28px;
+    color: #145c4a;
+  }
+  
+  .topbar span {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .painel h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #222;
+  }
+  
+  /* GRID DE CARDS */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    min-height: 150px;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    background-color: #e6f4f0;
+    transform: translateY(-4px);
+  }
+  
+  .card i {
+    width: 28px;
+    height: 28px;
+    color: #145c4a;
+    flex-shrink: 0;
+  }
+  
+  .card-content h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+    color: #145c4a;
+  }
+  
+  .card-content p {
+    font-size: 14px;
+    color: #444;
+  }
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  .form-column {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 48%;
+}
+
+.form-column h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form label {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+form input,
+form select {
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #145c4a;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1c7861;
+}
+
+/* Responsividade para dispositivos menores */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-column {
+        width: 100%;
+    }
+}
+
+#mensagemSucesso {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para a lista de alunos e responsáveis */
+.listagem {
+    margin-top: 30px;
+}
+
+.listagem table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.listagem th, .listagem td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.listagem th {
+    background-color: #145c4a;
+    color: white;
+}
+
+.listagem .btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.listagem .btn-alterar {
+    background-color: #1c7861;
+    color: white;
+}
+
+.listagem .btn-excluir {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.listagem .btn:hover {
+    opacity: 0.8;
+}
+
+
+/* CSS listagem alunos/ responsaveis */
+
+.grid-turmas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card-turma {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-turma h2 {
+    font-size: 20px;
+    color: #145c4a;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card-turma table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.card-turma th,
+.card-turma td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-turma th {
+    background-color: #145c4a;
+    color: white;
+}
+.painel h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* FORMULÁRIOS LADO A LADO */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .form-container {
+    display: flex;
+    gap: 40px;
+  }
+  
+  .form-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+  }
+  
+  .form-box h3 {
+    margin-top: 0;
+  }
+  
+  .specific-form {
+    display: none;
+  }
+  
+  .specific-form.active {
+    display: block;
+  }
+  

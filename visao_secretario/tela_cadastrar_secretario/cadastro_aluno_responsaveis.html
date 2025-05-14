@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Cadastro de Alunos e Responsáveis</title>
+  <link rel="stylesheet" href="../tela_cadastrar_secretario/CSS_cadastros/cadas.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="layout">
+    
+    <!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2><i data-lucide="school"></i> Secretaria</h2>
+    <nav>
+      <ul>
+         <li><i data-lucide="home"></i> <a href="../Inicio_secretario/tela_inicial_sercretario.html">Início</a></li>
+        <li class="active"><i data-lucide="user"></i> <a href="#">Cadastro Gerais</a></li>
+        <li><i data-lucide="building-2"></i> <a href="cadastro_salas.html">Cadastro de Salas</a></li>
+        <li><i data-lucide="file-text"></i> <a href="cadastro_atestados.html">Cadastro de Atestados</a></li>
+        <li><i data-lucide="file-text"></i> <a href="cadastro_turmas.html">Cadastro de Turmas</a></li>
+        <li><i data-lucide="refresh-cw"></i> <a href="troca_de_turma.html">Troca de Turma</a></li>
+        <li><i data-lucide="file-text"></i> <a href="cadastro_ocorrencias.html">Ocorrências</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+      <header class="topbar">
+        <span>Usuário</span>
+        <i data-lucide="user-circle"></i>
+      </header>
+
+      <section class="painel">
+        <h1>Cadastro de Alunos e Responsáveis</h1>
+        
+        <div class="form-container">
+          <!-- Formulário Aluno -->
+          <form action="" method="post" class="form-column" id="formAluno">
+            <h2>Cadastro de Aluno</h2>
+            <label for="nomeAluno">Nome do Aluno:</label>
+            <input type="text" id="nomeAluno" name="nomeAluno" required><br><br>
+          
+            <label for="dataNascimento">Data de Nascimento:</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" required><br><br>
+          
+            <label for="turma">Turma:</label>
+            <input type="text" id="turma" name="turma" required><br><br>
+          
+            <label for="genero">Gênero:</label>
+            <select id="genero" name="genero">
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+              <option value="outro">Outro</option>
+            </select><br><br>
+          
+            <label for="enderecoAluno">Endereço:</label>
+            <input type="text" id="enderecoAluno" name="enderecoAluno"><br><br>
+          
+            <label for="contatoEmergencia">Contato de Emergência:</label>
+            <input type="tel" id="contatoEmergencia" name="contatoEmergencia"><br><br>
+          
+            <label for="responsavelAluno">Nome do Responsável:</label>
+            <input type="text" id="responsavelAluno" name="responsavelAluno" required><br><br>
+          
+            <a href="/visao_secretario/tela_cadastrar_secretario/listagem_alunos.html">
+                <button class="btn-cadastrar">Cadastrar</button>
+              </a>
+          </form>
+
+          <!-- Formulário Responsável -->
+          <form action="" method="post" class="form-column" id="formResponsavel">
+            <h2>Cadastro de Responsável</h2>
+            <label for="nomeResponsavel">Nome do Responsável:</label>
+            <input type="text" id="nomeResponsavel" name="nomeResponsavel" required><br><br>
+          
+            <label for="emailResponsavel">E-mail do Responsável:</label>
+            <input type="email" id="emailResponsavel" name="emailResponsavel" required><br><br>
+          
+            <label for="telefoneResponsavel">Telefone:</label>
+            <input type="tel" id="telefoneResponsavel" name="telefoneResponsavel" required><br><br>
+          
+            <label for="enderecoResponsavel">Endereço:</label>
+            <input type="text" id="enderecoResponsavel" name="enderecoResponsavel"><br><br>
+          
+            <label for="parentescoResponsavel">Parentesco:</label>
+            <select id="parentescoResponsavel" name="parentescoResponsavel">
+              <option value="mae">Mãe</option>
+              <option value="pai">Pai</option>
+              <option value="tio">Tio</option>
+              <option value="outro">Outro</option>
+            </select><br><br>
+          
+            <label for="cpfResponsavel">CPF:</label>
+            <input type="text" id="cpfResponsavel" name="cpfResponsavel"><br><br>
+          
+            <label for="profissaoResponsavel">Profissão:</label>
+            <input type="text" id="profissaoResponsavel" name="profissaoResponsavel"><br><br>
+          
+            <label for="contatoEmergenciaResponsavel">Contato de Emergência:</label>
+            <input type="tel" id="contatoEmergenciaResponsavel" name="contatoEmergenciaResponsavel"><br><br>
+          
+            <button type="submit">Cadastrar Responsável</button>
+          </form>
+        </div>
+
+        <div class="listagem">
+            <h2>Visualizar Cadastros</h2>
+            <form id="formListagem">
+              <label for="tipo">Escolha o tipo de cadastro:</label>
+              <select id="tipo" name="tipo">
+                <option value="listagem_alunos.html">Alunos</option>
+                <option value="listagem_responsaveis.html">Responsáveis</option>
+              </select>
+              <br><br>
+              <button type="submit">Acessar Listagem</button>
+            </form>
+          </div>
+          
+          <script>
+            document.getElementById('formListagem').addEventListener('submit', function (event) {
+              event.preventDefault(); // evita o envio padrão do formulário
+              const destino = document.getElementById('tipo').value;
+              window.location.href = destino; // redireciona para a página escolhida
+            });
+          </script>
+          
+
+        </div>
+
+        <!-- Mensagem de sucesso -->
+        <div id="mensagemSucesso" style="display:none; color: green; font-weight: bold;">Cadastro realizado com sucesso!</div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="cadastros.js"></script>
+  
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

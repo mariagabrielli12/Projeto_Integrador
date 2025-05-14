@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Secretário</title>
+  <link rel="stylesheet" href="CSS_cadastros/cadastro.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="layout">
+    
+
+    <!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2><i data-lucide="school"></i> Direção</h2>
+    <nav>
+      <ul>
+        <li class=""><i data-lucide="home"></i> <a href="../inicio_diretor/tela_inicial_diretor.html">Início</a></li>
+        <li class="active"><i data-lucide="user"></i> <a href="../cadastros_diretor/cadastro_funcionarios.html">Cadastro de Funcionários</a></li>
+        <li><i data-lucide="layout-grid"></i> <a href="">Cadastro de Aulas</a></li>
+        
+      </ul>
+    </nav>
+  </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+        <section class="painel">
+            <h1>Cadastro de Funcionários</h1>
+            
+            <div class="form-container">
+              <!-- Formulário Aluno -->
+              <form action="" method="post" class="form-column" id="formAluno">
+                <h2>Cadastro</h2>
+                <label for="nomeAluno">Nome do Funcionário:</label>
+                <input type="text" id="nomeAluno" name="nomeAluno" required><br><br>
+              
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required><br><br>
+              
+              
+                <label for="genero">Gênero:</label>
+                <select id="genero" name="genero">
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="outro">Outro</option>
+                </select><br><br>
+
+                <label for="atuacao">Função:</label>
+                <select id="atuacao" name="atuacao">
+                  <option value="bercarista">Berçarista</option>
+                  <option value="diretor">Diretor</option>
+                  <option value="secretario">Secretário</option>
+                </select><br><br>
+              
+                <label for="enderecoAluno">Endereço:</label>
+                <input type="text" id="enderecoAluno" name="enderecoAluno"><br><br>
+              
+                <label for="contatoEmergencia">Contato de Emergência:</label>
+                <input type="tel" id="contatoEmergencia" name="contatoEmergencia"><br><br>
+              
+                <label for="emailFuncionario">E-mail do Funcionário:</label>
+                <input type="email" id="emailFuncionario" name="emailFuncionario" required><br><br>
+              
+                <a href="/visao_secretario/tela_cadastrar_secretario/listagem_alunos.html">
+                    <button class="btn-cadastrar">Cadastrar</button>
+                  </a>
+              </form>
+    
+              <!-- Formulário Responsável -->
+              <div class="form-box">
+                <h3>Formulário Específico</h3>
+          
+                <!-- Berçarista -->
+                <div class="specific-form" id="form-bercarista">
+                  <label>Turma Responsável:</label><br>
+                  <input type="text" name="turma"><br><br>
+          
+                  <label>Turno:</label><br>
+                  <select name="turno">
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Integral</option>
+                  </select>
+                </div>
+          
+                <!-- Diretor -->
+                <div class="specific-form" id="form-diretor">
+                  <label>Quantidade de Funcionários:</label><br>
+                  <input type="number" name="qtd_funcionarios"><br><br>
+          
+                  <label>Tempo de Gestão (anos):</label><br>
+                  <input type="number" name="tempo_gestao">
+                </div>
+          
+                <!-- Secretário -->
+                <div class="specific-form" id="form-secretario">
+                  <label>Área de Atuação:</label><br>
+                  <input type="text" name="area_atuacao"><br><br>
+          
+                  <label>Experiência em Atendimento:</label><br>
+                  <select name="experiencia">
+                    <option>Sim</option>
+                    <option>Não</option>
+                  </select>
+                </div>
+            </div>
+            <div class="listagem">
+                <h2>Visualizar Cadastros</h2>
+                <form id="formListagem">
+                  <label for="tipo">Escolha o tipo de cadastro:</label>
+                  <select id="tipo" name="tipo">
+                    <option value="listagem_alunos.html">Alunos</option>
+                    <option value="listagem_responsaveis.html">Responsáveis</option>
+                  </select>
+                  <br><br>
+                  <button type="submit">Acessar Listagem</button>
+                </form>
+              </div>
+              
+              <script>
+                document.getElementById('formListagem').addEventListener('submit', function (event) {
+                  event.preventDefault(); // evita o envio padrão do formulário
+                  const destino = document.getElementById('tipo').value;
+                  window.location.href = destino; // redireciona para a página escolhida
+                });
+              </script>
+              
+    
+            </div>
+
+            <div id="mensagemSucesso" style="display:none; color: green; font-weight: bold;">Cadastro realizado com sucesso!</div>
+        </section>
+      
+  
+    
+    </main>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
