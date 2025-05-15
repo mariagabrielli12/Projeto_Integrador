@@ -9,6 +9,8 @@
 </head>
 <body>
 
+  <script src="js/sc.js"></script> 
+
   <div class="layout">
     
 
@@ -51,7 +53,7 @@
                 <label for="atuacao">Função:</label>
                 <select id="atuacao" name="atuacao">
                   <option value="bercarista">Berçarista</option>
-                  <option value="diretor">Diretor</option>
+                  <option value="professor">Professor</option>
                   <option value="secretario">Secretário</option>
                 </select><br><br>
               
@@ -72,41 +74,79 @@
               <!-- Formulário Responsável -->
               <div class="form-box">
                 <h3>Formulário Específico</h3>
-          
+
                 <!-- Berçarista -->
                 <div class="specific-form" id="form-bercarista">
+                  <label>CPF:</label><br>
+                  <input type="text" name="cpf_bercarista" required><br><br>
+
+                  <label>Tempo de carreira (anos):</label><br>
+                  <input type="number" name="carreira_bercarista"><br><br>
+
                   <label>Turma Responsável:</label><br>
-                  <input type="text" name="turma"><br><br>
-          
-                  <label>Turno:</label><br>
-                  <select name="turno">
+                  <input type="text" name="turma_bercarista"><br><br>
+
+                  <label>Turno de trabalho:</label><br>
+                  <select name="turno_bercarista">
                     <option>Manhã</option>
                     <option>Tarde</option>
                     <option>Integral</option>
-                  </select>
+                  </select><br><br>
+
+                  <label>Curso de formação:</label><br>
+                  <input type="text" name="formacao_bercarista"><br><br>
+
+                  <label>Salário mensal (R$):</label><br>
+                  <input type="number" name="salario_bercarista" step="0.01">
                 </div>
-          
-                <!-- Diretor -->
-                <div class="specific-form" id="form-diretor">
-                  <label>Quantidade de Funcionários:</label><br>
-                  <input type="number" name="qtd_funcionarios"><br><br>
-          
-                  <label>Tempo de Gestão (anos):</label><br>
-                  <input type="number" name="tempo_gestao">
+
+                <!-- Professor -->
+                <div class="specific-form" id="form-professor">
+                  <label>CPF:</label><br>
+                  <input type="text" name="cpf_professor" required><br><br>
+
+                  <label>Tempo de experiência (anos):</label><br>
+                  <input type="number" name="experiencia_professor"><br><br>
+
+                  <label>Disciplinas que leciona:</label><br>
+                  <input type="text" name="disciplinas_professor"><br><br>
+
+                  <label>Formação acadêmica:</label><br>
+                  <input type="text" name="formacao_professor"><br><br>
+
+                  <label>Nível de ensino (ex: fundamental, médio):</label><br>
+                  <input type="text" name="nivel_ensino_professor"><br><br>
+
+                  <label>Salário mensal (R$):</label><br>
+                  <input type="number" name="salario_professor" step="0.01">
                 </div>
-          
+
                 <!-- Secretário -->
                 <div class="specific-form" id="form-secretario">
-                  <label>Área de Atuação:</label><br>
-                  <input type="text" name="area_atuacao"><br><br>
-          
-                  <label>Experiência em Atendimento:</label><br>
-                  <select name="experiencia">
+                  <label>CPF:</label><br>
+                  <input type="text" name="cpf_secretario" required><br><br>
+
+                  <label>Área de atuação administrativa:</label><br>
+                  <input type="text" name="area_atuacao_secretario"><br><br>
+
+                  <label>Experiência em atendimento ao público?</label><br>
+                  <select name="experiencia_atendimento_secretario">
                     <option>Sim</option>
                     <option>Não</option>
-                  </select>
+                  </select><br><br>
+
+                  <label>Conhecimentos em informática:</label><br>
+                  <input type="text" name="informatica_secretario"><br><br>
+
+                  <label>Tempo de carreira (anos):</label><br>
+                  <input type="number" name="carreira_secretario"><br><br>
+
+                  <label>Salário mensal (R$):</label><br>
+                  <input type="number" name="salario_secretario" step="0.01">
                 </div>
-            </div>
+              </div>
+
+
             <div class="listagem">
                 <h2>Visualizar Cadastros</h2>
                 <form id="formListagem">
@@ -127,17 +167,11 @@
                   window.location.href = destino; // redireciona para a página escolhida
                 });
               </script>
-              
     
             </div>
-
             <div id="mensagemSucesso" style="display:none; color: green; font-weight: bold;">Cadastro realizado com sucesso!</div>
         </section>
-      
-  
-    
     </main>
-
   </div>
 
   <script>

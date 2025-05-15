@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../tela_cadastrar_secretario/CSS_cadastros/cadas.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Turmas</title>
+  <link rel="stylesheet" href="../tela_cadastrar_secretario/CSS_cadastros/cadas.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<div class="layout">
+  <div class="layout">
 
+<<<<<<< HEAD
 <!-- SIDEBAR -->
 <aside class="sidebar">
     <h2><i data-lucide="school"></i> Secretaria</h2>
@@ -30,5 +30,124 @@
 <script>
   lucide.createIcons();
 </script>
+=======
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2><i data-lucide="school"></i> Secretaria</h2>
+      <nav>
+        <ul>
+          <li><i data-lucide="home"></i> <a href="../Inicio_secretario/tela_inicial_sercretario.html">Início</a></li>
+          <li><i data-lucide="user"></i> <a href="cadastro_aluno_responsaveis.html">Cadastro Gerais</a></li>
+          <li><i data-lucide="building-2"></i> <a href="cadastro_salas.html">Cadastro de Salas</a></li>
+          <li><i data-lucide="file-text"></i> <a href="cadastro_atestados.html">Cadastro de Atestados</a></li>
+          <li class="active"><i data-lucide="file-text"></i> <a href="#">Cadastro de Turmas</a></li>
+          <li><i data-lucide="refresh-cw"></i> <a href="troca_de_turma.html">Troca de Turma</a></li>
+          <li><i data-lucide="book-text"></i> <a href="cadastro_ocorrencias.html">Ocorrências</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+      <div class="topbar">
+        <i class="fas fa-user-circle"></i>
+        <span>Secretário</span>
+      </div>
+
+      <div class="painel">
+        <h1>Cadastro de Turmas</h1>
+        
+        <form class="form-cadastro">
+        <div class="turma-cadastro">
+        <div class="form-container">
+        <div class="form-column">
+          <div class="form-group">
+            <label for="nome-turma">Nome da Turma:</label>
+            <input type="text" id="nome-turma" name="nome-turma" required>
+          </div>
+
+          <div class="form-group">
+            <label for="turno">Turno:</label>
+            <select id="turno" name="turno" required>
+              <option value="">Selecione</option>
+              <option value="manhã">Manhã</option>
+              <option value="tarde">Tarde</option>
+              <option value="integral">Integral</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sala">Sala:</label>
+            <select id="sala" name="sala" required>
+              <option value="">Selecione</option>
+              <option value="sala01">Sala 01</option>
+              <option value="sala02">Sala 02</option>
+              <option value="sala03">Sala 03</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-alterar">Cadastrar Turma</button>
+        </div>
+        </div>
+        </div>
+        </form>
+
+        <!-- Lista de Turmas Cadastradas -->
+        <div class="listagem">
+          <h2>Turmas Cadastradas</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Turno</th>
+                <th>Sala</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Turma A</td>
+                <td>Manhã</td>
+                <td>101</td>
+                <td>
+                  <button class="btn btn-alterar">Editar</button>
+                  <label for="confirmar-exclusao" class="btn btn-excluir">Excluir</label>
+                </td>
+              </tr>
+              <tr>
+                <td>Turma B</td>
+                <td>Tarde</td>
+                <td>102</td>
+                <td>
+                  <button class="btn btn-alterar">Editar</button>
+                  <label for="confirmar-exclusao" class="btn btn-excluir">Excluir</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmação de Exclusão -->
+  <input type="checkbox" id="confirmar-exclusao" hidden>
+  <div class="modal-exclusao">
+    <div class="modal-conteudo">
+      <h3>Deseja realmente excluir esta turma?</h3>
+      <div class="botoes">
+        <label for="confirmar-exclusao" class="btn btn-excluir">Sim</label>
+        <label for="confirmar-exclusao" class="btn btn-alterar">Não</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ícones -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
 </body>
 </html>
+

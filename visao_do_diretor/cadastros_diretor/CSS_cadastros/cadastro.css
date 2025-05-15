@@ -329,4 +329,35 @@ body {
   .specific-form.active {
     display: block;
   }
+
+  .form-box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+}
+.form-box {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 48%;
+}
+.form-box h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.form-box input,
+.form-box select {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+  
   

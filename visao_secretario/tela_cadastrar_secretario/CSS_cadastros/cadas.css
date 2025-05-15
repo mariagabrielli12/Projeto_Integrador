@@ -118,6 +118,8 @@ body {
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 48%;
+
+    margin-top: 17px;
 }
 
 .form-column h2 {
@@ -151,10 +153,38 @@ form button {
     cursor: pointer;
     border: none;
     transition: background-color 0.3s ease;
+    
 }
 
 form button:hover {
     background-color: #1c7861;
+}
+
+.form-container .turma-cadastro {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+
+    margin-top: 17px;
+}
+
+
+#motivo{
+    padding-right: 305px;
+    margin-top: 5px;
+}
+
+
+#motivoAtestado{
+    padding-right: 570px;
+    margin-top: 5px;
+}
+
+
+.form-column button{
+    margin-top: 5px;
 }
 
 /* Responsividade para dispositivos menores */
@@ -179,12 +209,15 @@ form button:hover {
 /* Estilos para a lista de alunos e responsáveis */
 .listagem {
     margin-top: 30px;
+ 
 }
 
 .listagem table {
     width: 100%;
     border-collapse: collapse;
+    background-color: white;
 }
+
 
 .listagem th, .listagem td {
     border: 1px solid #ddd;
@@ -208,17 +241,37 @@ form button:hover {
 .listagem .btn-alterar {
     background-color: #1c7861;
     color: white;
+    
 }
 
 .listagem .btn-excluir {
     background-color: #e74c3c;
     color: white;
 }
-
 .listagem .btn:hover {
     opacity: 0.8;
 }
 
+label.btn,
+button.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  background-color: gray; /* você pode sobrescrever nas classes específicas */
+}
+
+.btn-excluir {
+  background-color: #dc3545;
+}
+
+.btn-alterar {
+  background-color: #28a745;
+}
 
 /* CSS listagem alunos/ responsaveis */
 
@@ -258,5 +311,50 @@ form button:hover {
 .card-turma th {
     background-color: #145c4a;
     color: white;
+}
+
+
+/* tabela excluir e alterar */
+.modal-exclusao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#confirmar-exclusao:checked + .modal-exclusao {
+    display: flex;
+}
+
+.modal-conteudo {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-conteudo h3 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+.modal-conteudo .botoes {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+
+#busca{
+    padding-right: 60px;
 }
 

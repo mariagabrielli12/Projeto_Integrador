@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Atestados</title>
@@ -8,6 +9,16 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+=======
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Atestados</title>
+  <link rel="stylesheet" href="../tela_cadastrar_secretario/CSS_cadastros/cadas.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
   <div class="container">
 
     <!-- SIDEBAR -->
@@ -26,7 +37,11 @@
       </nav>
     </aside>
 
+<<<<<<< HEAD
     <!-- CONTEÚDO PRINCIPAL -->
+=======
+    <!-- Conteúdo principal -->
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
     <div class="main-content">
       <h1>Cadastro de Atestados</h1>
 
@@ -35,22 +50,45 @@
           <form id="formAtestado">
             <div class="form-group">
               <label for="nomeAluno">Nome do Aluno:</label>
+<<<<<<< HEAD
               <input type="text" id="nomeAluno" name="nomeAluno" required>
+=======
+              <input type="text" id="nomeAluno" name="nomeAluno" required />
+            </div>
+
+            <div class="form-group">
+              <label for="motivoAtestado">Motivo do Atestado:</label>
+              <input type="text" id="motivoAtestado" name="motivoAtestado" required />
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
             </div>
 
             <div class="form-group">
               <label for="dataInicio">Data de Início:</label>
+<<<<<<< HEAD
               <input type="date" id="dataInicio" name="dataInicio" required>
+=======
+              <input type="date" id="dataInicio" name="dataInicio" required />
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
             </div>
 
             <div class="form-group">
               <label for="dataFim">Data de Fim:</label>
+<<<<<<< HEAD
               <input type="date" id="dataFim" name="dataFim" required>
             </div>
 
             <div class="form-group">
               <label for="motivo">Motivo:</label>
               <textarea id="motivo" name="motivo" rows="3" required></textarea>
+=======
+              <input type="date" id="dataFim" name="dataFim" required />
+            </div>
+
+            <div class="form-group">
+              <label for="motivoAtestado">Data de Fim:</label>
+              <br>
+              <textarea id="motivoAtestado" placeholder="Descreva o motivo..." rows="4"></textarea>
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
             </div>
 
             <div class="form-group">
@@ -74,12 +112,17 @@
       e.preventDefault();
       document.getElementById('mensagemSucesso').style.display = 'block';
 
+<<<<<<< HEAD
+=======
+      // Redireciona após 2 segundos
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
       setTimeout(() => {
         window.location.href = '/visao_secretario/tela_listagem_secretario/listagem_atestados.html';
       }, 2000);
     });
 
     function limparCampos() {
+<<<<<<< HEAD
       document.getElementById('formAtestado').reset();
     }
 
@@ -90,3 +133,14 @@
 </body>
 </html>
 
+=======
+      document.getElementById("formAtestado").reset();
+      document.getElementById("mensagemSucesso").style.display = "none";
+    }
+  </script>
+
+  <script src="cadastros.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
+>>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
