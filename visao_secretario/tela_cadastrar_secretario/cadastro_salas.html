@@ -97,12 +97,9 @@
 
             <div class="form-group">
               <button type="submit" class="btn-cadastrar">Cadastrar</button>
-<<<<<<< HEAD
+
              <button type="button" onclick="limparCampos()">Limpar</button>
-=======
-              <button type="button" onclick="limparCampos()">Limpar</button>
->>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
-            </div>
+
 
             <div id="mensagemSucesso" style="display: none; color: green; margin-top: 10px;">
               Sala cadastrada com sucesso!
@@ -110,37 +107,7 @@
           </form>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-  </div>
 
-  <script>
-    const formSala = document.getElementById('formSala');
-    formSala.addEventListener('submit', function (e) {
-      e.preventDefault();
-      document.getElementById('mensagemSucesso').style.display = 'block';
-
-      // Redireciona após 2 segundos
-      setTimeout(() => {
-        window.location.href = '/visao_secretario/tela_listagem_secretario/listagem_salas.html';
-      }, 2000);
-    });
-  </script>
-
-  <script>
-  function limparCampos() {
-    document.getElementById("formSala").reset(); // Limpa os campos
-  }
-</script>
-
-  <script src="cadastros.js"></script>
-  
-  <script>
-    lucide.createIcons();
-  </script>
-</body>
-</html>
-=======
 <div class="listagem">
   <h2>Salas Cadastradas</h2>
   <table>
