@@ -12,6 +12,8 @@
   <div class="layout">
     
     <!-- SIDEBAR -->
+
+    <div class="container">
 <aside class="sidebar">
     <h2><i data-lucide="school"></i> Secretaria</h2>
     <nav>
@@ -28,14 +30,73 @@
   </aside>
   </div>
 
+  <div class="main-content">
+    <h1>Cadastro de Atestados</h1>
+
+    <div class="form-container">
+      <div class="form-column">
+        <form id="formAtestado">
+          <div class="form-group">
+            <label for="nomeAluno">Nome do Aluno:</label>
+
+            <input type="text" id="nomeAluno" name="nomeAluno" required>
+
+            <input type="text" id="nomeAluno" name="nomeAluno" required />
+          </div>
+
+          <div class="form-group">
+
+          </div>
+
+          <div class="form-group">
+            <label for="tipoocorrencia">tipo da ocorrência:</label>
+
+            <select name="tipo-ocorrencia" id="">
+              <option value="0">Escolha uma opção</option>
+              <option value="suspensao">Suspensão</option>
+              <option value="advertencia">Advertência</option>
+              <option value="expulsao">Expulsão</option>
+            </select>
+
+          </div>
+
+          <div class="form-group">
+            <label for="dataFim">Data de início:</label>
+
+            <input type="date" id="dataFim" name="dataFim" required>
+          </div>
+
+          <div class="form-group">
+  
+            <label for="dataFim">Data de Fim:</label>
+            <input type="date" id="dataFim" name="dataFim" required />
+          </div>
+
+          <div class="form-group">
+            <label for="motivoAtestado">Motivo:</label>
+            <br>
+            <textarea id="motivoAtestado" placeholder="Descreva o motivo..." rows="4"></textarea>
+
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn-cadastrar">Cadastrar</button>
+            <button type="button" onclick="limparCampos()">Limpar</button>
+          </div>
+
+          <div id="mensagemSucesso" style="display: none; color: green; margin-top: 10px;">
+           
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
   <script src="cadastros.js"></script>
   
   <script>
     lucide.createIcons();
   </script>
-<<<<<<< HEAD
-=======
-
->>>>>>> d8f2b21 (Editado por thami e Enzo15/05)
 </body>
 </html>

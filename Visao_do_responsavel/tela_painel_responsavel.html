@@ -5,78 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Aluno</title>
     <link rel="stylesheet" href="CSS/style_Painel_responsavel.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="user-info">
-            <img src="imagem/user.webp" alt="Usuário" class="user-avatar">
-            <p class="user-name">Usuario</p>
-        </div>
-        <ul class="menu">
-            <li><a href="#">Início</a></li>
-            <li><a href="/Visao_do_responsavel/tela_responsavel_perfil.html">Perfil</a></li>
-            <li><a href="/Visao_do_responsavel/tela_resposavel_justificativa.html">Justificar Falta</a></li>
-            <li><a href="../tela_login/telaaluno.html">Sair</a></li>
-        </ul>
+ 
+    <!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2><i class="active" data-lucide="user-round"></i>Responsável</h2>
+    <nav>
+      <ul>
+        <li ><i data-lucide="home"></i> <a href="#">Início</a></li>
+        <li><i data-lucide="mail"></i> <a href="../tela_cadastrar_secretario/cadastro_salas.html">Recados</a></li>
+        <li><i data-lucide="info"></i> <a href="../tela_cadastrar_secretario/cadastro_atestados.html">Informações</a></li>
+        <li><i data-lucide="file-text"></i> <a href="../tela_cadastrar_secretario/cadastro_turmas.html">Presença</a></li>
+        <li><i data-lucide="volleyball"></i> <a href="../tela_cadastrar_secretario/troca_de_turma.html">Atividades</a></li>
+        <li><i data-lucide="book-text"></i> <a href="../tela_cadastrar_secretario/cadastro_ocorrencias.html">Atestados</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+
+
+  <div class="card-grid">
+    <div class="info-card">
+      <div class="card-header">Matemática</div>
+      <div class="card-details">
+        <p><strong>Professor:</strong> Ana Silva</p>
+        <p><strong>Status:</strong> Aprovado</p>
+        <p><strong>Média:</strong> 8.5</p>
+      </div>
     </div>
-    <div class="content">
-            <h2> Painel do Responsável</h2>
-            <hr>
-            <br>
-            <br>
-            <!-- Informações do Aluno -->
-            <div class="container">
-                <div >
-                <h3>Informações do Aluno</h3>
-                        <br>
-                        
-                        <p><strong>Nome:</strong> Nome do Aluno</p>
-                        <p><strong>Turma:</strong> 3º Ano A</p>
-                        <p><strong>Professor:</strong> Maria Silva</p>
-                        <p><strong>Presença:</strong> ✅ Hoje</p>
-                        
-                        <br>
-                        <br>
-                </div>
-             
-                    <!-- Últimas Notas -->
-                    <div>
-                        <h3>Últimas Notas</h3>
-                            <p>Matemática: 9.0</p>
-                            <p>Ciências: 8.5</p>
-                            <p>Português: 7.8</p>
-                        </ul>
-                    </div>
-                    <br><br>
-                    <!-- Frequência -->
-                    <div>
-                        <h3>Frequência</h3>
-                        <p><strong>Presenças:</strong> 85%</p>
-                        <p><strong>Faltas:</strong> 3</p>
-                    </div>
-            </div>    
-            <div class="container2">
-                    <!-- Ocorrências -->
-                    <div>
-                        <h3>Ocorrências</h3>
-                        <p>Nenhuma ocorrência recente.</p>
-                    </div>
-                    <br>
-                    <!-- Avisos -->
-                    <div>
-                        <h3>Avisos</h3>
-                            <p>Reunião de Pais: 15/03 às 18h</p>
-                            <p> Passeio Pedagógico: 20/03</p>
-                    </div>
-                    <br>
-                    <!-- Atalhos -->
-                    <div>
-                        <h3>Atalhos</h3>
-                            <p><a href="#">Ver Boletim</a></p>
-                            <p><a href="#">Justificar Falta</a></p>
-                            <p><a href="#">Enviar Mensagem</a></p>
-                    </div>
-            </div>        
+  
+    <div class="info-card">
+      <div class="card-header">Português</div>
+      <div class="card-details">
+        <p><strong>Professor:</strong> João Pereira</p>
+        <p><strong>Status:</strong> Cursando</p>
+        <p><strong>Média:</strong> -</p>
+      </div>
     </div>
+  
+    <div class="info-card">
+      <div class="card-header">História</div>
+      <div class="card-details">
+        <p><strong>Professor:</strong> Carla Mendes</p>
+        <p><strong>Status:</strong> Aprovado</p>
+        <p><strong>Média:</strong> 7.3</p>
+      </div>
+    </div>
+  </div>
+     
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
