@@ -3,26 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avalições</title>
+      <link rel="stylesheet" href="CSS/style_inicio_bercarista.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Avaliações</title>
+    <style>
+        body{  display: flex;
+  flex-direction: row-reverse;
+  min-height: 100vh;
+}
+    </style>
 </head>
 <body>
-    <h1>Avalição do dia</h1>
 
-    <p>Nome: Juninho da Silva</p>
-    <p>Sono: </p>
-    <input type="text">
-    <p>Alimentação</p>
-    <input type="text">
-    <p>Socialização</p>
-    <input type="text">
-    <p>Comunicação e linguagem</p>
-    <input type="text">
-    <p>Coordenação Motora</p>
-    <input type="text">
-    <p>Ambiente</p>
-    <input type="text">
-    <p>Bem estar</p>
-    <input type="text">
+
+
+<main class="main-content2">
+    
+      <section class="painel2">
+        
+            <h1>Avaliação do dia</h1>
+             
+            <div class="nome-aluno" id="aluno">
+            <p>Nome: Jimin da Silva</p>
+            </div>
+            <div class="avaliacao" id="avaliacoes">
+          <label for="sono">Sono:</label>
+               <select name="sono" id="sono"  required>
+           <option value="opcao1"></option>
+           <option value="sono-bom">Bom</option>
+           <option value="sono-ruim">Ruim</option>
+               </select>
+            <label for="alimentacao">Alimentação:</label>
+               <select name="alimentacao" id="alimentacao" required>
+             <option value="opcao1"></option>
+             <option value="alimentacao-bom">Boa</option>
+             <option value="alimentacao-ruim">Ruim</option>
+               </select>
+              
+               <label for="socializacao">Socialização:</label>
+               <select name="socializacao" id="socializacao" required>
+             <option value="opcao1"></option>
+             <option value="socializacao-bom">Boa</option>
+             <option value="socializacao-ruim">Ruim</option>
+               </select>
+              
+               <label for="Comunicacao e linguagem">Comunicação e linguagem:</label>
+               <select name="Comunicacao e linguagem" id="Comunicacao e linguagem" required>
+             <option value="opcao1"></option>
+             <option value="Comunicacao e linguagem-bom">Boa</option>
+             <option value="Comunicacao e linguagem">Ruim</option>
+               </select>
+              
+               <label for="ambiente">Ambiente:</label>
+               <select name="ambiente" id="ambiente"  required>
+             <option value="opcao1"></option>
+             <option value="ambiente-bom">Bom</option>
+             <option value="ambiente-ruim">Ruim</option>
+               </select>
+            </div>
+            <div class="observacao">
+                <label for="observacao-do-dia">Observação do Dia:</label>
+                <input type="text">
+            </div>
+                
+            <button>Salvar</button>
+      </section>
+</main>
+
+        <!-- SIDEBAR -->
+<aside class="sidebar2">
+    <h2><i data-lucide="school"></i> Berçario</h2>
+    <nav>
+      <ul>
+        <li class="active"><i data-lucide="home"></i> <a href="#">Início</a></li>
+        <li><i data-lucide="user"></i> <a href="/visao_secretario/tela_cadastrar_secretario/cadastro_alunos.html">Cadastro Gerais</a></li>
+        <li><i data-lucide="layout-grid"></i> <a href="/visao_secretario/tela_cadastrar_secretario/cadastro_aulas.html">Cadastro de Aulas</a></li>
+        <li><i data-lucide="building-2"></i> <a href="/visao_secretario/tela_cadastrar_secretario/cadastro_turmas.html">Cadastro de Salas</a></li>
+        <li><i data-lucide="file-text"></i> <a href="/visao_secretario/tela_cadastrar_secretario/cadastro_atestados.html">Cadastro de Atestados</a></li>
+        <li><i data-lucide="refresh-cw"></i> <a href="/visao_secretario/tela_cadastrar_secretario/cadastro_turmas.html">Troca de Turma</a></li>
+        <li><i data-lucide="zap"></i> <a href="#">Troca de Professor</a></li>
+        <li><i data-lucide="book-text"></i> <a href="/visao_secretario/tela_cadastrar_secretario/cadastro_ocorrencias.html">Ocorrências (Professores/Berçaristas)</a></li>
+      </ul>
+    </nav>
+  </aside>
 
 </body>
 </html>

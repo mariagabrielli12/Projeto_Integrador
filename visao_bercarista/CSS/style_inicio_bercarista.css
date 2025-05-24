@@ -7,6 +7,7 @@
   
   body {
     background: #f5f7f8;
+    
   }
   
   .layout {
@@ -202,4 +203,184 @@
     font-weight: bold;
     margin-top: 20px;
   }
+
+
+/* css da tela becarista_avaliacoes */
+
+/* Reset básico */
+
+
+/* Sidebar2 */
+.sidebar2 {
+  background-color:  #1d4b3f;
+  color: #fff;
+  padding: 20px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar2 h2 {
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+.sidebar2 nav li {
+  margin-bottom: 10px;
+}
+
+.sidebar2 nav a {
+  text-decoration: none;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.sidebar2 nav a:hover {
+  color: #d1eaff;
+}
+
+.sidebar2 nav li.active a {
+  font-weight: bold;
+}
+
+/* Main content */
+.main-content2 {
+  flex: 1;
+  padding: 40px;
+}
+
+.painel2 {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.painel2 h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #145c4a;
+}
+
+.nome-aluno p {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Avaliação */
+.avaliacao label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.avaliacao select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.avaliacao select:focus {
+  border-color:#0e3f33;
+  outline: none;
+}
+
+/* Observação */
+.observacao {
+  margin-top: 20px;
+}
+
+.observacao label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.observacao input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s;
+}
+
+.observacao input[type="text"]:focus {
+  border-color: #1c7861;
+  outline: none;
+}
+
+body {
+ 
+  flex-direction: row-reverse; /* <<<<< aqui invertemos a direção */
+}
+/* siderbar */
+
+  .sidebar2 {
+    background-color: #1d4b3f; /* cor original mantida */
+    color: #fff;
+    width: 250px;
+    padding: 20px;
+  }
   
+  .sidebar2 h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 35px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .sidebar2 ul {
+    list-style: none;
+  }
+  
+  .sidebar2 li {
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar2 a {
+    color: white;
+    text-decoration: none;
+    flex: 1;
+  }
+  
+  .sidebar2 li:hover {
+    background-color: #1c7861;
+  }
+  
+  .sidebar2 li.active {
+    background-color: #0e3f33;
+  }
+
+  .painel2 button {
+    border-radius: 15%;
+    background-color: cadetblue;
+    padding: 0.9%;
+    margin: 2%;
+    border: none;
+
+  }
