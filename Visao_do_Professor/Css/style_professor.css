@@ -959,53 +959,7 @@ button{
   color: #222;
 }
 
-/* GRID DE CARDS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 25px;
-}
 
-.card {
-  background-color: #ffffff;
-  border-radius: 16px;
-  padding: 20px;
-  display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  min-height: 150px;
-  cursor: pointer;
-}
-
-.card:hover {
-  background-color: #e6f4f0;
-  transform: translateY(-4px);
-}
-
-.card i {
-  width: 28px;
-  height: 28px;
-  color: #145c4a;
-  flex-shrink: 0;
-}
-
-.card-content h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
-  color: #145c4a;
-}
-
-.card-content p {
-  font-size: 14px;
-  color: #444;
-}
-
-.card-content p {
-  font-size: 14px;
-  color: #444;
-}
 
 /* Estilo do Formulário */
 .container3 {

@@ -8,53 +8,74 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+
+  <div class="sidebar">
+  <nav>
+
+    <h2><i data-lucide="school"></i>Responsável</h2>
+ <ul>
  
-    <!-- SIDEBAR -->
-<aside class="sidebar">
-    <h2><i class="active" data-lucide="user-round"></i>Responsável</h2>
-    <nav>
-      <ul>
-        <li ><i data-lucide="home"></i> <a href="#">Início</a></li>
-        <li><i data-lucide="mail"></i> <a href="../tela_cadastrar_secretario/cadastro_salas.html">Recados</a></li>
-        <li><i data-lucide="info"></i> <a href="../tela_cadastrar_secretario/cadastro_atestados.html">Informações</a></li>
-        <li><i data-lucide="file-text"></i> <a href="../tela_cadastrar_secretario/cadastro_turmas.html">Presença</a></li>
-        <li><i data-lucide="volleyball"></i> <a href="../tela_cadastrar_secretario/troca_de_turma.html">Atividades</a></li>
-        <li><i data-lucide="book-text"></i> <a href="../tela_cadastrar_secretario/cadastro_ocorrencias.html">Atestados</a></li>
+
+        <li><i data-lucide="user"></i> <a href="../tela_cadastrar_secretario/cadastro_aluno_responsaveis.html">Cadastro Gerais</a></li>
+        <li><i data-lucide="building-2"></i> <a href="../tela_cadastrar_secretario/cadastro_salas.html">Cadastro de Salas</a></li>
       </ul>
-    </nav>
-  </aside>
+      </nav>
+    </div>
 
-
-
-  <div class="card-grid">
-    <div class="info-card">
-      <div class="card-header">Matemática</div>
-      <div class="card-details">
-        <p><strong>Professor:</strong> Ana Silva</p>
-        <p><strong>Status:</strong> Aprovado</p>
-        <p><strong>Média:</strong> 8.5</p>
+  <div class="cards-container">
+    <div class="card">
+      <i data-lucide="building-2"></i>
+      <div class="card-content">
+        <h3>Cadastro de Atestados</h3>
+        <p>Atestados médicos ou de óbito</p>
+        <form>
+          <input type="text" placeholder="Nome da aluno" />
+          <input type="file" name="atestado" id="atestado">
+          <button type="submit">Cadastrar</button>
+        </form>
       </div>
     </div>
   
-    <div class="info-card">
-      <div class="card-header">Português</div>
-      <div class="card-details">
-        <p><strong>Professor:</strong> João Pereira</p>
-        <p><strong>Status:</strong> Cursando</p>
-        <p><strong>Média:</strong> -</p>
+    <div class="card">
+      <i data-lucide="file-text"></i>
+      <div class="card-content">
+        <h3>Informações</h3>
+        <p>Reunião: 10 maio</p>
+        <p>Horário:17:00h</p>
+        <form>
+        
+          
+          <button type="submit">Mais informações</button>
+        </form>
       </div>
     </div>
   
-    <div class="info-card">
-      <div class="card-header">História</div>
-      <div class="card-details">
-        <p><strong>Professor:</strong> Carla Mendes</p>
-        <p><strong>Status:</strong> Aprovado</p>
-        <p><strong>Média:</strong> 7.3</p>
+    <div class="card">
+      <i data-lucide="refresh-cw"></i>
+      <div class="card-content">
+        <h3>Presença</h3>
+        <p>Realize alterações nas turmas conforme necessário</p>
+        <form>
+          <input type="text" placeholder="Turma atual" />
+          <input type="text" placeholder="Nova turma" />
+          <button type="submit">Alterar</button>
+        </form>
+      </div>
+    </div>
+  
+    <div class="card">
+      <i data-lucide="book-text"></i>
+      <div class="card-content">
+        <h3>Atestados</h3>
+        <p>Registre e acompanhe as ocorrências na escola</p>
+        <form>
+          <input type="text" placeholder="Descrição da ocorrência" />
+          <button type="submit">Salvar</button>
+        </form>
       </div>
     </div>
   </div>
-     
+    
   <script>
     lucide.createIcons();
   </script>
