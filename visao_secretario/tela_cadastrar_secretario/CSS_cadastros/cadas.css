@@ -273,6 +273,14 @@ button.btn {
   background-color: #28a745;
 }
 
+.acoes-superiores {      /* botoes listagem eadicionar alunos e responsaveis*/
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
 /* CSS listagem alunos/ responsaveis */
 
 .grid-turmas {
