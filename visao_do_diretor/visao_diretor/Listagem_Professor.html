@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Educacional - Professores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../cadastros_diretor/CSS_cadastros/cadastro.css">
+</head>
+<body>
+    <!-- Barra Lateral -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>Rede Educacional</h1>
+        </div>
+        <div class="menu">
+            <div class="menu-section">
+                <div class="menu-item has-submenu open">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Cadastros</span>
+                </div>
+                
+                <div class="submenu open">
+                    <div class="menu-item">
+                        <i class="fas fa-user-graduate"></i>
+                       <span> <a href="index.html">Cadastro de Aluno</a></span>
+                    </div>
+                    <div class="menu-item active">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <span>Cadastro de Professores</span>
+                    </div>
+                    <div class="menu-item">
+                        <i class="fas fa-users"></i>
+                        <span>Cadastro de Colaboradores</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-divider"></div>
+            
+            <div class="menu-section">
+                <div class="menu-item has-submenu">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Turmas</span>
+                </div>
+                
+                <div class="submenu">
+                    <div class="menu-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Financeiro</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="menu-divider"></div>
+            
+            <div class="menu-section">
+                <div class="menu-item has-submenu">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Usuários</span>
+                </div>
+                
+                <div class="submenu">
+                    <div class="menu-item">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Perfis de acesso</span>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Indicadores</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+        <div class="header">
+            <div class="page-title">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h2>Professores</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">AD</div>
+                <span>Admin</span>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- Filtros -->
+            <div class="filter-section">
+                <div class="filter-grid">
+                    <div class="filter-row">
+                        <span class="filter-label">Nome</span>
+                        <div class="filter-input">
+                            <input type="text" placeholder="Nome do professor">
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <span class="filter-label">Nº Registro</span>
+                        <div class="filter-input">
+                            <input type="text" placeholder="Número de registro">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="teacher-status">Status</label>
+                            <select id="teacher-status">
+                                <option value="">Todos</option>
+                                <option value="active">Ativo</option>
+                                <option value="inactive">Inativo</option>
+                            </select>
+                        </div>
+                    <div class="filter-actions">
+                        <button class="btn btn-secondary">Limpar</button>
+                        <button class="btn btn-primary">Pesquisar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabela de Professores -->
+            <div class="table-container">
+                <div class="table-settings">
+                    <div class="results-per-page">10 resultados por página</div>
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">Foto</th>
+                            <th>Nome</th>
+                            <th>Formação</th>
+                            <th>Registro</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div class="photo-preview small"><i class="fas fa-user"></i></div></td>
+                            <td>Ana Silva</td>
+                            <td>Mestre em Educação</td>
+                            <td>12345/SP</td>
+                            <td>(11) 98765-4321</td>
+                            <td>ana.silva@escola.com</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td>
+                                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="photo-preview small"><i class="fas fa-user"></i></div></td>
+                            <td>Carlos Oliveira</td>
+                            <td>Doutor em Matemática</td>
+                            <td>54321/SP</td>
+                            <td>(11) 91234-5678</td>
+                            <td>carlos@escola.com</td>
+                            <td><span class="status-badge active">Ativo</span></td>
+                            <td>
+                                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div class="photo-preview small"><i class="fas fa-user"></i></div></td>
+                            <td>Mariana Costa</td>
+                            <td>Licenciatura em Letras</td>
+                            <td>98765/SP</td>
+                            <td>(11) 99876-5432</td>
+                            <td>mariana@escola.com</td>
+                            <td><span class="status-badge inactive">Inativo</span></td>
+                            <td>
+                                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="pagination">
+                    <div class="pagination-info">Mostrando de 1 até 3 de 15 registros</div>
+                    <div class="pagination-controls">
+                        <button class="btn-cadastrar">
+                            <i class="fas fa-plus"></i> 
+                            <a href="cadastrar,pro.html">Cadastrar</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-path">M:\visim</div>
+                <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu expansivo
+            const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // Não fechar se clicar no ícone ou no texto
+                    if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+                    
+                    const submenu = this.nextElementSibling;
+                    this.classList.toggle('open');
+                    submenu.classList.toggle('open');
+                });
+            });
+
+            // // Máscara para telefone
+            // const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            // phoneInputs.forEach(input => {
+            //     input.addEventListener('input', function(e) {
+            //         let value = e.target.value.replace(/\D/g, '');
+            //         if (value.length > 11) value = value.slice(0, 11);
+                    
+            //         if (value.length > 10) {
+            //             value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+            //         } else if (value.length > 6) {
+            //             value = value.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
+            //         }
+            //         e.target.value = value;
+            //     });
+            // });
+        });
+    </script>
+</body>
+</html>
