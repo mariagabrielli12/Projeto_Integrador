@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Salas</title>
+  <link rel="stylesheet" href="../tela_cadastrar_secretario/CSS_cadastros/cadas.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <h2><i data-lucide="school"></i> Secretaria</h2>
+      <nav>
+        <ul>
+          <li><i data-lucide="home"></i> <a href="../Inicio_secretario/tela_inicial_sercretario.html">Início</a></li>
+          <li><i data-lucide="user"></i> <a href="listagem_alunos.html">Cadastro Gerais</a></li>
+          <li class="active"><i data-lucide="building-2"></i> <a href="cadastro_salas.html">Cadastro de Salas</a></li>
+          <li><i data-lucide="file-text"></i> <a href="cadastro_atestados.html">Cadastro de Atestados</a></li>
+          <li><i data-lucide="file-text"></i> <a href="cadastro_turmas.html">Cadastro de Turmas</a></li>
+          <li><i data-lucide="refresh-cw"></i> <a href="troca_de_turma.html">Troca de Turma</a></li>
+          <li><i data-lucide="book-text"></i> <a href="#">Ocorrências</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <div class="main-content">
+      <h1>Cadastro de Salas</h1>
+
+      <!-- Formulário de cadastro -->
+
+      <div class="form-container">
+        <div class="form-column">
+          <form id="formSala">
+            <div class="form-group">
+              <label for="nomeSala">Nome da Sala:</label>
+              <input type="text" id="nomeSala" name="nomeSala" required />
+            </div>
+
+            <div class="form-group">
+              <label for="capacidadeSala">Capacidade:</label>
+              <input type="number" id="capacidadeSala" name="capacidadeSala" required />
+
+            </div>
+
+            <div class="form-group">
+              <label for="turnoSala">Turno:</label>
+              <select id="turnoSala" name="turnoSala" required>
+                <option value="">Selecione</option>
+                <option value="Manhã">Manhã</option>
+                <option value="Tarde">Tarde</option>
+                <option value="Integral">Integral</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn-cadastrar">Cadastrar</button>
+
+             <button type="button" onclick="limparCampos()">Limpar</button>
+
+
+            <div id="mensagemSucesso" style="display: none; color: green; margin-top: 10px;">
+              Sala cadastrada com sucesso!
+            </div>
+          </form>
+        </div>
+      </div>
+
+<div class="listagem">
+  <h2>Salas Cadastradas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome da Sala</th>
+        <th>Capacidade</th>
+        <th>Turno</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sala 1</td>
+        <td>25</td>
+        <td>Manhã</td>
+        <td>
+          <button class="btn btn-alterar">Alterar</button>
+          <label for="confirmar-exclusao" class="btn btn-excluir">Excluir</label>
+        </td>
+      </tr>
+      <tr>
+        <td>Sala 2</td>
+        <td>30</td>
+        <td>Tarde</td>
+        <td>
+          <button class="btn btn-alterar">Alterar</button>
+         <label for="confirmar-exclusao" class="btn btn-excluir">Excluir</label>
+        </td>
+      </tr>
+      <!-- Mais linhas podem ser adicionadas dinamicamente aqui -->
+    </tbody>
+  </table>
+</div>
+
+      <!-- Modal de Confirmação -->
+      <input type="checkbox" id="confirmar-exclusao" hidden>
+      <div class="modal-exclusao">
+        <div class="modal-conteudo">
+          <h3>Deseja mesmo excluir esta sala?</h3>
+          <div class="botoes">
+            <label for="confirmar-exclusao" class="btn btn-excluir">Sim</label>
+            <label for="confirmar-exclusao" class="btn btn-alterar">Não</label>
+          </div>
+        </div>
+      </div>
+
+  <!-- Scripts -->
+  <script>
+    const formSala = document.getElementById('formSala');
+    const listaSalas = document.getElementById('listaSalas');
+
+    formSala.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById('nomeSala').value;
+      const capacidade = document.getElementById('capacidadeSala').value;
+      const turno = document.getElementById('turnoSala').value;
+
+      const novaLinha = document.createElement('tr');
+      novaLinha.innerHTML = `
+        <td>${nome}</td>
+        <td>${capacidade}</td>
+        <td>${turno}</td>
+        <td><button onclick="editarSala(this)">Editar</button> <button onclick="excluirSala(this)">Excluir</button></td>
+      `;
+
+      listaSalas.appendChild(novaLinha);
+      document.getElementById('mensagemSucesso').style.display = 'block';
+
+      formSala.reset();
+
+      setTimeout(() => {
+        document.getElementById('mensagemSucesso').style.display = 'none';
+      }, 2000);
+    });
+
+    function limparCampos() {
+      document.getElementById('formSala').reset();
+      document.getElementById('mensagemSucesso').style.display = 'none';
+    }
+
+    function excluirSala(botao) {
+      const linha = botao.parentElement.parentElement;
+      linha.remove();
+    }
+
+    function editarSala(botao) {
+      alert("Função de edição pode ser implementada aqui futuramente.");
+    }
+  </script>
+
+  <script src="cadastros.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
+
