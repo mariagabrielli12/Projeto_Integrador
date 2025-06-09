@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "msedge",
+            "request": "launch",
+            "name": "Open tela_inicial_sercretario.html",
+            "file": "c:\\Users\\CJ3022099\\Documents\\Projeto_Integrador-main\\Projeto_Integrador\\visao_secretario\\Inicio_secretario\\tela_inicial_sercretario.html",
+             "webRoot": "${workspaceFolder}"
+        }
+    ]
+}

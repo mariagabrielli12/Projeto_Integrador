@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Secretário</title>
+  <link rel="stylesheet" href="CSS_cadastros/cadastro.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <script src="js/sc.js"></script> 
+
+  <div class="layout">
+    
+
+    <!-- SIDEBAR -->
+<aside class="sidebar">
+    <h2><i data-lucide="school"></i> Direção</h2>
+    <nav>
+      <ul>
+        <li class=""><i data-lucide="home"></i> <a href="../inicio_diretor/tela_inicial_diretor.html">Início</a></li>
+        <li class="active"><i data-lucide="user"></i> <a href="../cadastros_diretor/cadastro_funcionarios.html">Cadastro de Funcionários</a></li>
+        <li><i data-lucide="layout-grid"></i> <a href="">Cadastro de Aulas</a></li>
+        
+      </ul>
+    </nav>
+  </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+        <section class="painel">
+            <h1>Cadastro de Funcionários</h1>
+            
+            <div class="form-container">
+              <!-- Formulário Aluno -->
+              <form action="" method="post" class="form-column" id="formAluno">
+                <h2>Cadastro</h2>
+                <label for="nomeAluno">Nome do Funcionário:</label>
+                <input type="text" id="nomeAluno" name="nomeAluno" required><br><br>
+              
+                <label for="dataNascimento">Data de Nascimento:</label>
+                <input type="date" id="dataNascimento" name="dataNascimento" required><br><br>
+              
+              
+                <label for="genero">Gênero:</label>
+                <select id="genero" name="genero">
+                  <option value="masculino">Masculino</option>
+                  <option value="feminino">Feminino</option>
+                  <option value="outro">Outro</option>
+                </select><br><br>
+
+                <label for="atuacao">Função:</label>
+                <select id="atuacao" name="atuacao">
+                  <option value="bercarista">Berçarista</option>
+                  <option value="professor">Professor</option>
+                  <option value="secretario">Secretário</option>
+                </select><br><br>
+              
+                <label for="enderecoAluno">Endereço:</label>
+                <input type="text" id="enderecoAluno" name="enderecoAluno"><br><br>
+              
+                <label for="contatoEmergencia">Contato de Emergência:</label>
+                <input type="tel" id="contatoEmergencia" name="contatoEmergencia"><br><br>
+              
+                <label for="emailFuncionario">E-mail do Funcionário:</label>
+                <input type="email" id="emailFuncionario" name="emailFuncionario" required><br><br>
+              
+                <a href="/visao_secretario/tela_cadastrar_secretario/listagem_alunos.html">
+                    <button class="btn-cadastrar">Cadastrar</button>
+                  </a>
+              </form>
+    
+              <!-- Formulário Responsável -->
+              <div class="form-box">
+                <h3>Formulário Específico</h3>
+
+                <!-- Berçarista -->
+                <div class="specific-form" id="form-bercarista">
+                  <label>CPF:</label><br>
+                  <input type="text" name="cpf_bercarista" required><br><br>
+
+                  <label>Tempo de carreira (anos):</label><br>
+                  <input type="number" name="carreira_bercarista"><br><br>
+
+                  <label>Turma Responsável:</label><br>
+                  <input type="text" name="turma_bercarista"><br><br>
+
+                  <label>Turno de trabalho:</label><br>
+                  <select name="turno_bercarista">
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Integral</option>
+                  </select><br><br>
+
+                  <label>Curso de formação:</label><br>
+                  <input type="text" name="formacao_bercarista"><br><br>
+
+                  <label>Salário mensal (R$):</label><br>
+                  <input type="number" name="salario_bercarista" step="0.01">
+                </div>
+
+                <!-- Professor -->
+                <div class="specific-form" id="form-professor">
+                  <label>CPF:</label><br>
+                  <input type="text" name="cpf_professor" required><br><br>
+
+                  <label>Tempo de experiência (anos):</label><br>
+                  <input type="number" name="experiencia_professor"><br><br>
+
+                  <label>Disciplinas que leciona:</label><br>
+                  <input type="text" name="disciplinas_professor"><br><br>
+
+                  <label>Formação acadêmica:</label><br>
+                  <input type="text" name="formacao_professor"><br><br>
+
+                  <label>Nível de ensino (ex: fundamental, médio):</label><br>
+                  <input type="text" name="nivel_ensino_professor"><br><br>
+
+                  <label>Salário mensal (R$):</label><br>
+                  <input type="number" name="salario_professor" step="0.01">
+                </div>
+
+                <!-- Secretário -->
+                <div class="specific-form" id="form-secretario">
+                  <label>CPF:</label><br>
+                  <input type="text" name="cpf_secretario" required><br><br>
+
+                  <label>Área de atuação administrativa:</label><br>
+                  <input type="text" name="area_atuacao_secretario"><br><br>
+
+                  <label>Experiência em atendimento ao público?</label><br>
+                  <select name="experiencia_atendimento_secretario">
+                    <option>Sim</option>
+                    <option>Não</option>
+                  </select><br><br>
+
+                  <label>Conhecimentos em informática:</label><br>
+                  <input type="text" name="informatica_secretario"><br><br>
+
+                  <label>Tempo de carreira (anos):</label><br>
+                  <input type="number" name="carreira_secretario"><br><br>
+
+                  <label>Salário mensal (R$):</label><br>
+                  <input type="number" name="salario_secretario" step="0.01">
+                </div>
+              </div>
+
+
+            <div class="listagem">
+                <h2>Visualizar Cadastros</h2>
+                <form id="formListagem">
+                  <label for="tipo">Escolha o tipo de cadastro:</label>
+                  <select id="tipo" name="tipo">
+                    <option value="listagem_alunos.html">Alunos</option>
+                    <option value="listagem_responsaveis.html">Responsáveis</option>
+                  </select>
+                  <br><br>
+                  <button type="submit">Acessar Listagem</button>
+                </form>
+              </div>
+              
+              <script>
+                document.getElementById('formListagem').addEventListener('submit', function (event) {
+                  event.preventDefault(); // evita o envio padrão do formulário
+                  const destino = document.getElementById('tipo').value;
+                  window.location.href = destino; // redireciona para a página escolhida
+                });
+              </script>
+    
+            </div>
+            <div id="mensagemSucesso" style="display:none; color: green; font-weight: bold;">Cadastro realizado com sucesso!</div>
+        </section>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

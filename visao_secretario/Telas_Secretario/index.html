@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Secretário</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="CSS_Secretario/Style_Secretario.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+  <div class="menu-section">
+    <div class="menu-item">
+      <i class="fas fa-user-cog"></i>
+      <span>Início</span>
+    </div>
+
+    <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Cadastros</span>
+    </div>
+    <div class="submenu open">
+      <!-- Listagens -->
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Alunos.html" style="color:inherit; text-decoration:none;">Cadastro de Alunos</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-file-medical"></i>
+        <span><a href="Listagem_Atestados.html" style="color:inherit; text-decoration:none;">Cadastro de Atestados</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span><a href="Listagem_Turmas.html" style="color:inherit; text-decoration:none;">Cadastro de Turmas</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-door-open"></i>
+        <span><a href="Listagem_Salas.html" style="color:inherit; text-decoration:none;">Cadastro de Salas</a></span>
+      </div>
+      
+
+</div>
+      <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Gerenciamento</span>
+    </div>
+     <div class="submenu open">
+      <!-- Operações -->
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Troca_Turma.html" style="color:inherit; text-decoration:none;">Troca de Turma</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Listagem_Ocorrencia.html" style="color:inherit; text-decoration:none;">Ocorrências</a></span>
+      </div>
+      </div>
+    </div>
+  
+</div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-tachometer-alt"></i>
+        <h2>Dashboard - Secretário</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">AD</div>
+        <span>Admin</span>
+      </div>
+    </div>
+
+    <div class="content-container dashboard-container">
+      <div class="shortcut-grid">
+        <a href="Cadastro_Atestados.html" class="shortcut-card" title="Cadastrar novo atestado">
+          <i class="fas fa-file-medical"></i>
+          <span>Cadastro de Atestados</span>
+        </a>
+        <a href="Listagem_Atestados.html" class="shortcut-card" title="Ver listagem de atestados">
+          <i class="fas fa-list"></i>
+          <span>Listagem de Atestados</span>
+        </a>
+        <a href="Troca_Turma.html" class="shortcut-card" title="Realizar troca de turma">
+          <i class="fas fa-exchange-alt"></i>
+          <span>Troca de Turma</span>
+        </a>
+        <a href="Listagem_Alunos.html" class="shortcut-card" title="Gerenciar alunos">
+          <i class="fas fa-user-graduate"></i>
+          <span>Cadastro de Alunos</span>
+        </a>
+        <a href="Listagem_Turmas.html" class="shortcut-card" title="Gerenciar turmas">
+          <i class="fas fa-door-open"></i>
+          <span>Cadastro de Turmas</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">M:\visim</div>
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function (e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
