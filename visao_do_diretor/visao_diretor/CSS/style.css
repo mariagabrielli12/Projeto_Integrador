@@ -36,6 +36,16 @@
             padding: 0;
             display: flex;
             flex-direction: column;
+             align-items: center;
+        }
+
+        .logout{
+            font-weight: bold;
+            color: white;
+            background-color: rgba(52, 152, 219, 0.2);
+            padding: 10px 30px;
+            border-radius: 15px;
+           
         }
 
         .logo {

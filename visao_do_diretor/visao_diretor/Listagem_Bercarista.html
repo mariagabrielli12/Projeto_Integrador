@@ -8,77 +8,51 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <!-- Barra Lateral -->
-    <div class="sidebar">
-        <div class="logo">
-            <i class="fas fa-graduation-cap"></i>
-            <h1>Rede Educacional</h1>
+     <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+  <div class="menu-section">
+    <div class="menu-item">
+      <i class="fas fa-user-cog"></i>
+      <span>Início</span>
+    </div>
+
+    <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Cadastros</span>
+    </div>
+    <div class="submenu open">
+      <!-- Listagens -->
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="listagem_Secretario.html" style="color:inherit; text-decoration:none;">Cadastro de Secretário</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Professor.html" style="color:inherit; text-decoration:none;">Cadastro de Professor</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Bercarista.html" style="color:inherit; text-decoration:none;">Cadastro de Berçaristas</a></span>
+      </div>
+
         </div>
-        <div class="menu">
-            <div class="menu-section">
-                <div class="menu-item has-submenu open">
-                    <i class="fas fa-user-plus"></i>
-                    <span>Cadastros</span>
-                </div>
-                
-                <div class="submenu open">
-                    <div class="menu-item">
-                        <i class="fas fa-user-graduate"></i>
-                        <span><a href="index.html">Cadastro de Aluno</a></span>
-                    </div>
-                    <div class="menu-item">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <span>Cadastro de Professores</span>
-                    </div>
-                    <div class="menu-item active">
-                        <i class="fas fa-baby"></i>
-                        <span>Cadastro de Berçaristas</span>
-                    </div>
-                    <div class="menu-item">
-                        <i class="fas fa-users"></i>
-                        <span>Cadastro de Colaboradores</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="menu-divider"></div>
-            
-            <div class="menu-section">
-                <div class="menu-item has-submenu">
-                    <i class="fas fa-layer-group"></i>
-                    <span>Turmas</span>
-                </div>
-                
-                <div class="submenu">
-                    <div class="menu-item">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <span>Financeiro</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="menu-divider"></div>
-            
-            <div class="menu-section">
-                <div class="menu-item has-submenu">
-                    <i class="fas fa-users-cog"></i>
-                    <span>Usuários</span>
-                </div>
-                
-                <div class="submenu">
-                    <div class="menu-item">
-                        <i class="fas fa-user-shield"></i>
-                        <span>Perfis de acesso</span>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Indicadores</span>
-                </div>
-            </div>
+      <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Gerenciamento</span>
+    </div>
+    </div>
+    </div>
+     <div class="menu-item">
+        <div class="logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span><a href="/tela_login/teladiretor.html" style="color:inherit; text-decoration:none;">Sair</a></span>
         </div>
     </div>
+     </div>
 
     <!-- Conteúdo Principal -->
     <div class="main-content">
