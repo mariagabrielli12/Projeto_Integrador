@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lançar Notas - Professor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Css/style_professor.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <!-- Mesmo sidebar do dashboard -->
+    <!-- ... -->
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-edit"></i>
+        <h2>Lançar Notas</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Silva</span>
+        <i class="fas fa-sign-out-alt" title="Sair"></i>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <div class="filter-label">Turma:</div>
+            <div class="filter-input">
+              <select>
+                <option>9º Ano A</option>
+                <option>9º Ano B</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-label">Avaliação:</div>
+            <div class="filter-input">
+              <select>
+                <option>Prova Bimestral - 2º Bimestre</option>
+                <option>Trabalho em Grupo</option>
+                <option>Atividade Avaliativa</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-label">Disciplina:</div>
+            <div class="filter-input">
+              <select>
+                <option>Matemática</option>
+                <option>Português</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-primary">Carregar Alunos</button>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h4 style="margin-bottom: 15px; color: var(--primary);">Notas - Prova Bimestral - 2º Bimestre</h4>
+        
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nº</th>
+                <th>Aluno</th>
+                <th>Nota (0-10)</th>
+                <th>Faltas</th>
+                <th>Observações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Ana Carolina Silva</td>
+                <td><input type="number" min="0" max="10" step="0.5" value="8.5" style="width: 60px;"></td>
+                <td><input type="number" min="0" value="0" style="width: 50px;"></td>
+                <td><input type="text" placeholder="Observações"></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Bruno Oliveira Santos</td>
+                <td><input type="number" min="0" max="10" step="0.5" value="7.0" style="width: 60px;"></td>
+                <td><input type="number" min="0" value="1" style="width: 50px;"></td>
+                <td><input type="text" placeholder="Observações"></td>
+              </tr>
+              <!-- Mais linhas... -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-secondary">Cancelar</button>
+          <button class="btn btn-primary">Salvar Notas</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Lançar Notas</div>
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</body>
+</html>

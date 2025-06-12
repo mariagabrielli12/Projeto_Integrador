@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atividades - Professor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Css/style_professor.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <!-- Mesmo sidebar do dashboard -->
+    <!-- ... -->
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-tasks"></i>
+        <h2>Atividades</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Silva</span>
+        <i class="fas fa-sign-out-alt" title="Sair"></i>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <div class="filter-label">Turma:</div>
+            <div class="filter-input">
+              <select>
+                <option>Todas</option>
+                <option>9º Ano A</option>
+                <option>9º Ano B</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-label">Status:</div>
+            <div class="filter-input">
+              <select>
+                <option>Todas</option>
+                <option>Pendentes</option>
+                <option>Encerradas</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-label">Período:</div>
+            <div class="filter-input">
+              <input type="date">
+              <span>até</span>
+              <input type="date">
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary">Limpar</button>
+          <button class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+
+      <div class="table-settings">
+        <div class="results-per-page">Mostrando 1-5 de 12 atividades</div>
+        <button class="btn-cadastrar">
+          <i class="fas fa-plus"></i> Nova Atividade
+        </button>
+      </div>
+
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Turma</th>
+              <th>Data Entrega</th>
+              <th>Status</th>
+              <th>Entregues</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lista de Exercícios - Geometria</td>
+              <td>9º Ano A</td>
+              <td>20/06/2025</td>
+              <td><span class="status-badge active">Em andamento</span></td>
+              <td>12/30</td>
+              <td>
+                <button class="btn-icon" title="Detalhes"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Corrigir"><i class="fas fa-check"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Trabalho em Grupo - Álgebra</td>
+              <td>9º Ano B</td>
+              <td>15/06/2025</td>
+              <td><span class="status-badge inactive">Encerrado</span></td>
+              <td>25/28</td>
+              <td>
+                <button class="btn-icon" title="Detalhes"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon" title="Resultados"><i class="fas fa-chart-bar"></i></button>
+              </td>
+            </tr>
+            <!-- Mais linhas... -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <div class="pagination-info">Página 1 de 3</div>
+        <div class="pagination-controls">
+          <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Atividades</div>
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</body>
+</html>

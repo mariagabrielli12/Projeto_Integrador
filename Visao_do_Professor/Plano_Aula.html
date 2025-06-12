@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plano de Atividades - Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Css/style_professor.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-baby"></i>
+      <h1>Portal do Professor - Creche</h1>
+    </div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item">
+          <i class="fas fa-tachometer-alt"></i>
+          <span><a href="Dashboard_Professor.html" style="color:inherit; text-decoration:none;">Dashboard</a></span>
+        </div>
+
+        <div class="menu-item has-submenu open">
+          <i class="fas fa-book-open"></i>
+          <span>Planejamento</span>
+        </div>
+        <div class="submenu open">
+          <div class="menu-item active">
+            <i class="fas fa-calendar-alt"></i>
+            <span><a href="Plano_Atividades.html" style="color:inherit; text-decoration:none;">Plano de Atividades</a></span>
+          </div>
+          
+          <div class="menu-item">
+            <i class="fas fa-puzzle-piece"></i>
+            <span><a href="Atividades.html" style="color:inherit; text-decoration:none;">Atividades Lúdicas</a></span>
+          </div>
+          
+          <div class="menu-item">
+            <i class="fas fa-clipboard-list"></i>
+            <span><a href="Rotinas.html" style="color:inherit; text-decoration:none;">Rotinas Diárias</a></span>
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu open">
+          <i class="fas fa-child"></i>
+          <span>Turmas</span>
+        </div>
+        <div class="submenu open">
+          <div class="menu-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span><a href="Minhas_Turmas.html" style="color:inherit; text-decoration:none;">Minhas Turmas</a></span>
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-user-friends"></i>
+            <span><a href="Alunos_Turma.html" style="color:inherit; text-decoration:none;">Crianças por Turma</a></span>
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu open">
+          <i class="fas fa-clipboard-check"></i>
+          <span>Acompanhamento</span>
+        </div>
+        <div class="submenu open">
+          <div class="menu-item">
+            <i class="fas fa-notes-medical"></i>
+            <span><a href="Acompanhamento.html" style="color:inherit; text-decoration:none;">Desenvolvimento</a></span>
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-chart-line"></i>
+            <span><a href="Relatorios.html" style="color:inherit; text-decoration:none;">Relatórios</a></span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <i class="fas fa-utensils"></i>
+          <span><a href="Alimentacao.html" style="color:inherit; text-decoration:none;">Alimentação</a></span>
+        </div>
+
+        <div class="menu-item">
+          <i class="fas fa-comment-dots"></i>
+          <span><a href="Comunicados.html" style="color:inherit; text-decoration:none;">Comunicados</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-calendar-alt"></i>
+        <h2>Plano de Atividades</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Ana</span>
+        <i class="fas fa-sign-out-alt" title="Sair"></i>
+      </div>
+    </div>
+
+    <div class="content-container lesson-plans-container">
+      <div class="plans-header">
+        <h3>Meus Planos de Atividades</h3>
+        <div class="plans-actions">
+          <button class="btn btn-primary" id="new-plan-btn">
+            <i class="fas fa-plus"></i> Novo Plano
+          </button>
+          <button class="btn btn-secondary">
+            <i class="fas fa-download"></i> Exportar
+          </button>
+        </div>
+      </div>
+
+      <div class="plans-filter">
+        <div class="filter-row">
+          <div class="filter-group">
+            <label for="subject-filter">Área de Desenvolvimento</label>
+            <select id="subject-filter">
+              <option value="">Todas</option>
+              <option value="motricidade">Motricidade</option>
+              <option value="linguagem">Linguagem</option>
+              <option value="cognitivo">Cognitivo</option>
+              <option value="socioafetivo">Socioafetivo</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="class-filter">Turma</label>
+            <select id="class-filter">
+              <option value="">Todas</option>
+              <option value="bercario1">Berçário I</option>
+              <option value="bercario2">Berçário II</option>
+              <option value="maternal1">Maternal I</option>
+              <option value="maternal2">Maternal II</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="status-filter">Status</label>
+            <select id="status-filter">
+              <option value="">Todos</option>
+              <option value="published">Publicados</option>
+              <option value="draft">Rascunhos</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-row">
+          <div class="filter-group">
+            <label for="date-from">De</label>
+            <input type="date" id="date-from">
+          </div>
+          <div class="filter-group">
+            <label for="date-to">Até</label>
+            <input type="date" id="date-to">
+          </div>
+          <div class="filter-group" style="align-self: flex-end;">
+            <button class="btn btn-primary">
+              <i class="fas fa-filter"></i> Filtrar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <table class="plans-table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Área</th>
+            <th>Turma</th>
+            <th>Atividade</th>
+            <th>Objetivos</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>15/06/2025</td>
+            <td>Motricidade</td>
+            <td>Berçário II</td>
+            <td>Brincadeira com bolas</td>
+            <td>Desenvolver coordenação motora grossa</td>
+            <td><span class="status-badge published">Publicado</span></td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn view-btn" title="Visualizar">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="action-btn edit-btn" title="Editar">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete-btn" title="Excluir">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>16/06/2025</td>
+            <td>Linguagem</td>
+            <td>Maternal I</td>
+            <td>Contação de histórias</td>
+            <td>Estimular a linguagem oral</td>
+            <td><span class="status-badge published">Publicado</span></td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn view-btn" title="Visualizar">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="action-btn edit-btn" title="Editar">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete-btn" title="Excluir">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>17/06/2025</td>
+            <td>Cognitivo</td>
+            <td>Maternal II</td>
+            <td>Jogo de encaixe</td>
+            <td>Desenvolver noção de formas e cores</td>
+            <td><span class="status-badge draft">Rascunho</span></td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn view-btn" title="Visualizar">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="action-btn edit-btn" title="Editar">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete-btn" title="Excluir">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>18/06/2025</td>
+            <td>Socioafetivo</td>
+            <td>Berçário I</td>
+            <td>Brincadeira em grupo</td>
+            <td>Promover interação social</td>
+            <td><span class="status-badge published">Publicado</span></td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn view-btn" title="Visualizar">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="action-btn edit-btn" title="Editar">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete-btn" title="Excluir">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>19/06/2025</td>
+            <td>Motricidade</td>
+            <td>Maternal II</td>
+            <td>Pintura com os dedos</td>
+            <td>Desenvolver coordenação motora fina</td>
+            <td><span class="status-badge published">Publicado</span></td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn view-btn" title="Visualizar">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="action-btn edit-btn" title="Editar">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn delete-btn" title="Excluir">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button class="pagination-btn">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor / Planejamento / Plano de Atividades</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <!-- Modal para novo plano de atividade -->
+  <div class="modal" id="plan-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Novo Plano de Atividade</h3>
+        <button class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="plan-form">
+          <div class="form-group">
+            <label for="plan-date">Data da Atividade</label>
+            <input type="date" id="plan-date" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-subject">Área de Desenvolvimento</label>
+            <select id="plan-subject" required>
+              <option value="">Selecione</option>
+              <option value="motricidade">Motricidade</option>
+              <option value="linguagem">Linguagem</option>
+              <option value="cognitivo">Cognitivo</option>
+              <option value="socioafetivo">Socioafetivo</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-class">Turma</label>
+            <select id="plan-class" required>
+              <option value="">Selecione</option>
+              <option value="bercario1">Berçário I</option>
+              <option value="bercario2">Berçário II</option>
+              <option value="maternal1">Maternal I</option>
+              <option value="maternal2">Maternal II</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-theme">Nome da Atividade</label>
+            <input type="text" id="plan-theme" placeholder="Ex: Pintura com os dedos" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-objectives">Objetivos de Desenvolvimento</label>
+            <textarea id="plan-objectives" placeholder="Descreva os objetivos desta atividade" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-content">Descrição da Atividade</label>
+            <textarea id="plan-content" placeholder="Descreva como a atividade será realizada" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-methodology">Materiais Necessários</label>
+            <textarea id="plan-methodology" placeholder="Liste os materiais que serão utilizados" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-resources">Avaliação do Desenvolvimento</label>
+            <textarea id="plan-resources" placeholder="Como será observado o desenvolvimento das crianças"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="plan-status">Status</label>
+            <select id="plan-status">
+              <option value="draft">Rascunho</option>
+              <option value="published">Publicado</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancel-plan-btn">Cancelar</button>
+        <button class="btn btn-primary" id="save-plan-btn">Salvar Plano</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Ativa o item do menu na sidebar
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function (e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+      
+      // Modal de novo plano de atividade
+      const newPlanBtn = document.getElementById('new-plan-btn');
+      const planModal = document.getElementById('plan-modal');
+      const closeModalBtns = document.querySelectorAll('.close-btn, #cancel-plan-btn');
+      
+      newPlanBtn.addEventListener('click', function() {
+        planModal.style.display = 'flex';
+      });
+      
+      closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          planModal.style.display = 'none';
+        });
+      });
+      
+      // Fechar modal ao clicar fora
+      window.addEventListener('click', function(event) {
+        if (event.target === planModal) {
+          planModal.style.display = 'none';
+        }
+      });
+      
+      // Salvar plano (simulação)
+      document.getElementById('save-plan-btn').addEventListener('click', function() {
+        alert('Plano de atividade salvo com sucesso!');
+        planModal.style.display = 'none';
+        document.getElementById('plan-form').reset();
+      });
+      
+      // Ações dos botões na tabela
+      document.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          alert('Visualizar plano de atividade');
+        });
+      });
+      
+      document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          alert('Editar plano de atividade');
+        });
+      });
+      
+      document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (confirm('Tem certeza que deseja excluir este plano de atividade?')) {
+            alert('Plano de atividade excluído');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comunicados - Professor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Css/style_professor.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <!-- Mesmo sidebar do dashboard -->
+    <!-- ... -->
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-comment-alt"></i>
+        <h2>Comunicados</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Silva</span>
+        <i class="fas fa-sign-out-alt" title="Sair"></i>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="dashboard-grid" style="margin-bottom: 20px;">
+        <div class="dashboard-card">
+          <h4><i class="fas fa-bell"></i> Novos Comunicados</h4>
+          <div class="alert-list">
+            <div class="alert">
+              <i class="fas fa-info-circle"></i>
+              <span>Reunião pedagógica dia 20/06 - 14h na sala dos professores</span>
+            </div>
+            <div class="alert">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>Prazo para lançamento de notas: 25/06</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <h4><i class="fas fa-paper-plane"></i> Enviar Comunicado</h4>
+          <div class="form-group" style="margin-bottom: 10px;">
+            <select class="form-control">
+              <option>Selecione o destinatário...</option>
+              <option>Turma 9º Ano A</option>
+              <option>Turma 9º Ano B</option>
+              <option>Todos os alunos</option>
+              <option>Coordenação</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" style="width: 100%;">
+            <i class="fas fa-plus"></i> Criar Novo Comunicado
+          </button>
+        </div>
+      </div>
+
+      <div class="table-settings">
+        <div class="results-per-page">Mostrando 1-5 de 15 comunicados</div>
+      </div>
+
+      <div class="table-container">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Assunto</th>
+              <th>Destinatário</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10/06/2025</td>
+              <td>Prova Bimestral - 2º Bimestre</td>
+              <td>Turma 9º Ano A</td>
+              <td><span class="status-badge active">Enviado</span></td>
+              <td>
+                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon" title="Reenviar"><i class="fas fa-paper-plane"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>05/06/2025</td>
+              <td>Material para aula prática</td>
+              <td>Turma 9º Ano B</td>
+              <td><span class="status-badge active">Lido por 22/28</span></td>
+              <td>
+                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                <button class="btn-icon" title="Estatísticas"><i class="fas fa-chart-pie"></i></button>
+              </td>
+            </tr>
+            <!-- Mais linhas... -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <div class="pagination-info">Página 1 de 3</div>
+        <div class="pagination-controls">
+          <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Comunicados</div>
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</body>
+</html>
