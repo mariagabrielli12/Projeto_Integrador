@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avisos - Portal do Responsável</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo"><i class="fas fa-graduation-cap"></i><h1>Rede Educacional</h1></div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item"><a href="index.html"><i class="fas fa-home"></i><span>Página Inicial</span></a></div>
+        <div class="menu-item"><a href="perfil_crianca.html"><i class="fas fa-child"></i><span>Perfil da Criança</span></a></div>
+        <div class="menu-item"><a href="relatorios_responsavel.html"><i class="fas fa-file-alt"></i><span>Relatórios</span></a></div>
+        <div class="menu-item active"><a href="avisos_responsavel.html"><i class="fas fa-bell"></i><span>Avisos</span></a></div>
+        <div class="menu-item"><a href="atestados_responsavel.html"><i class="fas fa-notes-medical"></i><span>Atestados</span></a></div>
+      </div>
+    </div>
+    <div class="menu-item">
+      <div class="logout"><a href="/tela_login/login.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a></div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title"><i class="fas fa-bell"></i><h2>Avisos</h2></div>
+      <div class="user-info">
+        <div class="user-avatar">RA</div>
+        <span>Responsável</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <!-- Filtros e Ações -->
+      <div class="form-container">
+        <div class="notices-actions">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Buscar avisos...">
+          </div>
+          <div class="notice-filters">
+            <button class="btn btn-outline active"><i class="fas fa-inbox"></i> Todos</button>
+            <button class="btn btn-outline"><i class="fas fa-exclamation-circle"></i> Urgentes</button>
+            <button class="btn btn-outline"><i class="fas fa-calendar-alt"></i> Eventos</button>
+            <button class="btn btn-outline"><i class="fas fa-envelope"></i> Não lidos</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Avisos -->
+      <div class="form-container">
+        <div class="notices-header">
+          <h3 class="section-title"><i class="fas fa-inbox"></i> Todos os Avisos</h3>
+          <div class="notice-actions">
+            <button class="btn btn-secondary"><i class="fas fa-check-double"></i> Marcar todos como lidos</button>
+            <button class="btn btn-primary"><i class="fas fa-sync-alt"></i> Atualizar</button>
+          </div>
+        </div>
+        
+        <div class="notices-list">
+          <div class="notice-item unread urgent">
+            <div class="notice-icon">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div class="notice-content">
+              <div class="notice-header">
+                <h4>Creche fechada - Feriado Municipal</h4>
+                <div class="notice-actions">
+                  <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+              </div>
+              <p class="notice-text">Informamos que a creche estará fechada no dia 20/06 devido ao feriado municipal. Solicitamos que façam os ajustes necessários.</p>
+              <div class="notice-meta">
+                <span class="notice-category"><i class="fas fa-tag"></i> Administrativo</span>
+                <span class="notice-date"><i class="far fa-clock"></i> Hoje, 09:30</span>
+                <span class="notice-priority high"><i class="fas fa-circle"></i> Urgente</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="notice-item unread event">
+            <div class="notice-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="notice-content">
+              <div class="notice-header">
+                <h4>Festa Junina - Trajes Típicos</h4>
+                <div class="notice-actions">
+                  <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+              </div>
+              <p class="notice-text">Nesta sexta-feira (21/06) teremos nossa tradicional Festa Junina. Pedimos que as crianças venham com trajes típicos. Evento das 14h às 17h.</p>
+              <div class="notice-meta">
+                <span class="notice-category"><i class="fas fa-tag"></i> Evento</span>
+                <span class="notice-date"><i class="far fa-clock"></i> Ontem, 14:15</span>
+                <span class="notice-priority medium"><i class="fas fa-circle"></i> Importante</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="notice-item info">
+            <div class="notice-icon">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="notice-content">
+              <div class="notice-header">
+                <h4>Novos Relatórios Disponíveis</h4>
+                <div class="notice-actions">
+                  <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+              </div>
+              <p class="notice-text">Os relatórios de desenvolvimento do bimestre já estão disponíveis na aba "Relatórios". Prazo para dúvidas até 25/06.</p>
+              <div class="notice-meta">
+                <span class="notice-category"><i class="fas fa-tag"></i> Educacional</span>
+                <span class="notice-date"><i class="far fa-clock"></i> 17/06, 11:45</span>
+                <span class="notice-priority low"><i class="fas fa-circle"></i> Informativo</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="notice-item reminder">
+            <div class="notice-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="notice-content">
+              <div class="notice-header">
+                <h4>Reunião de Pais - 25/06</h4>
+                <div class="notice-actions">
+                  <button class="btn-icon"><i class="fas fa-ellipsis-v"></i></button>
+                </div>
+              </div>
+              <p class="notice-text">Próxima reunião de pais marcada para 25/06 às 10h na sala de reuniões. Por favor confirmar presença até 23/06.</p>
+              <div class="notice-meta">
+                <span class="notice-category"><i class="fas fa-tag"></i> Reunião</span>
+                <span class="notice-date"><i class="far fa-clock"></i> 15/06, 09:30</span>
+                <span class="notice-priority high"><i class="fas fa-circle"></i> Ur

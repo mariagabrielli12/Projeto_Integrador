@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Berçarista | Berçário</title>
+  <link rel="stylesheet" href="CSS/style_inicio_bercarista.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="layout">
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fas fa-baby-carriage"></i> Berçário Encantado</h2>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active">
+            <a href="inicio_bercarista.html">
+              <i class="fas fa-home"></i>
+              <span>Início</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="avaliacao_semanal.html">
+              <i class="fas fa-clipboard-check"></i>
+              <span>Avaliação Semanal</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="troca_professor.html">
+              <i class="fas fa-exchange-alt"></i>
+              <span>Troca de Professor</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="ocorrencias.html">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span>Ocorrências</span>
+              <span class="badge">3</span>
+            </a>
+          </li>
+          
+          <li>
+            <a href="relatorios.html">
+              <i class="fas fa-chart-bar"></i>
+              <span>Relatórios</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">MB</div>
+          <div class="user-details">
+            <span class="user-name">Maria Berçarista</span>
+            <span class="user-role">Berçarista</span>
+          </div>
+        </div>
+        <a href="#" class="logout-btn">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1>Avaliação Diária</h1>
+          <div class="breadcrumb">
+            <span>Início</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>Avaliação</span>
+          </div>
+        </div>
+        
+        <div class="topbar-right">
+          <div class="notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-count">2</span>
+          </div>
+          <div class="user-menu">
+            <span>Maria Berçarista</span>
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+      </header>
+
+      <section class="content-area">
+        <div class="dashboard-cards">
+          <div class="card">
+            <div class="card-icon bg-blue">
+              <i class="fas fa-baby"></i>
+            </div>
+            <div class="card-info">
+              <h3>Bebês Ativos</h3>
+              <span class="card-value">12</span>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon bg-green">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div class="card-info">
+              <h3>Avaliações Hoje</h3>
+              <span class="card-value">5/12</span>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-icon bg-orange">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="card-info">
+              <h3>Ocorrências</h3>
+              <span class="card-value">3</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="evaluation-form">
+          <div class="form-header">
+            <h2><i class="fas fa-pencil-alt"></i> Avaliação do Bebê</h2>
+            <div class="student-selector">
+              <label for="students">Selecione o bebê:</label>
+              <select id="students">
+                <option>Jimin da Silva</option>
+                <option>Sophia Oliveira</option>
+                <option>Miguel Santos</option>
+                <option>Alice Pereira</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-body">
+            <div class="form-group">
+              <label for="sleep">Momento do Cochilo:</label>
+              <textarea id="sleep" placeholder="Descreva como foi o momento do cochilo..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="feeding">Alimentação:</label>
+              <textarea id="feeding" placeholder="Descreva como foi a alimentação..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="socialization">Socialização:</label>
+              <textarea id="socialization" placeholder="Descreva a interação com outros bebês..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="communication">Comunicação/Linguagem:</label>
+              <textarea id="communication" placeholder="Descreva os avanços na comunicação..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="environment">Ambientação:</label>
+              <textarea id="environment" placeholder="Descreva como o bebê está se adaptando..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="observation">Observações Gerais:</label>
+              <textarea id="observation" placeholder="Alguma observação importante..."></textarea>
+            </div>
+            
+            <div class="form-actions">
+              <button class="btn btn-secondary">
+                <i class="fas fa-times"></i> Cancelar
+              </button>
+              <button class="btn btn-primary">
+                <i class="fas fa-save"></i> Salvar Avaliação
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Adicionando classe ativa ao item do menu
+    document.querySelectorAll('.sidebar-nav li').forEach(item => {
+      item.addEventListener('click', function() {
+        document.querySelectorAll('.sidebar-nav li').forEach(i => i.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

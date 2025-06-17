@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal do Responsável</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="CSS/Style.css"/>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item active">
+          <a href="#"><i class="fas fa-home"></i><span>Página Inicial</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="perfil_crianca.html"><i class="fas fa-child"></i><span>Perfil da Criança</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="relatorios_responsavel.html"><i class="fas fa-file-alt"></i><span>Relatórios</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="avisos_responsavel.html"><i class="fas fa-bell"></i><span>Avisos</span></a>
+        </div>
+        
+        <div class="menu-item">
+          <a href="atestados_responsavel.html"><i class="fas fa-notes-medical"></i><span>Atestados</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <div class="logout">
+        <a href="/tela_login/login.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-home" aria-hidden="true"></i>
+        <h2>Bem-vindo(a), Responsável</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar" aria-label="Iniciais do responsável">RA</div>
+        <span>Responsável</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <!-- Resumo rápido -->
+      <div class="summary-cards">
+        <div class="summary-card">
+          <div class="card-icon blue">
+            <i class="fas fa-child"></i>
+          </div>
+          <div class="card-content">
+            <h3>Lucas Oliveira</h3>
+            <p>Maternal I - A (Manhã)</p>
+          </div>
+        </div>
+        
+        <div class="summary-card">
+          <div class="card-icon green">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="card-content">
+            <h3>Presença</h3>
+            <p>85% este mês</p>
+          </div>
+        </div>
+        
+        <div class="summary-card">
+          <div class="card-icon orange">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <div class="card-content">
+            <h3>Última Ocorrência</h3>
+            <p>Chegou com febre (12/06)</p>
+          </div>
+        </div>
+        
+        <div class="summary-card">
+          <div class="card-icon purple">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="card-content">
+            <h3>Último Relatório</h3>
+            <p>10/06/2025</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção de Avisos Urgentes -->
+      <div class="form-container urgent-notices">
+        <h3 class="section-title"><i class="fas fa-exclamation-circle"></i> Avisos Urgentes</h3>
+        <div class="notice-item critical">
+          <div class="notice-icon">
+            <i class="fas fa-calendar-times"></i>
+          </div>
+          <div class="notice-content">
+            <h4>Creche fechada dia 20/06</h4>
+            <p>Devido ao feriado municipal, a creche estará fechada no dia 20/06. Favor fazer os ajustes necessários.</p>
+            <div class="notice-meta">
+              <span><i class="far fa-clock"></i> Hoje, 09:30</span>
+              <span class="notice-priority">Prioridade Alta</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seção de Avisos Recentes -->
+      <div class="form-container">
+        <h3 class="section-title"><i class="fas fa-bell"></i> Avisos Recentes</h3>
+        <div class="notices-grid">
+          <div class="notice-card">
+            <div class="notice-header">
+              <div class="notice-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <h4>Festa Junina</h4>
+            </div>
+            <div class="notice-body">
+              <p>Nesta sexta-feira (21/06), trajar roupas típicas para a festa junina. Evento começará às 14h.</p>
+            </div>
+            <div class="notice-footer">
+              <span><i class="far fa-clock"></i> 18/06, 14:15</span>
+              <span class="priority medium">Média</span>
+            </div>
+          </div>
+          
+          <div class="notice-card">
+            <div class="notice-header">
+              <div class="notice-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <h4>Novo Relatório</h4>
+            </div>
+            <div class="notice-body">
+              <p>Relatório de desenvolvimento disponível na aba "Relatórios". Prazo para dúvidas até 25/06.</p>
+            </div>
+            <div class="notice-footer">
+              <span><i class="far fa-clock"></i> 17/06, 11:45</span>
+              <span class="priority low">Baixa</span>
+            </div>
+          </div>
+          
+          <div class="notice-card">
+            <div class="notice-header">
+              <div class="notice-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h4>Reunião de Pais</h4>
+            </div>
+            <div class="notice-body">
+              <p>Próxima reunião de pais marcada para 25/06 às 10h. Por favor confirmar presença.</p>
+            </div>
+            <div class="notice-footer">
+              <span><i class="far fa-clock"></i> 15/06, 09:30</span>
+              <span class="priority high">Alta</span>
+            </div>
+          </div>
+        </div>
+        <div class="view-all">
+          <a href="avisos_responsavel.html" class="btn btn-link">Ver todos os avisos <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Próximos Eventos -->
+      <div class="form-container">
+        <h3 class="section-title"><i class="fas fa-calendar-alt"></i> Próximos Eventos</h3>
+        <div class="events-timeline">
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-day">21</span>
+              <span class="event-month">Jun</span>
+            </div>
+            <div class="event-details">
+              <h4>Festa Junina</h4>
+              <p><i class="far fa-clock"></i> 14:00 - 17:00</p>
+              <p><i class="fas fa-map-marker-alt"></i> Pátio da Creche</p>
+            </div>
+          </div>
+          
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-day">25</span>
+              <span class="event-month">Jun</span>
+            </div>
+            <div class="event-details">
+              <h4>Reunião de Pais</h4>
+              <p><i class="far fa-clock"></i> 10:00 - 11:30</p>
+              <p><i class="fas fa-map-marker-alt"></i> Sala de Reuniões</p>
+            </div>
+          </div>
+          
+          <div class="event-item">
+            <div class="event-date">
+              <span class="event-day">30</span>
+              <span class="event-month">Jun</span>
+            </div>
+            <div class="event-details">
+              <h4>Entrega de Trabalhos</h4>
+              <p><i class="far fa-clock"></i> Até as 18:00</p>
+              <p><i class="fas fa-map-marker-alt"></i> Portaria</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+      <div class="footer-links">
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Contato</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Atualizar data e hora em tempo real
+      function updateDateTime() {
+        const now = new Date();
+        const dateTimeElement = document.getElementById('current-datetime');
+        if(dateTimeElement) {
+          const options = { 
+            weekday: 'long', 
+            day: 'numeric', 
+            month: 'long', 
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+          };
+          dateTimeElement.textContent = now.toLocaleDateString('pt-BR', options);
+        }
+      }
+      
+      // Atualizar a cada minuto
+      updateDateTime();
+      setInterval(updateDateTime, 60000);
+      
+      // Simular notificações não lidas
+      const unreadNotices = document.querySelectorAll('.notice-item.unread');
+      unreadNotices.forEach(notice => {
+        notice.addEventListener('click', function() {
+          this.classList.remove('unread');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

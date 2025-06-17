@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turmas - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+  <div class="sidebar">
+  <div class="logo">
+    <i class="fas fa-baby"></i>
+    <h1>Portal do Professor - Creche</h1>
+  </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Dashboard</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item ">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item active">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="logo">
+      <i class="fas fa-baby"></i>
+      <h1>Portal do Professor - Creche</h1>
+    </div>
+    
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item active">
+          <i class="fas fa-home"></i>
+          <span>Dashboard</span>
+        </div>
+
+        <div class="menu-item has-submenu open">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Planejamento</span>
+        </div>
+        <div class="submenu open">
+          <div class="menu-item">
+            <i class="fas fa-calendar-day"></i>
+            <span>Plano de Atividades</span>
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-puzzle-piece"></i>
+            <span>Atividades Lúdicas</span>
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-clipboard-list"></i>
+            <span>Rotinas Diárias</span>
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu">
+          <i class="fas fa-child"></i>
+          <span>Turmas</span>
+        </div>
+        <div class="submenu">
+          <div class="menu-item">
+            <i class="fas fa-baby-carriage"></i>
+            <span>Minhas Turmas</span>
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-user-friends"></i>
+            <span>Crianças por Turma</span>
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu">
+          <i class="fas fa-chart-line"></i>
+          <span>Acompanhamento</span>
+        </div>
+        <div class="submenu">
+          <div class="menu-item">
+            <i class="fas fa-notes-medical"></i>
+            <span>Desenvolvimento</span>
+          </div>
+          <div class="menu-item">
+            <i class="fas fa-file-alt"></i>
+            <span>Relatórios</span>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <i class="fas fa-utensils"></i>
+          <span>Alimentação</span>
+        </div>
+
+        <div class="menu-item">
+          <i class="fas fa-comment-dots"></i>
+          <span>Comunicados</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ... -->
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-child"></i>
+        <h2>Minhas Turmas</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Ana Silva</span>
+        <i class="fas fa-sign-out-alt" title="Sair"></i>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <div class="filter-label">Período:</div>
+            <div class="filter-input">
+              <select>
+                <option>Manhã</option>
+                <option>Tarde</option>
+                <option>Integral</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-label">Faixa Etária:</div>
+            <div class="filter-input">
+              <select>
+                <option>Todas</option>
+                <option>4 meses - 1 ano</option>
+                <option>1-2 anos</option>
+                <option>2-3 anos</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary">Limpar</button>
+          <button class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+
+      <div class="class-grid">
+        <div class="class-card">
+          <div class="class-header">
+            <h3>Berçário II</h3>
+            <span class="class-period">Manhã</span>
+          </div>
+          <div class="class-body">
+            <div class="class-info">
+              <i class="fas fa-user-friends"></i>
+              <span>8 crianças</span>
+            </div>
+            <div class="class-info">
+              <i class="fas fa-calendar-check"></i>
+              <span>85% presença hoje</span>
+            </div>
+            <div class="class-info">
+              <i class="fas fa-birthday-cake"></i>
+              <span>2 aniversários este mês</span>
+            </div>
+          </div>
+          <div class="class-footer">
+            <a href="#" class="btn btn-primary">Ver Turma</a>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div class="class-header">
+            <h3>Maternal I</h3>
+            <span class="class-period">Tarde</span>
+          </div>
+          <div class="class-body">
+            <div class="class-info">
+              <i class="fas fa-user-friends"></i>
+              <span>10 crianças</span>
+            </div>
+            <div class="class-info">
+              <i class="fas fa-calendar-check"></i>
+              <span>90% presença hoje</span>
+            </div>
+            <div class="class-info">
+              <i class="fas fa-birthday-cake"></i>
+              <span>1 aniversário este mês</span>
+            </div>
+          </div>
+          <div class="class-footer">
+            <a href="#" class="btn btn-primary">Ver Turma</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-settings">
+        <div class="results-per-page">Mostrando 1-2 de 2 turmas</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Turmas</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</body>
+</html>

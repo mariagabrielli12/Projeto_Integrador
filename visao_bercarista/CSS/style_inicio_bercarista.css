@@ -1,0 +1,592 @@
+/* style_inicio_bercarista.css */
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary: #3498db;
+    --primary-light: #5dade2;
+    --primary-dark: #2980b9;
+    --secondary: #ecf0f1;
+    --text: #333333;
+    --border: #d1d1d1;
+    --sidebar-bg: #2c3e50;
+    --header-bg: #2c3e50;
+    --success: #2ecc71;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --baby-blue: #a7d0f0;
+    --baby-pink: #f8c8dc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Estilizada para Berçarista */
+.sidebar {
+    width: 250px;
+    background: var(--sidebar-bg);
+    color: white;
+    padding: 20px 0;
+}
+
+.sidebar h2 {
+    padding: 0 20px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav ul {
+    list-style: none;
+}
+
+.sidebar nav li {
+    padding: 12px 20px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar nav li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sidebar nav li i {
+    width: 20px;
+    height: 20px;
+}
+
+/* Topbar */
+.topbar {
+    background: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.topbar span {
+    font-weight: 500;
+}
+
+.topbar i {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+}
+
+/* Conteúdo Principal */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content2 {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Painel de Avaliação */
+.painel h1 {
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 24px;
+    padding: 20px 20px 0;
+}
+
+.painel2 {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.painel2 h1 {
+    color: var(--primary);
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.nome-aluno {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.nome-aluno p {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Formulário de Avaliação */
+.avaliacao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.avaliacao label {
+    font-weight: 500;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.avaliacao input[type="text"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border 0.2s;
+}
+
+.avaliacao input[type="text"]:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.avaliacao button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.avaliacao button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .sidebar h2 {
+        padding: 10px 15px;
+    }
+    
+    .sidebar nav li {
+        padding: 10px 15px;
+    }
+    
+    .main-content2 {
+        padding: 15px;
+    }
+    
+    .painel2 {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .avaliacao input[type="text"] {
+        padding: 8px 10px;
+    }
+    
+    .avaliacao button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Adicione estas regras ao seu CSS existente */
+
+/* Sidebar Aprimorada */
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.sidebar-nav li {
+  padding: 12px 20px;
+  transition: all 0.3s;
+}
+
+.sidebar-nav li:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-nav li.active {
+  background: rgba(52, 152, 219, 0.3);
+  border-left: 3px solid var(--primary);
+}
+
+.sidebar-nav a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.sidebar-nav i {
+  width: 20px;
+  text-align: center;
+}
+
+.badge {
+  background: var(--danger);
+  color: white;
+  border-radius: 10px;
+  padding: 2px 6px;
+  font-size: 10px;
+  margin-left: auto;
+}
+
+.sidebar-footer {
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.user-role {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.logout-btn {
+  color: white;
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  opacity: 1;
+  transform: rotate(-15deg);
+}
+
+/* Topbar Aprimorada */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.topbar-left h1 {
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 5px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.breadcrumb i {
+  font-size: 10px;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.notifications {
+  position: relative;
+  cursor: pointer;
+}
+
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--danger);
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.user-menu i {
+  font-size: 24px;
+  color: var(--primary);
+}
+
+/* Cards do Dashboard */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.bg-blue {
+  background: var(--primary);
+}
+
+.bg-green {
+  background: var(--success);
+}
+
+.bg-orange {
+  background: var(--warning);
+}
+
+.card-info h3 {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.card-value {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Formulário de Avaliação */
+.evaluation-form {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding: 25px;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-header h2 {
+  font-size: 18px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-selector label {
+  font-size: 14px;
+  color: #666;
+}
+
+.student-selector select {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--primary-dark);
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.form-group textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: #d0d0d0;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .form-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .student-selector {
+    width: 100%;
+  }
+  
+  .student-selector select {
+    width: 100%;
+  }
+  
+  .form-actions {
+    justify-content: center;
+  }
+}

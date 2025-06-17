@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Educacional - Cadastro de Salas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS_Secretario/Style_Secretario.css">
+</head>
+<body>
+    <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+  <div class="menu-section">
+    <div class="menu-item">
+      <i class="fas fa-user-cog"></i>
+      <span>Início</span>
+    </div>
+
+    <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Cadastros</span>
+    </div>
+    <div class="submenu open">
+      <!-- Listagens -->
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Alunos.html" style="color:inherit; text-decoration:none;">Cadastro de Alunos</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-file-medical"></i>
+        <span><a href="Listagem_Atestado.html" style="color:inherit; text-decoration:none;">Cadastro de Atestados</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span><a href="Listagem_Turma.html" style="color:inherit; text-decoration:none;">Cadastro de Turmas</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-door-open"></i>
+        <span><a href="Listagem_Sala.html" style="color:inherit; text-decoration:none;">Cadastro de Salas</a></span>
+      </div>
+      
+
+</div>
+      <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Gerenciamento</span>
+    </div>
+     <div class="submenu open">
+      <!-- Operações -->
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Troca_Turma.html" style="color:inherit; text-decoration:none;">Troca de Turma</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Listagem_Ocorrencia.html" style="color:inherit; text-decoration:none;">Ocorrências</a></span>
+      </div>
+      </div>
+    </div>
+  
+</div>
+  </div>
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+        <div class="header">
+            <div class="page-title">
+                <i class="fas fa-door-open"></i>
+                <h2>Cadastro de Salas</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">AD</div>
+                <span>Admin</span>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- Filtros - Elementos lado a lado -->
+            <div class="filter-section">
+                <div class="filter-grid">
+                    <div class="filter-row">
+                        <span class="filter-label">Número da Sala</span>
+                        <div class="filter-input">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <span class="filter-label">Bloco</span>
+                        <div class="filter-input">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <span class="filter-label">Tipo</span>
+                        <div class="filter-input">
+                            <select>
+                                <option value="">Todos</option>
+                                <option value="sala_aula">Sala de Aula</option>
+                                <option value="laboratorio">Laboratório</option>
+                                <option value="auditorio">Auditório</option>
+                                <option value="sala_reuniao">Sala de Reunião</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <span class="filter-label">Status</span>
+                        <div class="filter-input">
+                            <select>
+                                <option value="">Todos</option>
+                                <option value="disponivel">Disponível</option>
+                                <option value="manutencao">Em Manutenção</option>
+                                <option value="reservada">Reservada</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="btn btn-secondary">Limpar</button>
+                        <button class="btn btn-primary">Pesquisar</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tabela -->
+            <div class="table-container">
+                <div class="table-settings">
+                    <div class="results-per-page">10 resultados por página</div>
+                </div>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">Número</th>
+                            <th>Bloco</th>
+                            <th>Andar</th>
+                            <th>Tipo</th>
+                            <th>Capacidade</th>
+                            <th>Recursos</th>
+                            <th>Status</th>
+                            <th>Última Manutenção</th>
+                            <th>Próxima Manutenção</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>101</td>
+                            <td>A</td>
+                            <td>1º</td>
+                            <td>Sala de Aula</td>
+                            <td>30</td>
+                            <td>Projetor, Ar-condicionado</td>
+                            <td><span class="status-badge active">Disponível</span></td>
+                            <td>15/03/2024</td>
+                            <td>15/09/2024</td>
+                            <td>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>201</td>
+                            <td>B</td>
+                            <td>2º</td>
+                            <td>Laboratório</td>
+                            <td>20</td>
+                            <td>Computadores, Projetor</td>
+                            <td><span class="status-badge active">Disponível</span></td>
+                            <td>10/02/2024</td>
+                            <td>10/08/2024</td>
+                            <td>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>301</td>
+                            <td>A</td>
+                            <td>3º</td>
+                            <td>Auditório</td>
+                            <td>100</td>
+                            <td>Projetor, Som, Ar-condicionado</td>
+                            <td><span class="status-badge inactive">Em Manutenção</span></td>
+                            <td>05/01/2024</td>
+                            <td>05/07/2024</td>
+                            <td>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="pagination">
+                    <div class="pagination-info">Mostrando de 1 até 3 de 3 registros</div>
+                    <div class="pagination-controls">
+                        <button class="btn-cadastrar">
+                            <i class="fas fa-plus"></i> 
+                             <a href="Cadastro_Salas.html">Cadastrar Nova Sala</a>
+                        </button> 
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-path">M:\visim</div>
+                <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menu expansivo
+            const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // Não fechar se clicar no ícone ou no texto
+                    if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+                    
+                    const submenu = this.nextElementSibling;
+                    this.classList.toggle('open');
+                    submenu.classList.toggle('open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

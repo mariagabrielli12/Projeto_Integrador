@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Atividade - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+ <div class="sidebar">
+  <div class="logo">
+    <i class="fas fa-baby"></i>
+    <h1>Portal do Professor - Creche</h1>
+  </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Dashboard</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+    <div class="menu-item active">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item ">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-calendar-day"></i>
+        <h2>Nova Atividade</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Ana Silva</span>
+        <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt" title="Sair"></i></a>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="welcome-banner">
+        <h3>Cadastrar Nova Atividade</h3>
+        <p>Preencha os campos abaixo para cadastrar uma nova atividade</p>
+      </div>
+
+      <div class="form-container">
+        <form id="nova-atividade-form">
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="turma" class="form-label">Turma:</label>
+              <div class="form-input">
+                <select id="turma" name="turma" required>
+                  <option value="">Selecione uma turma</option>
+                  <option value="bercario1">Berçário I</option>
+                  <option value="bercario2">Berçário II</option>
+                  <option value="maternal1">Maternal I</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <label for="data" class="form-label">Data:</label>
+              <div class="form-input">
+                <input type="date" id="data" name="data" required>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <label for="titulo" class="form-label">Título da Atividade:</label>
+              <div class="form-input">
+                <input type="text" id="titulo" name="titulo" placeholder="Ex: Hora do Conto" required>
+              </div>
+            </div>
+            
+            <div class="form-row full-width">
+              <label for="descricao" class="form-label">Descrição:</label>
+              <div class="form-input">
+                <textarea id="descricao" name="descricao" rows="3" placeholder="Descreva a atividade em detalhes..." required></textarea>
+              </div>
+            </div>
+            
+            <div class="form-row full-width">
+              <label for="objetivos" class="form-label">Objetivos de Aprendizado:</label>
+              <div class="form-input">
+                <textarea id="objetivos" name="objetivos" rows="3" placeholder="Quais habilidades serão desenvolvidas?" required></textarea>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <label for="materiais" class="form-label">Materiais Necessários:</label>
+              <div class="form-input">
+                <input type="text" id="materiais" name="materiais" placeholder="Liste os materiais separados por vírgula">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <label for="duracao" class="form-label">Duração Estimada:</label>
+              <div class="form-input">
+                <input type="text" id="duracao" name="duracao" placeholder="Ex: 30 minutos">
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <label class="form-label">Status:</label>
+              <div class="form-radio-group">
+                <label>
+                  <input type="radio" name="status" value="planejada" checked> Planejada
+                </label>
+                <label>
+                  <input type="radio" name="status" value="realizada"> Realizada
+                </label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar Atividade</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Planejamento > Plano de Atividades > Nova Atividade</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+      
+      // Form submission
+      const form = document.getElementById('nova-atividade-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Aqui você pode adicionar a lógica para salvar a atividade
+        alert('Atividade cadastrada com sucesso!');
+        window.location.href = 'plano_atividades.html';
+      });
+      
+      // Set today's date as default
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('data').value = today;
+    });
+  </script>
+</body>
+</html>

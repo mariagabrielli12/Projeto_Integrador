@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotinas Diárias - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+  <div class="sidebar">
+  <div class="logo">
+    <i class="fas fa-baby"></i>
+    <h1>Portal do Professor - Creche</h1>
+  </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Dashboard</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item active">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-clipboard-list"></i>
+        <h2>Rotinas Diárias</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Ana Silva</span>
+        <i class="fas fa-sign-out-alt" title="Sair"></i>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="welcome-banner">
+        <h3>Rotinas Diárias</h3>
+        <p>Gerencie as rotinas diárias das turmas</p>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <label class="filter-label">Turma:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todas as turmas</option>
+                <option>Berçário I</option>
+                <option>Berçário II</option>
+                <option>Maternal I</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <label class="filter-label">Dia da semana:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todos os dias</option>
+                <option>Segunda-feira</option>
+                <option>Terça-feira</option>
+                <option>Quarta-feira</option>
+                <option>Quinta-feira</option>
+                <option>Sexta-feira</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary">Limpar</button>
+          <button class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+
+      <div class="dashboard-card">
+        <h4><i class="fas fa-calendar-day"></i> Rotina do Berçário II - Segunda-feira</h4>
+        <div class="calendar-events">
+          <div class="event">
+            <span class="event-time">07:30 - 08:30</span>
+            <span class="event-title">Chegada e acolhida</span>
+          </div>
+          <div class="event">
+            <span class="event-time">08:30 - 09:00</span>
+            <span class="event-title">Lanche da manhã</span>
+          </div>
+          <div class="event">
+            <span class="event-time">09:00 - 09:30</span>
+            <span class="event-title">Atividade lúdica</span>
+          </div>
+          <div class="event">
+            <span class="event-time">10:00 - 11:30</span>
+            <span class="event-title">Sono/descanso</span>
+          </div>
+          <div class="event">
+            <span class="event-time">11:30 - 12:00</span>
+            <span class="event-title">Almoço</span>
+          </div>
+          <div class="event">
+            <span class="event-time">12:00 - 14:30</span>
+            <span class="event-title">Sono/descanso</span>
+          </div>
+          <div class="event">
+            <span class="event-time">14:30 - 15:00</span>
+            <span class="event-title">Lanche da tarde</span>
+          </div>
+          <div class="event">
+            <span class="event-time">15:00 - 16:00</span>
+            <span class="event-title">Atividade livre</span>
+          </div>
+          <div class="event">
+            <span class="event-time">16:00 - 17:30</span>
+            <span class="event-title">Saída</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-container" style="margin-top: 20px;">
+        <h4><i class="fas fa-edit"></i> Editar Rotina</h4>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Turma</label>
+            <select>
+              <option>Berçário II</option>
+              <option>Berçário I</option>
+              <option>Maternal I</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Dia da semana</label>
+            <select>
+              <option>Segunda-feira</option>
+              <option>Terça-feira</option>
+              <option>Quarta-feira</option>
+              <option>Quinta-feira</option>
+              <option>Sexta-feira</option>
+            </select>
+          </div>
+        </div>
+        
+        <div id="routine-items">
+          <div class="routine-item" style="display: flex; gap: 10px; margin-bottom: 10px; align-items: center;">
+            <div style="flex: 1;">
+              <label>Horário</label>
+              <input type="time" style="width: 100%;">
+            </div>
+            <div style="flex: 1;">
+              <label>até</label>
+              <input type="time" style="width: 100%;">
+            </div>
+            <div style="flex: 3;">
+              <label>Atividade</label>
+              <input type="text" placeholder="Descrição da atividade" style="width: 100%;">
+            </div>
+            <button class="btn-icon" style="margin-top: 18px;"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
+        
+        <button class="btn btn-secondary" style="margin-top: 10px;">
+          <i class="fas fa-plus"></i> Adicionar Item
+        </button>
+        
+        <div class="form-actions">
+          <button class="btn btn-secondary">Cancelar</button>
+          <button class="btn btn-primary">Salvar Rotina</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Planejamento > Rotinas Diárias</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

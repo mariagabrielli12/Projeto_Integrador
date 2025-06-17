@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios - Portal do Responsável</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo"><i class="fas fa-graduation-cap"></i><h1>Rede Educacional</h1></div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item"><a href="index.html"><i class="fas fa-home"></i><span>Página Inicial</span></a></div>
+        <div class="menu-item"><a href="perfil_crianca.html"><i class="fas fa-child"></i><span>Perfil da Criança</span></a></div>
+        <div class="menu-item active"><a href="relatorios_responsavel.html"><i class="fas fa-file-alt"></i><span>Relatórios</span></a></div>
+        <div class="menu-item"><a href="avisos_responsavel.html"><i class="fas fa-bell"></i><span>Avisos</span></a></div>
+        <div class="menu-item"><a href="atestados_responsavel.html"><i class="fas fa-notes-medical"></i><span>Atestados</span></a></div>
+      </div>
+    </div>
+    <div class="menu-item">
+      <div class="logout"><a href="/tela_login/login.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a></div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title"><i class="fas fa-file-alt"></i><h2>Relatórios</h2></div>
+      <div class="user-info">
+        <div class="user-avatar">RA</div>
+        <span>Responsável</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <!-- Filtros -->
+      <div class="form-container">
+        <div class="filter-section">
+          <h3 class="section-title"><i class="fas fa-filter"></i> Filtrar Relatórios</h3>
+          <div class="filter-grid">
+            <div class="form-group">
+              <label for="report-type">Tipo de Relatório</label>
+              <select id="report-type" class="filter-input">
+                <option value="">Todos os tipos</option>
+                <option value="cognitive">Desenvolvimento Cognitivo</option>
+                <option value="behavior">Comportamento</option>
+                <option value="health">Saúde</option>
+                <option value="general">Geral</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="report-period">Período</label>
+              <select id="report-period" class="filter-input">
+                <option value="recent">Mais recentes</option>
+                <option value="last-month">Último mês</option>
+                <option value="last-semester">Último semestre</option>
+                <option value="custom">Personalizado</option>
+              </select>
+            </div>
+            
+            <div class="form-group" id="custom-date-range" style="display:none;">
+              <label>Intervalo de datas</label>
+              <div class="date-range">
+                <input type="date" id="start-date" class="filter-input">
+                <span>até</span>
+                <input type="date" id="end-date" class="filter-input">
+              </div>
+            </div>
+          </div>
+          <div class="filter-actions">
+            <button class="btn btn-secondary"><i class="fas fa-times"></i> Limpar</button>
+            <button class="btn btn-primary"><i class="fas fa-filter"></i> Aplicar Filtros</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Relatórios -->
+      <div class="form-container">
+        <div class="report-header">
+          <h3 class="section-title"><i class="fas fa-file-contract"></i> Relatórios Disponíveis</h3>
+          <div class="report-actions">
+            <button class="btn btn-secondary"><i class="fas fa-print"></i> Imprimir Todos</button>
+            <button class="btn btn-primary"><i class="fas fa-download"></i> Exportar Tudo</button>
+          </div>
+        </div>
+        
+        <div class="reports-list">
+          <div class="report-card highlighted">
+            <div class="report-card-header">
+              <div class="report-badge new">NOVO</div>
+              <h4><i class="fas fa-brain"></i> Relatório de Desenvolvimento Cognitivo</h4>
+              <span class="report-date">10/06/2025</span>
+            </div>
+            <div class="report-card-body">
+              <p>Avaliação do desenvolvimento cognitivo e aprendizagem da criança durante o último bimestre, com indicadores de progresso e áreas para melhoria.</p>
+              <div class="report-meta">
+                <span><i class="fas fa-user-edit"></i> Professora Ana Silva</span>
+                <span><i class="fas fa-clock"></i> 5 páginas</span>
+                <span><i class="fas fa-star"></i> Prioridade: Alta</span>
+              </div>
+            </div>
+            <div class="report-card-footer">
+              <a href="#" class="btn btn-outline"><i class="fas fa-eye"></i> Visualizar</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Baixar PDF</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-share-alt"></i> Compartilhar</a>
+            </div>
+          </div>
+          
+          <div class="report-card">
+            <div class="report-card-header">
+              <h4><i class="fas fa-users"></i> Relatório de Socialização</h4>
+              <span class="report-date">03/05/2025</span>
+            </div>
+            <div class="report-card-body">
+              <p>Análise do comportamento social e interação com colegas e professores, destacando pontos fortes e oportunidades de desenvolvimento.</p>
+              <div class="report-meta">
+                <span><i class="fas fa-user-edit"></i> Professora Ana Silva</span>
+                <span><i class="fas fa-clock"></i> 3 páginas</span>
+                <span><i class="fas fa-star"></i> Prioridade: Média</span>
+              </div>
+            </div>
+            <div class="report-card-footer">
+              <a href="#" class="btn btn-outline"><i class="fas fa-eye"></i> Visualizar</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Baixar PDF</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-share-alt"></i> Compartilhar</a>
+            </div>
+          </div>
+          
+          <div class="report-card">
+            <div class="report-card-header">
+              <h4><i class="fas fa-heartbeat"></i> Relatório de Saúde e Bem-Estar</h4>
+              <span class="report-date">15/04/2025</span>
+            </div>
+            <div class="report-card-body">
+              <p>Registro de saúde, alimentação e desenvolvimento físico da criança, incluindo observações sobre hábitos e recomendações.</p>
+              <div class="report-meta">
+                <span><i class="fas fa-user-edit"></i> Enfermeira Carla Souza</span>
+                <span><i class="fas fa-clock"></i> 2 páginas</span>
+                <span><i class="fas fa-star"></i> Prioridade: Normal</span>
+              </div>
+            </div>
+            <div class="report-card-footer">
+              <a href="#" class="btn btn-outline"><i class="fas fa-eye"></i> Visualizar</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Baixar PDF</a>
+              <a href="#" class="btn btn-outline"><i class="fas fa-share-alt"></i> Compartilhar</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pagination">
+          <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar/ocultar intervalo de datas personalizado
+    document.getElementById('report-period').addEventListener('change', function() {
+      const customDateRange = document.getElementById('custom-date-range');
+      customDateRange.style.display = this.value === 'custom' ? 'block' : 'none';
+    });
+  </script>
+</body>
+</html>

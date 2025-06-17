@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrar Observação - Professor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Css/style_professor.css" />
+</head>
+<body>
+  <!-- Sidebar igual às outras telas -->
+  <div class="sidebar">
+    <div class="logo"><i class="fas fa-baby"></i><h1>Portal do Professor - Creche</h1></div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item"><a href="tela_principal_professor.html"><i class="fas fa-home"></i><span>Dashboard</span></a></div>
+
+        <div class="menu-item has-submenu"><i class="fas fa-calendar-alt"></i><span>Planejamento</span></div>
+        <div class="submenu">
+          <div class="menu-item"><a href="plano_atividades.html"><i class="fas fa-calendar-day"></i><span>Plano de Atividades</span></a></div>
+          <div class="menu-item"><a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i><span>Atividades Lúdicas</span></a></div>
+          <div class="menu-item"><a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i><span>Rotinas Diárias</span></a></div>
+        </div>
+
+        <div class="menu-item has-submenu open"><i class="fas fa-chart-line"></i><span>Acompanhamento</span></div>
+        <div class="submenu open">
+          <div class="menu-item"><a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i><span>Desenvolvimento</span></a></div>
+          <div class="menu-item"><a href="relatorios.html"><i class="fas fa-file-alt"></i><span>Relatórios</span></a></div>
+        </div>
+
+        <div class="menu-item"><a href="comunicados.html"><i class="fas fa-comment-dots"></i><span>Comunicados</span></a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title"><i class="fas fa-edit"></i><h2>Registrar Observação</h2></div>
+      <div class="user-info"><div class="user-avatar">PR</div><span>Prof. Ana Silva</span><i class="fas fa-sign-out-alt" title="Sair"></i></div>
+    </div>
+
+    <div class="content-container">
+      <div class="form-container">
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="data">Data</label>
+              <input type="date" id="data" required>
+            </div>
+            <div class="form-group">
+              <label for="crianca">Criança</label>
+              <select id="crianca" required>
+                <option value="">Selecione</option>
+                <option value="joao">João Pedro</option>
+                <option value="maria">Maria Clara</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="area">Área de Desenvolvimento</label>
+              <select id="area" required>
+                <option value="">Selecione</option>
+                <option value="motor">Motricidade</option>
+                <option value="cognitivo">Cognitivo</option>
+                <option value="socioafetivo">Socioafetivo</option>
+                <option value="linguagem">Linguagem</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="habilidade">Habilidade Observada</label>
+              <input type="text" id="habilidade" placeholder="Ex: Equilíbrio, vocabulário..." required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="observacao">Descrição da Observação</label>
+            <textarea id="observacao" rows="4" placeholder="Descreva o que foi observado..." required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <a href="tela_avaliações_professor.html" class="btn btn-secondary"><i class="fas fa-times"></i> Cancelar</a>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Salvar Observação</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Acompanhamento > Registrar Observação</div>
+      <div>© 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</body>
+</html>

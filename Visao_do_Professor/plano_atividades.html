@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano de Atividades - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+ <div class="sidebar">
+  <div class="logo">
+    <i class="fas fa-baby"></i>
+    <h1>Portal do Professor - Creche</h1>
+  </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Dashboard</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item active">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-calendar-day"></i>
+        <h2>Plano de Atividades</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Ana Silva</span>
+        <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt" title="Sair"></i></a>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="welcome-banner">
+        <h3>Plano de Atividades</h3>
+        <p>Gerencie e planeje as atividades para suas turmas</p>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <label class="filter-label">Turma:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todas as turmas</option>
+                <option>Berçário I</option>
+                <option>Berçário II</option>
+                <option>Maternal I</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <label class="filter-label">Período:</label>
+            <div class="filter-input">
+              <input type="date">
+            </div>
+            <span>até</span>
+            <div class="filter-input">
+              <input type="date">
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary">Limpar</button>
+          <button class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <div class="table-settings">
+          <div class="results-per-page">Mostrando 1-5 de 8 atividades</div>
+          <button class="btn-cadastrar">
+            <a href="criar_atividade.html"><i class="fas fa-plus"></i> Nova Atividade</a>
+          </button>
+        </div>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Turma</th>
+              <th>Atividade</th>
+              <th>Objetivos</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>15/06/2023</td>
+              <td>Berçário II</td>
+              <td>Hora do Conto</td>
+              <td>Desenvolvimento linguístico</td>
+              <td><span class="status-badge active">Realizada</span></td>
+              <td>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>16/06/2023</td>
+              <td>Maternal I</td>
+              <td>Atividade Motora</td>
+              <td>Coordenação motora grossa</td>
+              <td><span class="status-badge active">Realizada</span></td>
+              <td>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>17/06/2023</td>
+              <td>Berçário I</td>
+              <td>Brincadeiras Sensoriais</td>
+              <td>Estimulação sensorial</td>
+              <td><span class="status-badge inactive">Pendente</span></td>
+              <td>
+                <button class="btn-icon"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <div class="pagination-info">Página 1 de 2</div>
+          <div class="pagination-controls">
+            <button class="pagination-btn" disabled>Anterior</button>
+            <button class="pagination-btn">Próxima</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Planejamento > Plano de Atividades</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
