@@ -10,6 +10,7 @@
 
 </head>
 <body>
+    
   <!-- Barra Lateral -->
     <div class="sidebar">
     <div class="logo">
@@ -103,36 +104,36 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="student-name">Nome</label>
-                        <input type="text" id="student-name" placeholder="Nome completo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" placeholder="Nome completo" required><span id="campoNome"></span> 
                     </div>
                     
                     <div class="form-group">
                         <label for="student-rg">RG</label>
-                        <input type="text" id="student-rg" placeholder="Número do RG">
+                        <input type="text" id="student-rg" placeholder="Número do RG"required>
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="student-cpf">CPF</label>
-                        <input type="text" id="student-cpf" placeholder="000.000.000-00">
+                        <input type="text" id="student-cpf" placeholder="000.000.000-00" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-birth">Data de Nascimento</label>
-                        <input type="text" id="student-birth" placeholder="dd/mm/aaaa">
+                        <input type="text" id="student-birth" placeholder="dd/mm/aaaa" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-phone">Telefone (Responsável)</label>
-                        <input type="tel" id="student-phone" placeholder="(00) 00000-0000">
+                        <input type="tel" id="student-phone" placeholder="(00) 00000-0000" required>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="student-email">E-mail</label>
-                    <input type="email" id="student-email" placeholder="exemplo@email.com">
+                    <input type="email" id="student-email" placeholder="exemplo@email.com" required>
                 </div>
                 
                 <h3 class="section-title">Endereço</h3>
@@ -140,17 +141,17 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="student-cep">CEP</label>
-                        <input type="text" id="student-cep" placeholder="00000-000">
+                        <input type="text" id="student-cep" placeholder="00000-000" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-address">Logradouro</label>
-                        <input type="text" id="student-address" placeholder="Rua, Avenida, etc.">
+                        <input type="text" id="student-address" placeholder="Rua, Avenida, etc." required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-number">Número</label>
-                        <input type="text" id="student-number" placeholder="Número">
+                        <input type="text" id="student-number" placeholder="Número" required>
                     </div>
                     
                     <div class="form-group">
@@ -167,32 +168,30 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="student-city">Cidade</label>
-                        <input type="text" id="student-city" placeholder="Cidade">
+                        <input type="text" id="student-city" placeholder="Cidade" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-district">Bairro</label>
-                        <input type="text" id="student-district" placeholder="Bairro">
+                        <input type="text" id="student-district" placeholder="Bairro" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-complement">Complemento</label>
-                        <input type="text" id="student-complement" placeholder="Complemento">
+                        <input type="text" id="student-complement" placeholder="Complemento" required>
                     </div>
                 </div>
                 
                 <div class="form-actions">
-                    <button class="btn btn-secondary">
-                        <i class="fas fa-times"></i> Cancelar
+                    <button class="btn btn-secondary" id="cancelar">
+                        <i class="fas fa-times"></i> 
                     </button>
-                    <button class="btn btn-primary">
-                        <i class="fas fa-save"></i> 
-
-                        <a href="Listagem_Alunos.html ">Salvar Cadastro</a>
-
+                   <button class="btn btn-primary" id="SalvarCadastro">
+                    <i class="fas fa-save"></i> Salvar Cadastro
                     </button>
                 </div>
             </div>
+      
             
             <!-- Footer -->
              <footer>
@@ -204,91 +203,96 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Menu expansivo
-            const menuItems = document.querySelectorAll('.menu-item.has-submenu');
-            menuItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    // Não fechar se clicar no ícone ou no texto
-                    if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
-                    
-                    const submenu = this.nextElementSibling;
-                    this.classList.toggle('open');
-                    submenu.classList.toggle('open');
-                });
-            });
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     // Máscaras para os campos
-        //     const cpfInput = document.getElementById('student-cpf');
-        //     const phoneInput = document.getElementById('student-phone');
-        //     const birthInput = document.getElementById('student-birth');
-        //     const cepInput = document.getElementById('student-cep');
-            
-        //     // Máscara para CPF
-        //     cpfInput.addEventListener('input', function(e) {
-        //         let value = e.target.value.replace(/\D/g, '');
-        //         if (value.length > 11) value = value.slice(0, 11);
-                
-        //         if (value.length > 9) {
-        //             value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-        //         } else if (value.length > 6) {
-        //             value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
-        //         } else if (value.length > 3) {
-        //             value = value.replace(/(\d{3})(\d+)/, '$1.$2');
-        //         }
-        //         e.target.value = value;
-        //     });
-            
-        //     // Máscara para telefone
-        //     phoneInput.addEventListener('input', function(e) {
-        //         let value = e.target.value.replace(/\D/g, '');
-        //         if (value.length > 11) value = value.slice(0, 11);
-                
-        //         if (value.length > 10) {
-        //             value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-        //         } else if (value.length > 6) {
-        //             value = value.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
-        //         } else if (value.length > 2) {
-        //             value = value.replace(/(\d{2})(\d+)/, '($1) $2');
-        //         }
-        //         e.target.value = value;
-        //     });
-            
-        //     // Máscara para data de nascimento
-        //     birthInput.addEventListener('input', function(e) {
-        //         let value = e.target.value.replace(/\D/g, '');
-        //         if (value.length > 8) value = value.slice(0, 8);
-                
-        //         if (value.length > 4) {
-        //             value = value.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
-        //         } else if (value.length > 2) {
-        //             value = value.replace(/(\d{2})(\d+)/, '$1/$2');
-        //         }
-        //         e.target.value = value;
-        //     });
-            
-        //     // Máscara para CEP
-        //     cepInput.addEventListener('input', function(e) {
-        //         let value = e.target.value.replace(/\D/g, '');
-        //         if (value.length > 8) value = value.slice(0, 8);
-                
-        //         if (value.length > 5) {
-        //             value = value.replace(/(\d{5})(\d+)/, '$1-$2');
-        //         }
-        //         e.target.value = value;
-        //     });
-            
-            // Simular upload de foto
-            const uploadBtn = document.querySelector('.photo-upload .btn');
-            const fileInfo = document.querySelector('.file-info');
-            
-            uploadBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Simular seleção de arquivo
-                fileInfo.textContent = "foto_aluno.jpg";
-            });
-         });
-    </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Máscaras
+    const cpfInput = document.getElementById('student-cpf');
+    const phoneInput = document.getElementById('student-phone');
+    const birthInput = document.getElementById('student-birth');
+    const cepInput = document.getElementById('student-cep');
+
+    // Máscara CPF
+    cpfInput.addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
+        else if (v.length > 3) v = v.replace(/(\d{3})(\d+)/, '$1.$2');
+        e.target.value = v;
+    });
+
+    // Máscara telefone
+    phoneInput.addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        else if (v.length > 6) v = v.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
+        else if (v.length > 2) v = v.replace(/(\d{2})(\d+)/, '($1) $2');
+        e.target.value = v;
+    });
+
+    // Máscara data
+    birthInput.addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 8);
+        if (v.length > 4) v = v.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
+        else if (v.length > 2) v = v.replace(/(\d{2})(\d+)/, '$1/$2');
+        e.target.value = v;
+    });
+
+    // Máscara CEP
+    cepInput.addEventListener('input', function(e) {
+        let v = e.target.value.replace(/\D/g, '').slice(0, 8);
+        if (v.length > 5) v = v.replace(/(\d{5})(\d+)/, '$1-$2');
+        e.target.value = v;
+    });
+
+    // Validação ao clicar em salvar
+    document.getElementById("SalvarCadastro").addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const campos = [
+            { id: "nome", nome: "Nome" },
+            { id: "student-rg", nome: "RG" },
+            { id: "student-cpf", nome: "CPF" },
+            { id: "student-birth", nome: "Data de Nascimento" },
+            { id: "student-phone", nome: "Telefone" },
+            { id: "student-email", nome: "Email" },
+            { id: "student-cep", nome: "CEP" },
+            { id: "student-address", nome: "Logradouro" },
+            { id: "student-number", nome: "Número" },
+            { id: "student-city", nome: "Cidade" },
+            { id: "student-district", nome: "Bairro" },
+         
+            { id: "student-state", nome: "Estado" },
+        ];
+
+        let valido = true;
+
+        // Limpar mensagens anteriores
+        document.querySelectorAll(".mensagem-erro").forEach(e => e.remove());
+        document.querySelectorAll("input, select").forEach(el => el.classList.remove("erro"));
+
+        campos.forEach(campo => {
+            const input = document.getElementById(campo.id);
+            const valor = input.value.trim();
+
+            if (!valor || (input.tagName === "SELECT" && valor === "")) {
+                valido = false;
+                input.classList.add("erro");
+
+                const msg = document.createElement("div");
+                msg.className = "mensagem-erro";
+                msg.textContent = `${campo.nome} é obrigatório.`;
+
+                input.parentNode.appendChild(msg);
+            }
+        });
+
+        if (valido) {
+            // Enviar dados ou redirecionar
+            window.location.href = "Listagem_Alunos.html";
+        }
+    });
+});
+</script>
+
 </body>
 </html>
