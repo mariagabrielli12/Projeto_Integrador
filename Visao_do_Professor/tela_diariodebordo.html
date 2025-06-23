@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário de Bordo - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+ <div class="sidebar">
+  <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      < <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Início</span></a>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item active">
+        <a href="tela_diariodebordo.html"><i class="fas fa-book"></i>
+        <span>Diário de Bordo</span></a>
+      </div>
+
+      <div class="menu-item">
+        <a href="tela_ocorrencia_professor.html"><i class="fas fa-exclamation-triangle"></i>
+        <span>Ocorrências</span></a>
+      </div>
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+    <div class="menu-item">
+                    <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+  </div>
+</div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-book"></i>
+        <h2>Diário de Bordo</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Professor</span>
+       
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="welcome-banner">
+        <h3>Diário de Bordo</h3>
+        <p>Registre as atividades diárias e observações importantes sobre as crianças</p>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <label class="filter-label">Turma:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todas as turmas</option>
+                <option>Berçário I</option>
+                <option>Berçário II</option>
+                <option>Maternal I</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <label class="filter-label">Data:</label>
+            <div class="filter-input">
+              <input type="date">
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary">Limpar</button>
+          <button class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Turma</label>
+            <select>
+              <option>Berçário II</option>
+              <option>Berçário I</option>
+              <option>Maternal I</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Data</label>
+            <input type="date" value="2025-06-18">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Atividade Realizada</label>
+          <input type="text" placeholder="Descreva a atividade realizada">
+        </div>
+        
+        <div class="form-group">
+          <label>Local da Atividade</label>
+          <input type="text" placeholder="Sala de atividades, parquinho, etc.">
+        </div>
+        
+        <div class="form-group">
+          <label>Objetivo da Atividade</label>
+          <textarea rows="3" placeholder="Descreva os objetivos pedagógicos desta atividade"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Análise/Resultados</label>
+          <textarea rows="5" placeholder="Descreva como a atividade foi desenvolvida, participação das crianças, resultados alcançados"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Observações Importantes</label>
+          <textarea rows="3" placeholder="Comportamentos relevantes, dificuldades, destaques"></textarea>
+        </div>
+        
+        <div class="form-actions">
+          <button class="btn btn-secondary">Cancelar</button>
+          <button class="btn btn-primary">Salvar Registro</button>
+        </div>
+      </div>
+
+      <div class="table-container" style="margin-top: 30px;">
+        <h4><i class="fas fa-history"></i> Registros Anteriores</h4>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Turma</th>
+              <th>Atividade</th>
+              <th>Observações</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>17/06/2025</td>
+              <td>Berçário II</td>
+              <td>Atividade sensorial com texturas</td>
+              <td>Boa participação geral, João demonstrou interesse especial</td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>16/06/2025</td>
+              <td>Maternal I</td>
+              <td>Contação de histórias com fantoches</td>
+              <td>Maria e Lucas participaram ativamente das interações</td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Diário de Bordo</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

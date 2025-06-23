@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justificar Falta</title>
+    <link rel="stylesheet" href="CSS/style_Painel_responsavel.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="user-info">
+            <img src="imagem/user.webp" alt="Usuário" class="user-avatar">
+            <p class="user-name">Usuario</p>
+        </div>
+        <ul class="menu">
+            <li><a href="/Visao_do_responsavel/tela_painel_responsavel.html">Início</a></li>
+            <li><a href="/Visao_do_responsavel/tela_responsavel_perfil.html">Perfil</a></li>
+            <li><a href="/Visao_do_responsavel/tela_responsavel_boletim.html">Boletim</a></li>
+            <li><a href="#">Justificar Falta</a></li>
+            <li><a href="../tela_login/telaaluno.html">Sair</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h2>Justificar Falta</h2>
+        <hr><br>
+
+        <div class="container3">
+            <h3>Informe os detalhes da falta</h3>
+            <form action="processar_justificativa.php" method="POST">
+                <label for="data">Data da falta:</label>
+                <input type="date" id="data" name="data" required><br><br>
+
+                <label for="motivo">Motivo:</label>
+                <textarea id="motivo" name="motivo" rows="4" placeholder="Descreva o motivo da falta..." required></textarea><br><br>
+
+                <label for="arquivo">Anexar Comprovante (opcional):</label>
+                <input type="file" id="arquivo" name="arquivo"><br><br>
+
+                <button type="submit" class="btn-enviar">Enviar Justificativa</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

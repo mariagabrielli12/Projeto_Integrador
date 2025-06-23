@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Secretário</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="CSS_Secretario/Style_Secretario.css" />
+  <style>
+    /* Estilos adicionais para o dashboard do secretário, se necessário */
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    .summary-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.2s;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .summary-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .summary-card .card-icon {
+      font-size: 24px;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .summary-card .card-icon.blue { background-color: #3498db; }
+    .summary-card .card-icon.green { background-color: #27ae60; }
+    .summary-card .card-icon.orange { background-color: #f39c12; }
+    .summary-card .card-icon.red { background-color: #e74c3c; }
+    .summary-card .card-content h3 {
+      margin: 0;
+      font-size: 16px;
+      color: var(--primary);
+    }
+    .summary-card .card-content p {
+      margin: 5px 0 0;
+      font-size: 13px;
+      color: #7f8c8d;
+    }
+
+    /* Cards para avisos e relatórios */
+    .report-card, .notice-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 15px;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .report-card:hover, .notice-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    }
+    .report-card .card-title, .notice-card .card-title {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+    }
+    .report-card .card-title i, .notice-card .card-title i {
+        margin-right: 10px;
+        color: var(--primary-light);
+    }
+    .report-card .card-meta, .notice-card .card-meta {
+        font-size: 12px;
+        color: #7f8c8d;
+        margin-bottom: 10px;
+    }
+    .report-card .card-meta span, .notice-card .card-meta span {
+        margin-right: 15px;
+    }
+    .report-card .card-meta i, .notice-card .card-meta i {
+        margin-right: 5px;
+    }
+    .report-card .card-text, .notice-card .card-text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text);
+    }
+    .card-actions {
+        margin-top: 15px;
+        text-align: right;
+    }
+  </style>
+</head>
+<body>
+   <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+  <div class="menu-section">
+    <div class="menu-item active">
+      <i class="fas fa-user-cog"></i>
+       <span><a href="index.html" style="color:inherit; text-decoration:none;">Início</a></span>
+    </div>
+
+    <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Cadastros</span>
+    </div>
+    <div class="submenu open">
+      <!-- Listagens -->
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Alunos.html" style="color:inherit; text-decoration:none;">Cadastro de Alunos</a></span>
+      </div>
+
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Responsavel.html" style="color:inherit; text-decoration:none;">Cadastro de Responsavel</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-file-medical"></i>
+        <span><a href="Listagem_Atestado.html" style="color:inherit; text-decoration:none;">Cadastro de Atestados</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span><a href="Listagem_Turma.html" style="color:inherit; text-decoration:none;">Cadastro de Turmas</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-door-open"></i>
+        <span><a href="Listagem_Sala.html" style="color:inherit; text-decoration:none;">Cadastro de Salas</a></span>
+      </div>
+      
+
+</div>
+      <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Gerenciamento</span>
+    </div>
+     <div class="submenu open">
+      <!-- Operações -->
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Troca_Turma.html" style="color:inherit; text-decoration:none;">Troca de Turma</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Listagem_Ocorrencia.html" style="color:inherit; text-decoration:none;">Ocorrências</a></span>
+      </div>
+      </div>
+    </div>
+  <div class="menu-item">
+            <a href="avisos_secretario.html" style="color:inherit; text-decoration:none;"><i class="fas fa-bell"></i><span>Avisos</span></a>
+          </div>
+  <div class="menu-item">
+                    <a href="../../tela_login/telasecretario.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+</div>
+  </div>
+
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-tachometer-alt"></i>
+        <h2>Secretário</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">AD</div>
+        <span>Secretário</span>
+      </div>
+    </div>
+
+    <div class="content-container dashboard-container">
+      <div class="card">
+        <div class="card-header"><h1 class="section-title style= font-size: 14px; padding-bottom: 5px;">Ações Rápidas</h1></div>
+        <div class="card-body shortcut-grid">
+          <a href="Listagem_Alunos.html" class="shortcut-card" title="Gerenciar alunos">
+            <i class="fas fa-users"></i>
+            <span>Cadastro de Alunos</span>
+          </a>
+          <a href="Listagem_Responsavel.html" class="shortcut-card" title="Gerenciar responsáveis">
+            <i class="fas fa-users"></i>
+            <span>Cadastro de Responsável</span>
+          </a>
+          <a href="Listagem_Atestado.html" class="shortcut-card" title="Gerenciar atestados">
+            <i class="fas fa-file-medical"></i>
+            <span>Cadastro de Atestados</span>
+          </a>
+          <a href="Listagem_Turma.html" class="shortcut-card" title="Gerenciar turmas">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>Cadastro de Turmas</span>
+          </a>
+          <a href="Listagem_Sala.html" class="shortcut-card" title="Gerenciar salas">
+            <i class="fas fa-door-open"></i>
+            <span>Cadastro de Salas</span>
+          </a>
+          <a href="Troca_Turma.html" class="shortcut-card" title="Realizar troca de turma">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Troca de Turma</span>
+          </a>
+          <a href="Listagem_Ocorrencia.html" class="shortcut-card" title="Visualizar ocorrências">
+            <i class="fas fa-exchange-alt"></i>
+            <span>Ocorrências</span>
+          </a>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="card-header"><h1 style="font-size: 14px; padding-bottom: 5px;">Avisos Rescentes</h1></div>
+        <div class="card-body">
+            <div class="notice-card">
+                <h4 class="card-title"><i class="fas fa-calendar-alt"></i> Manutenção do Sistema</h4>
+                <p class="card-meta"><span><i class="far fa-clock"></i> Hoje, 10:00</span> <span><i class="fas fa-tag"></i> Categoria: Administrativo</span></p>
+                <p class="card-text">Informamos que haverá uma breve manutenção no sistema hoje à noite, das 22h às 23h.</p>
+            </div>
+             <div class="notice-card">
+                <h4 class="card-title"><i class="fas fa-exclamation-circle"></i> Prazo para Atestados</h4>
+                <p class="card-meta"><span><i class="far fa-clock"></i> Ontem, 15:30</span> <span><i class="fas fa-tag"></i> Categoria: Urgente</span></p>
+                <p class="card-text">Lembrete: O prazo final para entrega de atestados referentes ao mês anterior é 25/06.</p>
+            </div>
+            <div class="card-actions">
+                <a href="avisos_secretario.html" class="btn btn-primary">Ver Todos os Avisos <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">M:\visim</div>
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function (e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

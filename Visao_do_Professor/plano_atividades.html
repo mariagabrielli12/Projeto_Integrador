@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano de Atividades - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+  <style>
+    /* Estilos específicos para a página de Plano de Atividades */
+    .plan-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.3s ease;
+      position: relative;
+      top: 1px;
+    }
+    
+    .tab-btn:hover {
+      color: var(--primary-light);
+    }
+    
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none; /* Esconde todas as abas por padrão */
+    }
+    .tab-content.active {
+      display: block; /* Mostra a aba ativa */
+    }
+
+    /* Estilos do calendário */
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: white;
+    }
+    .calendar-day-header {
+      background-color: var(--table-header);
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .calendar-day-header:last-child {
+      border-right: none;
+    }
+    .calendar-day {
+      min-height: 120px;
+      padding: 10px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background-color: #fcfcfc;
+    }
+    .calendar-day:nth-child(7n) { /* Última coluna */
+      border-right: none;
+    }
+    .calendar-day.empty {
+      background-color: var(--secondary);
+      cursor: not-allowed;
+    }
+    .calendar-activity {
+      background-color: var(--primary-light);
+      color: white;
+      padding: 5px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    .calendar-activity:hover {
+        opacity: 0.9;
+    }
+
+    /* Estilos para formulários (Cadastro de Atividade) */
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Estilos de tabela (para listagem de atividades - se houver) */
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .table th, .table td {
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .table th {
+      background-color: var(--table-header);
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .table tbody tr:nth-child(even) {
+      background-color: var(--secondary);
+    }
+
+    .table tbody tr:hover {
+      background-color: #f0f0f0;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 5px;
+    }
+
+    .action-buttons .btn {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+    <div class="sidebar">
+ <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Início</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item active">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+      <div class="menu-item">
+                    <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <h2><i class="fas fa-clipboard-list"></i> Plano de Atividades</h2>
+      <div class="user-info">Olá, Professor! <div class="user-avatar">PR</div><span>Professor</span></div>
+    </div>
+
+    <div class="card">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab(event, 'cadastrar-atividade')">
+                <i class="fas fa-plus-circle"></i> Cadastrar Atividade
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'visualizar-plano')">
+                <i class="fas fa-calendar-alt"></i> Visualizar Plano
+            </button>
+        </div>
+
+        <div id="cadastrar-atividade" class="tab-content active">
+            <div class="card-header"><h3 class="section-title">Cadastrar Nova Atividade no Plano</h3></div>
+            <div class="card-body">
+                <form id="form-atividade">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="activity-title">Título da Atividade*</label>
+                            <input type="text" id="activity-title" placeholder="Ex: Roda de Leitura" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="activity-class">Turma*</label>
+                            <select id="activity-class" required>
+                                <option value="">Selecione a Turma</option>
+                                <option value="Maternal I - A">Maternal I - A</option>
+                                <option value="Maternal II - B">Maternal II - B</option>
+                                <option value="Jardim I - C">Jardim I - C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="activity-date">Data*</label>
+                            <input type="date" id="activity-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="activity-time">Hora*</label>
+                            <input type="time" id="activity-time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-description">Descrição/Objetivos*</label>
+                        <textarea id="activity-description" placeholder="Descreva os objetivos e como a atividade será realizada" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="activity-materials">Materiais Necessários</label>
+                        <input type="text" id="activity-materials" placeholder="Ex: Livros infantis, almofadas, projetor">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" type="reset">
+                            <i class="fas fa-times"></i> Limpar
+                        </button>
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-save"></i> Salvar Atividade
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="visualizar-plano" class="tab-content">
+            <div class="card-header"><h3 class="section-title">Visualizar Plano de Atividades</h3></div>
+            <div class="card-body">
+                <div class="filter-grid">
+                    <div class="form-group">
+                        <label for="filter-start-date">Data Inicial</label>
+                        <input type="date" id="filter-start-date" onchange="renderCalendar()">
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-end-date">Data Final</label>
+                        <input type="date" id="filter-end-date" onchange="renderCalendar()">
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-class">Turma</label>
+                        <select id="filter-class" onchange="renderCalendar()">
+                            <option value="">Todas as Turmas</option>
+                            <option value="Maternal I - A">Maternal I - A</option>
+                            <option value="Maternal II - B">Maternal II - B</option>
+                            <option value="Jardim I - C">Jardim I - C</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="calendar-month">Mês</label>
+                        <select id="calendar-month" onchange="renderCalendar()">
+                            <option value="0">Janeiro</option>
+                            <option value="1">Fevereiro</option>
+                            <option value="2">Março</option>
+                            <option value="3">Abril</option>
+                            <option value="4">Maio</option>
+                            <option value="5">Junho</option>
+                            <option value="6">Julho</option>
+                            <option value="7">Agosto</option>
+                            <option value="8">Setembro</option>
+                            <option value="9">Outubro</option>
+                            <option value="10">Novembro</option>
+                            <option value="11">Dezembro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="calendar-year">Ano</label>
+                        <input type="number" id="calendar-year" value="2025" min="2020" max="2030" onchange="renderCalendar()">
+                    </div>
+                </div>
+
+                <div class="calendar-header">
+                    <button class="btn btn-outline" onclick="prevMonth()"><i class="fas fa-chevron-left"></i> Mês Anterior</button>
+                    <h3 id="current-month-year">Junho 2025</h3>
+                    <button class="btn btn-outline" onclick="nextMonth()">Mês Seguinte <i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="calendar-grid" id="calendar-view">
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-path">M:\\visim</div>
+        <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+
+  </div> <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+      }
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      document.getElementById(tabName).classList.add("active");
+      if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add("active");
+      } else {
+        const targetButton = document.querySelector(`.tab-buttons button[onclick*="${tabName}"]`);
+        if (targetButton) {
+            targetButton.classList.add('active');
+        }
+      }
+      // Se for a aba de visualizar plano, renderiza o calendário
+      if (tabName === 'visualizar-plano') {
+          renderCalendar();
+      }
+    }
+
+    // --- Dados Simulados para Atividades ---
+    let activitiesDatabase = [
+      { id: 1, title: "Roda de Leitura", class: "Maternal I - A", date: "2025-06-25", time: "09:30", description: "Leitura de contos infantis com fantoches.", materials: "Livros infantis, fantoches", type: "Cognitiva" },
+      { id: 2, title: "Pintura a Dedo", class: "Maternal II - B", date: "2025-06-26", time: "10:00", description: "Exploração de cores e texturas com tintas atóxicas.", materials: "Tintas, papel sulfite, aventais", type: "Sensorial" },
+      { id: 3, title: "Circuito Motor", class: "Jardim I - C", date: "2025-06-27", time: "11:00", description: "Pista de obstáculos para desenvolver coordenação motora grossa.", materials: "Cones, arcos, túnel", type: "Motora" },
+      { id: 4, title: "Contação de Histórias", class: "Maternal I - A", date: "2025-07-02", time: "14:00", description: "História interativa com participação das crianças.", materials: "Livro de histórias, almofadas", type: "Social" },
+    ];
+
+    // --- Funcionalidades de Cadastro ---
+    document.getElementById('form-atividade').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('activity-title').value;
+      const activityClass = document.getElementById('activity-class').value;
+      const date = document.getElementById('activity-date').value;
+      const time = document.getElementById('activity-time').value;
+      const description = document.getElementById('activity-description').value;
+      const materials = document.getElementById('activity-materials').value;
+
+      if (!title || !activityClass || !date || !time || !description) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+      }
+
+      const newActivity = {
+        id: activitiesDatabase.length > 0 ? Math.max(...activitiesDatabase.map(a => a.id)) + 1 : 1,
+        title,
+        class: activityClass,
+        date,
+        time,
+        description,
+        materials,
+        type: "Outros" // Pode ser adicionado um campo para o tipo no formulário se necessário
+      };
+
+      activitiesDatabase.push(newActivity);
+      saveActivitiesToLocalStorage(); // Salva no LocalStorage
+
+      alert('Atividade salva com sucesso!');
+      document.getElementById('form-atividade').reset();
+      
+      // Mudar para a aba de visualizar plano após salvar
+      const visualizarPlanoTabBtn = document.querySelector('.tab-buttons button[onclick*="visualizar-plano"]');
+      openTab({ currentTarget: visualizarPlanoTabBtn }, 'visualizar-plano');
+    });
+
+    // --- Funcionalidades do Calendário ---
+    function renderCalendar() {
+      const month = parseInt(document.getElementById('calendar-month').value);
+      const year = parseInt(document.getElementById('calendar-year').value);
+      const classFilter = document.getElementById('filter-class').value;
+      const startDateFilter = document.getElementById('filter-start-date').value;
+      const endDateFilter = document.getElementById('filter-end-date').value;
+
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const daysInMonth = lastDay.getDate();
+      const startDayOfWeek = firstDay.getDay(); // 0 = Sunday, 1 = Monday...
+
+      document.getElementById('current-month-year').textContent = `${new Date(year, month).toLocaleString('pt-BR', { month: 'long', year: 'numeric' })}`;
+
+      let calendarHTML = `
+        <div class="calendar-day-header">Dom</div>
+        <div class="calendar-day-header">Seg</div>
+        <div class="calendar-day-header">Ter</div>
+        <div class="calendar-day-header">Qua</div>
+        <div class="calendar-day-header">Qui</div>
+        <div class="calendar-day-header">Sex</div>
+        <div class="calendar-day-header">Sáb</div>
+      `;
+
+      // Dias vazios antes do primeiro dia do mês
+      for (let i = 0; i < startDayOfWeek; i++) {
+        calendarHTML += `<div class="calendar-day empty"></div>`;
+      }
+
+      // Dias do mês
+      for (let day = 1; day <= daysInMonth; day++) {
+        const currentDate = new Date(year, month, day);
+        const formattedDate = currentDate.toISOString().split('T')[0]; // YYYY-MM-DD
+
+        const dayActivities = activitiesDatabase.filter(activity => {
+          const activityDate = new Date(activity.date + 'T00:00:00'); // Garante que a data seja comparável
+          const meetsDateFilter = (!startDateFilter || activityDate >= new Date(startDateFilter + 'T00:00:00')) &&
+                                  (!endDateFilter || activityDate <= new Date(endDateFilter + 'T00:00:00'));
+          const meetsMonthYear = (activityDate.getMonth() === month && activityDate.getFullYear() === year);
+          const meetsClassFilter = (classFilter === '' || activity.class === classFilter);
+          
+          return meetsDateFilter && meetsMonthYear && meetsClassFilter && activityDate.getDate() === day;
+        });
+        
+        calendarHTML += `<div class="calendar-day">
+                            <span class="calendar-day-number">${day}</span>`;
+        
+        dayActivities.forEach(activity => {
+          calendarHTML += `
+            <div class="calendar-activity" onclick="viewActivity(${activity.id})" title="${activity.title} (${activity.time}) - ${activity.class}">
+              ${activity.time.substring(0, 5)} - ${activity.title}
+            </div>
+          `;
+        });
+        
+        calendarHTML += `</div>`;
+      }
+      
+      document.getElementById('calendar-view').innerHTML = calendarHTML;
+    }
+
+    function prevMonth() {
+      let month = parseInt(document.getElementById('calendar-month').value);
+      let year = parseInt(document.getElementById('calendar-year').value);
+      month--;
+      if (month < 0) {
+        month = 11;
+        year--;
+      }
+      document.getElementById('calendar-month').value = month;
+      document.getElementById('calendar-year').value = year;
+      renderCalendar();
+    }
+
+    function nextMonth() {
+      let month = parseInt(document.getElementById('calendar-month').value);
+      let year = parseInt(document.getElementById('calendar-year').value);
+      month++;
+      if (month > 11) {
+        month = 0;
+        year++;
+      }
+      document.getElementById('calendar-month').value = month;
+      document.getElementById('calendar-year').value = year;
+      renderCalendar();
+    }
+
+    function viewActivity(activityId) {
+      const activity = activitiesDatabase.find(a => a.id === activityId);
+      if (activity) {
+        alert(`Detalhes da Atividade:\n\nTítulo: ${activity.title}\nTurma: ${activity.class}\nData: ${activity.date}\nHora: ${activity.time}\nDescrição: ${activity.description}\nMateriais: ${activity.materials || 'N/A'}`);
+      }
+    }
+    
+    // Funções para armazenamento local
+    function saveActivitiesToLocalStorage() {
+      localStorage.setItem('activitiesPlanDatabase', JSON.stringify(activitiesDatabase));
+    }
+    
+    function loadActivitiesFromLocalStorage() {
+      const savedActivities = localStorage.getItem('activitiesPlanDatabase');
+      if (savedActivities) {
+        activitiesDatabase = JSON.parse(savedActivities);
+      }
+    }
+
+    // Inicialização da página
+    document.addEventListener('DOMContentLoaded', function() {
+      loadActivitiesFromLocalStorage(); // Carrega atividades salvas
+      
+      // Verifica se há uma atividade lúdica selecionada para preenchimento
+      const selectedActivityForPlan = JSON.parse(localStorage.getItem('selectedActivityForPlan'));
+      if (selectedActivityForPlan) {
+          // Ativa a aba de cadastro
+          openTab(null, 'cadastrar-atividade'); 
+          // Preenche o formulário com os dados da atividade lúdica
+          document.getElementById('activity-title').value = selectedActivityForPlan.title;
+          document.getElementById('activity-description').value = selectedActivityForPlan.objectives; // Usar objetivos como descrição
+          document.getElementById('activity-materials').value = selectedActivityForPlan.materials;
+          
+          localStorage.removeItem('selectedActivityForPlan'); // Limpa o LocalStorage após o uso
+      } else {
+          // Se não houver atividade selecionada, ativa a aba padrão
+          openTab(null, 'cadastrar-atividade');
+      }
+      
+      // Define a data atual nos filtros de data e no calendário
+      const today = new Date();
+      document.getElementById('filter-start-date').valueAsDate = today;
+      // Define a data final como uma semana à frente, ou ajuste conforme necessário
+      document.getElementById('filter-end-date').valueAsDate = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000); 
+      
+      document.getElementById('calendar-month').value = today.getMonth();
+      document.getElementById('calendar-year').value = today.getFullYear();
+      
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atestados - Portal do Responsável</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/Style.css"> </head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>Rede Educacional</h1>
+        </div>
+        <div class="menu">
+            <div class="menu-section">
+                <div class="menu-item">
+                    <a href="Index.html"><i class="fas fa-home"></i><span>Página Inicial</span></a>
+                </div>
+                <div class="menu-item">
+                    <a href="perfil_crianca.html"><i class="fas fa-child"></i><span>Perfil da Criança</span></a>
+                </div>
+                <div class="menu-item">
+                    <a href="relatorios_responsavel.html"><i class="fas fa-file-alt"></i><span>Relatórios</span></a>
+                </div>
+                <div class="menu-item">
+                    <a href="avisos_responsavel.html"><i class="fas fa-bell"></i><span>Avisos</span></a>
+                </div>
+                <div class="menu-item active">
+                    <a href="atestados_responsavel.html"><i class="fas fa-notes-medical"></i><span>Atestados</span></a>
+                </div>
+                <div class="menu-item">
+                    <a href="ocorrencias_responsavel.html"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+                </div>
+            </div>
+                <div class="menu-item">
+                    <a href="../tela_login/telaaluno.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="page-title">
+                <i class="fas fa-notes-medical"></i>
+                <h2>Atestados</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">RA</div>
+                <span>Responsável</span>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div class="card">
+                <div class="card-header"><i class="fas fa-calendar-check"></i><h3 class="section-title">Gerenciar Atestados</h3></div>
+                <div class="card-body">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" onclick="openTab(event, 'novo-atestado')">
+                            <i class="fas fa-plus-circle"></i> Enviar Novo Atestado
+                        </button>
+                        <button class="tab-btn" onclick="openTab(event, 'historico')">
+                            <i class="fas fa-history"></i> Histórico de Atestados
+                        </button>
+                    </div>
+
+                    <div id="novo-atestado" class="tab-content active">
+                        <form id="form-atestado" onsubmit="enviarAtestado(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="inicio-afastamento"><i class="fas fa-calendar-day"></i> Início do Afastamento:</label>
+                                    <input type="date" id="inicio-afastamento" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fim-afastamento"><i class="fas fa-calendar-check"></i> Fim do Afastamento:</label>
+                                    <input type="date" id="fim-afastamento" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="observacoes"><i class="fas fa-comment-dots"></i> Observações (Opcional):</label>
+                                <textarea id="observacoes" rows="3" placeholder="Ex: A criança apresentou febre e dor de garganta."></textarea>
+                            </div>
+
+                            <div class="file-upload-container">
+                                <label for="arquivo-atestado" class="file-upload">
+                                    <input type="file" id="arquivo-atestado" accept=".pdf,.doc,.docx,.jpg,.png" required>
+                                    <span class="file-upload-label">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Arraste e solte ou clique para enviar o atestado</span>
+                                        <p>Formatos permitidos: PDF, DOCX, JPG, PNG (máx. 5MB)</p>
+                                    </span>
+                                </label>
+                                <div id="file-info" class="file-info">
+                                    <i class="fas fa-file-alt"></i> Nenhum arquivo selecionado
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar Atestado</button>
+                                <button type="reset" class="btn btn-secondary"><i class="fas fa-times-circle"></i> Limpar Campos</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="historico" class="tab-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Data Início</th>
+                                        <th>Data Fim</th>
+                                        <th>Status</th>
+                                        <th>Registrado em</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>12/06/2025</td>
+                                        <td>14/06/2025</td>
+                                        <td><span class="status-badge status-approved">Aprovado</span></td>
+                                        <td>10/06/2025</td>
+                                        <td>
+                                            <a href="detalhe_atestado.html" class="btn btn-view"><i class="fas fa-eye"></i> Ver Detalhes</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>01/05/2025</td>
+                                        <td>01/05/2025</td>
+                                        <td><span class="status-badge status-pending">Pendente</span></td>
+                                        <td>30/04/2025</td>
+                                        <td>
+                                            <a href="detalhe_atestado.html" class="btn btn-view"><i class="fas fa-eye"></i> Ver Detalhes</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>15/03/2025</td>
+                                        <td>17/03/2025</td>
+                                        <td><span class="status-badge status-rejected">Rejeitado</span></td>
+                                        <td>14/03/2025</td>
+                                        <td>
+                                            <a href="detalhe_atestado.html" class="btn btn-view"><i class="fas fa-eye"></i> Ver Detalhes</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>05/02/2025</td>
+                                        <td>07/02/2025</td>
+                                        <td><span class="status-badge status-approved">Aprovado</span></td>
+                                        <td>04/02/2025</td>
+                                        <td>
+                                            <a href="detalhe_atestado.html" class="btn btn-view"><i class="fas fa-eye"></i> Ver Detalhes</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para alternar entre as abas (já existente, mas reconfirma)
+        function openTab(evt, tabName) {
+            var i, tabContent, tabButtons;
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+            }
+            tabButtons = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Função para simular o envio de atestado
+        function enviarAtestado(e) {
+            e.preventDefault(); // Impede o envio real do formulário
+
+            const inicio = document.getElementById('inicio-afastamento').value;
+            const fim = document.getElementById('fim-afastamento').value;
+            const arquivo = document.getElementById('arquivo-atestado').files[0];
+            const observacoes = document.getElementById('observacoes').value;
+
+            // Validação básica
+            if (!inicio || !fim || !arquivo) {
+                alert('Por favor, preencha todos os campos obrigatórios (Datas e Arquivo).');
+                return;
+            }
+
+            if (new Date(fim) < new Date(inicio)) {
+                alert('A data de fim não pode ser anterior à data de início.');
+                return;
+            }
+
+            // Simulação de envio
+            alert(`Atestado enviado com sucesso!\nInício: ${inicio}\nFim: ${fim}\nArquivo: ${arquivo.name}\nObservações: ${observacoes || 'N/A'}\nEm breve você receberá uma confirmação.`);
+            
+            // Limpa o formulário e volta para a aba de histórico
+            document.getElementById('form-atestado').reset();
+            document.getElementById('file-info').innerHTML = '<i class="fas fa-file-alt"></i> Nenhum arquivo selecionado';
+            
+            // Ativa a aba "Histórico"
+            const historicoTabBtn = document.querySelector('.tab-buttons .tab-btn:nth-child(2)');
+            openTab({ currentTarget: historicoTabBtn }, 'historico');
+        }
+
+        // Atualiza o nome do arquivo selecionado
+        document.getElementById('arquivo-atestado').addEventListener('change', function(e) {
+            const fileInfo = document.getElementById('file-info');
+            if (this.files.length > 0) {
+                fileInfo.innerHTML = `<i class="fas fa-file-alt"></i> ${this.files[0].name}`;
+            } else {
+                fileInfo.innerHTML = '<i class="fas fa-file-alt"></i> Nenhum arquivo selecionado';
+            }
+        });
+
+        // Inicializa a primeira aba como ativa ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.tab-btn.active').click();
+        });
+    </script>
+</body>
+</html>

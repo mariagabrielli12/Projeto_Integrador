@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+  <div class="sidebar">
+  <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item active">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Início</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+    <div class="menu-item">
+                    <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+  </div>
+</div>
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-home"></i>
+        <h2>Dashboard</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Professor</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="welcome-banner">
+        <h3>Bem-vinda, Professora Ana</h3>
+        <p>Hoje é <span id="current-date"></span> | Próxima atividade: Hora do conto - 10:00 (Berçário II)</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-card calendar-card">
+          <h4><i class="fas fa-calendar-day"></i> Agenda do Dia</h4>
+          <div class="calendar-events">
+            <div class="event">
+              <span class="event-time">08:00 - 09:00</span>
+              <span class="event-title">Chegada e acolhida - Berçário II</span>
+            </div>
+            <div class="event">
+              <span class="event-time">10:00 - 10:30</span>
+              <span class="event-title">Hora do conto - Berçário II</span>
+            </div>
+            <div class="event">
+              <span class="event-time">14:00 - 15:00</span>
+              <span class="event-title">Atividade motora - Maternal I</span>
+            </div>
+          </div>
+          <a href="#" class="view-all">Ver agenda completa</a>
+        </div>
+
+        <div class="dashboard-card alerts-card">
+          <h4><i class="fas fa-bell"></i> Alertas Importantes</h4>
+          <div class="alert-list">
+            <div class="alert">
+              <i class="fas fa-exclamation-circle"></i>
+              <span>2 crianças com alergias alimentares hoje</span>
+            </div>
+            <div class="alert">
+              <i class="fas fa-info-circle"></i>
+              <span>Reunião pedagógica amanhã às 14h</span>
+            </div>
+            <div class="alert">
+              <i class="fas fa-child"></i>
+              <span>Lucas completou 2 anos hoje!</span>
+            </div>
+          </div>
+          <a href="#" class="view-all">Ver todos os alertas</a>
+        </div>
+
+        <div class="dashboard-card status-card">
+          <h4><i class="fas fa-heartbeat"></i> Saúde das Crianças</h4>
+          <div class="status-list">
+            <div class="status-item">
+              <span class="status-title">Febre hoje</span>
+              <span class="status-value">1 criança</span>
+            </div>
+            <div class="status-item">
+              <span class="status-title">Medicação</span>
+              <span class="status-value">3 crianças</span>
+            </div>
+            <div class="status-item">
+              <span class="status-title">Alergias</span>
+              <span class="status-value">2 crianças</span>
+            </div>
+          </div>
+          <a href="#" class="view-all">Ver detalhes</a>
+        </div>
+
+        <div class="dashboard-card attendance-card">
+          <h4><i class="fas fa-user-check"></i> Presença Hoje</h4>
+          <div class="attendance-summary">
+            <div class="attendance-item">
+              <span class="attendance-class">Berçário II</span>
+              <div class="attendance-bar">
+                <div class="attendance-fill" style="width: 85%"></div>
+              </div>
+              <span class="attendance-value">85%</span>
+            </div>
+            <div class="attendance-item">
+              <span class="attendance-class">Maternal I</span>
+              <div class="attendance-bar">
+                <div class="attendance-fill" style="width: 90%"></div>
+              </div>
+              <span class="attendance-value">90%</span>
+            </div>
+          </div>
+          <a href="#" class="view-all">Registrar presença</a>
+        </div>
+      </div>
+
+      <div class="shortcut-grid">
+        <a href="tela_turmas_professor.html" class="shortcut-card">
+          <i class="fas fa-child"></i>
+          <span>Minhas Turmas</span>
+        </a>
+        <a href="tela_avaliações_professor.html" class="shortcut-card">
+          <i class="fas fa-chart-line"></i>
+          <span>Acompanhamento</span>
+        </a>
+        <a href="tela_diariodebordo.html" class="shortcut-card">
+          <i class="fas fa-book"></i>
+          <span>Diário de Bordo</span>
+        </a>
+        <a href="tela_ocorrencia_professor.html" class="shortcut-card">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>Ocorrências</span>
+        </a>
+        <a href="#" class="shortcut-card">
+          <i class="fas fa-utensils"></i>
+          <span>Alimentação</span>
+        </a>
+        <a href="#" class="shortcut-card">
+          <i class="fas fa-comment-dots"></i>
+          <span>Comunicados</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Dashboard</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Atualiza data atual
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const today = new Date();
+      document.getElementById('current-date').textContent = today.toLocaleDateString('pt-BR', options);
+      
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

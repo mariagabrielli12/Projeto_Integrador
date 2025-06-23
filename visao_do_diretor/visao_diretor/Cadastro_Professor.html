@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rede Educacional - Cadastro de Professores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+
+</head>
+<body>
+      <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+  <div class="menu-section">
+    <div class="menu-item">
+      <i class="fas fa-user-cog"></i>
+      <span>Início</span>
+    </div>
+
+    <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Cadastros</span>
+    </div>
+    <div class="submenu open">
+      <!-- Listagens -->
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="listagem_Secretario.html" style="color:inherit; text-decoration:none;">Cadastro de Secretário</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Professor.html" style="color:inherit; text-decoration:none;">Cadastro de Professor</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Bercarista.html" style="color:inherit; text-decoration:none;">Cadastro de Berçaristas</a></span>
+      </div>
+
+        </div>
+      <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Gerenciamento</span>
+    </div>
+    </div>
+    </div>
+     <div class="menu-item">
+        <div class="logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <span><a href="/tela_login/teladiretor.html" style="color:inherit; text-decoration:none;">Sair</a></span>
+        </div>
+    </div>
+      </div>
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+        <div class="header">
+            <div class="page-title">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h2>Cadastro de Professores</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">AD</div>
+                <span>Admin</span>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- Formulário de Cadastro -->
+            <div class="form-container">
+                <h3 class="section-title">Dados do Professor</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teacher-name">Nome Completo</label>
+                        <input type="text" id="teacher-name" placeholder="Nome do professor">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teacher-formation">Formação</label>
+                        <input type="text" id="teacher-formation" placeholder="Formação acadêmica">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teacher-phone">Telefone</label>
+                        <input type="tel" id="teacher-phone" placeholder="(00) 00000-0000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teacher-email">E-mail</label>
+                        <input type="email" id="teacher-email" placeholder="exemplo@email.com">
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Credencial do Profissional (Opcional)</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teacher-registry">Nº de Registro do Profissional</label>
+                        <input type="text" id="teacher-registry" placeholder="Se houver">
+                    </div>
+                </div>
+                
+                <h3 class="section-title">Endereço</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teacher-cep">CEP</label>
+                        <input type="text" id="teacher-cep" placeholder="00000-000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teacher-address">Endereço</label>
+                        <input type="text" id="teacher-address" placeholder="Rua, Avenida, etc.">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teacher-number">Número</label>
+                        <input type="text" id="teacher-number" placeholder="Número">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teacher-district">Bairro</label>
+                        <input type="text" id="teacher-district" placeholder="Bairro">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teacher-state">Estado</label>
+                        <select id="teacher-state">
+                            <option value="">Selecione</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <!-- Outros estados -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="teacher-city">Cidade</label>
+                        <input type="text" id="teacher-city" placeholder="Cidade">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="teacher-complement">Complemento</label>
+                    <input type="text" id="teacher-complement" placeholder="Complemento">
+                </div>
+                
+                <h3 class="section-title">Anexos</h3>
+                
+                <div class="form-row">
+                    <div class="form-group photo-upload">
+                        <label>Foto</label>
+                        <div class="photo-preview">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Escolher arquivo
+                        </button>
+                        <span class="file-info">Nenhum arquivo escolhido</span>
+                    </div>
+                    
+                    <div class="form-group photo-upload">
+                        <label>Documento de Identificação</label>
+                        <div class="photo-preview">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Escolher arquivo
+                        </button>
+                        <span class="file-info">Nenhum arquivo escolhido</span>
+                    </div>
+                    
+                    <div class="form-group photo-upload">
+                        <label>Comprovante de Carreira</label>
+                        <div class="photo-preview">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Escolher arquivo
+                        </button>
+                        <span class="file-info">Nenhum arquivo escolhido</span>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-save"></i> Salvar Cadastro
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Footer -->
+            <div class="footer">
+                <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     // Máscaras para os campos
+        //     const phoneInput = document.getElementById('teacher-phone');
+        //     const cepInput = document.getElementById('teacher-cep');
+            
+        //     // Máscara para telefone
+        //     phoneInput.addEventListener('input', function(e) {
+        //         let value = e.target.value.replace(/\D/g, '');
+        //         if (value.length > 11) value = value.slice(0, 11);
+                
+        //         if (value.length > 10) {
+        //             value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        //         } else if (value.length > 6) {
+        //             value = value.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
+        //         }
+        //         e.target.value = value;
+        //     });
+            
+        //     // Máscara para CEP
+        //     cepInput.addEventListener('input', function(e) {
+        //         let value = e.target.value.replace(/\D/g, '');
+        //         if (value.length > 8) value = value.slice(0, 8);
+                
+        //         if (value.length > 5) {
+        //             value = value.replace(/(\d{5})(\d+)/, '$1-$2');
+        //         }
+        //         e.target.value = value;
+        //     });
+                 document.addEventListener('DOMContentLoaded', function() {
+            // Menu expansivo
+            const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // Não fechar se clicar no ícone ou no texto
+                    if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+                    
+                    const submenu = this.nextElementSibling;
+                    this.classList.toggle('open');
+                    submenu.classList.toggle('open');
+                });
+            });
+            // Simular upload de arquivos
+            const uploadButtons = document.querySelectorAll('.photo-upload .btn');
+            
+            uploadButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const fileInfo = this.parentElement.querySelector('.file-info');
+                    fileInfo.textContent = "arquivo_selecionado.pdf";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

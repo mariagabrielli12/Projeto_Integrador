@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastrar Aviso - Secretário</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="CSS_Secretario/Style_Secretario.css" />
+  <style>
+    /* Estilos específicos para o formulário de cadastro de aviso */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="date"],
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-size: 14px;
+      color: var(--text);
+      box-sizing: border-box; /* Garante que padding não aumente a largura total */
+    }
+
+    .form-group textarea {
+      resize: vertical; /* Permite redimensionar verticalmente */
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr; /* Em telas menores, os campos ficam em uma única coluna */
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none; /* Para botões que são links */
+    }
+
+    .btn-primary {
+      background-color: var(--primary-light);
+      color: white;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background-color: #6c757d;
+      color: white;
+      transition: background-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background-color: #5a6268;
+    }
+
+    .mensagem-erro {
+        color: var(--danger);
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    input.erro, select.erro, textarea.erro {
+        border-color: var(--danger) !important;
+    }
+  </style>
+</head>
+<body>
+ <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+  <div class="menu-section">
+    <div class="menu-item">
+      <i class="fas fa-user-cog"></i>
+       <span><a href="index.html" style="color:inherit; text-decoration:none;">Início</a></span>
+    </div>
+
+    <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Cadastros</span>
+    </div>
+    <div class="submenu open">
+      <!-- Listagens -->
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Alunos.html" style="color:inherit; text-decoration:none;">Cadastro de Alunos</a></span>
+      </div>
+
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Responsavel.html" style="color:inherit; text-decoration:none;">Cadastro de Responsavel</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-file-medical"></i>
+        <span><a href="Listagem_Atestado.html" style="color:inherit; text-decoration:none;">Cadastro de Atestados</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span><a href="Listagem_Turma.html" style="color:inherit; text-decoration:none;">Cadastro de Turmas</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-door-open"></i>
+        <span><a href="Listagem_Sala.html" style="color:inherit; text-decoration:none;">Cadastro de Salas</a></span>
+      </div>
+      
+
+</div>
+      <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Gerenciamento</span>
+    </div>
+     <div class="submenu open">
+      <!-- Operações -->
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Troca_Turma.html" style="color:inherit; text-decoration:none;">Troca de Turma</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Listagem_Ocorrencia.html" style="color:inherit; text-decoration:none;">Ocorrências</a></span>
+      </div>
+      </div>
+    </div>
+  <div class="menu-item active">
+            <a href="avisos_secretario.html" style="color:inherit; text-decoration:none;"><i class="fas fa-bell"></i><span>Avisos</span></a>
+          </div>
+  <div class="menu-item">
+                    <a href="../../tela_login/telasecretario.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+</div>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-plus-circle"></i>
+        <h2>Cadastrar Novo Aviso</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">AD</div>
+        <span>Admin</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="card">
+        <div class="card-header"><h3 class="section-title" style="padding-bottom: 5px; font-size: 14px;">Informações do Aviso</h3></div>
+        <div class="card-body">
+          <form id="form-cadastro-aviso">
+            <div class="form-group">
+                <label for="aviso-titulo">Título do Aviso*</label>
+                <input type="text" id="aviso-titulo" placeholder="Ex: Feriado Nacional, Reunião de Pais" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="aviso-categoria">Categoria*</label>
+                    <select id="aviso-categoria" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Administrativo">Administrativo</option>
+                        <option value="Evento">Evento</option>
+                        <option value="Urgente">Urgente</option>
+                        <option value="Pedagogico">Pedagógico</option>
+                        <option value="Outros">Outros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="aviso-data">Data do Aviso*</label>
+                    <input type="date" id="aviso-data" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="aviso-conteudo">Conteúdo do Aviso*</label>
+                <textarea id="aviso-conteudo" placeholder="Descreva o aviso detalhadamente..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+                <a href="avisos_secretario.html" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Cancelar
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Salvar Aviso
+                </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="footer">
+      <div class="footer-path">M:\visim</div>
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div> -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Definir a data atual no campo de data do aviso
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0'); // Mês é base 0
+      const day = String(today.getDate()).padStart(2, '0');
+      document.getElementById('aviso-data').value = `${year}-${month}-${day}`;
+
+
+      // Funcionalidade do menu expansivo (copiado da tela anterior)
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function (e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+
+      // Validação do formulário ao tentar salvar
+      document.getElementById('form-cadastro-aviso').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        let isValid = true;
+        const requiredFields = [
+            { id: 'aviso-titulo', name: 'Título do Aviso' },
+            { id: 'aviso-categoria', name: 'Categoria' },
+            { id: 'aviso-data', name: 'Data do Aviso' },
+            { id: 'aviso-conteudo', name: 'Conteúdo do Aviso' }
+        ];
+
+        // Limpa mensagens de erro e estilos anteriores
+        document.querySelectorAll('.mensagem-erro').forEach(el => el.remove());
+        document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(el => el.classList.remove('erro'));
+
+        requiredFields.forEach(field => {
+            const input = document.getElementById(field.id);
+            if (!input.value.trim()) {
+                isValid = false;
+                input.classList.add('erro');
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'mensagem-erro';
+                errorMessage.textContent = `${field.name} é obrigatório.`;
+                input.parentNode.appendChild(errorMessage);
+            }
+        });
+
+        if (isValid) {
+            alert('Aviso salvo com sucesso!');
+            // Redireciona para a página de listagem de avisos após o sucesso
+            window.location.href = 'avisos_secretario.html';
+        } else {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

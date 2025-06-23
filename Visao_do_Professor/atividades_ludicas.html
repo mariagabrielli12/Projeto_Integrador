@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividades Lúdicas - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style_professor.css">
+  <style>
+    .activities-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.3s ease;
+      position: relative;
+      top: 1px;
+    }
+    
+    .tab-btn:hover {
+      color: var(--primary-light);
+    }
+    
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    .activity-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .activity-header {
+      background-color: var(--table-header);
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .activity-header h3 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--primary-dark);
+    }
+    .activity-body {
+      padding: 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .activity-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
+    }
+    .activity-info i {
+      color: var(--primary);
+    }
+    .activity-footer {
+      padding: 15px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      background-color: var(--secondary);
+    }
+    .activity-footer .btn {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    /* Estilos de formulário para nova atividade lúdica */
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+     <div class="sidebar">
+ <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Início</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item active">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+      <div class="menu-item">
+                    <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+    </div>
+  </div>
+  <div class="main-content">
+    <div class="header">
+      <h2><i class="fas fa-gamepad"></i> Atividades Lúdicas</h2>
+      <div class="user-info">Olá, Professor! <div class="user-avatar">PR</div><span>Professor</span></div>
+    </div>
+
+    <div class="card">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab(event, 'listar-atividades')">
+                <i class="fas fa-list"></i> Listar Atividades
+            </button>
+            <button class="tab-btn" onclick="openTab(event, 'cadastrar-atividade')">
+                <i class="fas fa-plus-circle"></i> Cadastrar Nova Atividade
+            </button>
+        </div>
+
+        <div id="listar-atividades" class="tab-content active">
+            <div class="card-header"><h3 class="section-title">Biblioteca de Atividades Lúdicas</h3></div>
+            <div class="card-body">
+                <div class="filter-grid">
+                    <div class="form-group">
+                        <label for="filter-category">Categoria</label>
+                        <select id="filter-category" onchange="filterActivities()">
+                            <option value="">Todas</option>
+                            <option value="Motora">Motora</option>
+                            <option value="Cognitiva">Cognitiva</option>
+                            <option value="Sensorial">Sensorial</option>
+                            <option value="Social">Social</option>
+                            <option value="Criatividade">Criatividade</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="filter-search">Buscar</label>
+                        <input type="text" id="filter-search" placeholder="Buscar por título ou descrição" onkeyup="filterActivities()">
+                    </div>
+                </div>
+                <div id="activities-list" class="activities-container">
+                    </div>
+            </div>
+        </div>
+
+        <div id="cadastrar-atividade" class="tab-content">
+            <div class="card-header"><h3 class="section-title">Cadastrar Nova Atividade Lúdica</h3></div>
+            <div class="card-body">
+                <form id="form-ludica">
+                    <div class="form-group">
+                        <label for="new-activity-title">Título da Atividade*</label>
+                        <input type="text" id="new-activity-title" placeholder="Ex: Corrida do Saco" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="new-activity-category">Categoria*</label>
+                            <select id="new-activity-category" required>
+                                <option value="">Selecione uma Categoria</option>
+                                <option value="Motora">Motora</option>
+                                <option value="Cognitiva">Cognitiva</option>
+                                <option value="Sensorial">Sensorial</option>
+                                <option value="Social">Social</option>
+                                <option value="Criatividade">Criatividade</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-activity-duration">Duração Estimada*</label>
+                            <input type="text" id="new-activity-duration" placeholder="Ex: 30 minutos, 1 hora" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-activity-objectives">Objetivos/Descrição*</label>
+                        <textarea id="new-activity-objectives" placeholder="Descreva os objetivos pedagógicos e como a atividade funciona" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-activity-materials">Materiais Necessários</label>
+                        <input type="text" id="new-activity-materials" placeholder="Ex: Sacos de estopa, corda">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" type="reset">
+                            <i class="fas fa-times"></i> Limpar
+                        </button>
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-save"></i> Cadastrar Atividade
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="footer-path">M:\\visim</div>
+        <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+
+  </div> <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+      }
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).style.display = "block";
+      document.getElementById(tabName).classList.add("active");
+      if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add("active");
+      } else {
+        const targetButton = document.querySelector(`.tab-buttons button[onclick*="${tabName}"]`);
+        if (targetButton) {
+            targetButton.classList.add('active');
+        }
+      }
+      if (tabName === 'listar-atividades') {
+        renderActivities();
+      }
+    }
+
+    let activitiesDatabase = [
+      { id: 101, title: "Caça ao Tesouro Colorido", category: "Cognitiva", duration: "45 minutos", objectives: "Identificar e nomear cores, seguir instruções, trabalhar em equipe.", materials: "Objetos coloridos, pistas, cesta." },
+      { id: 102, title: "Dança das Cadeiras Musical", category: "Motora", duration: "30 minutos", objectives: "Desenvolver coordenação motora, agilidade e respeito às regras.", materials: "Cadeiras, aparelho de som, músicas infantis." },
+      { id: 103, title: "Massinha Criativa", category: "Criatividade", duration: "1 hora", objectives: "Estimular a criatividade, coordenação fina e expressão artística.", materials: "Massinhas de modelar coloridas, cortadores, rolo." },
+      { id: 104, title: "Contação de Histórias Interativa", category: "Social", duration: "25 minutos", objectives: "Estimular a escuta ativa, imaginação e interação social.", materials: "Livros ilustrados, fantoches, almofadas." },
+      { id: 105, title: "Caminho Sensorial", category: "Sensorial", duration: "30 minutos", objectives: "Explorar diferentes texturas e sensações táteis.", materials: "Tecidos variados, areia, água, grãos, caixas." }
+    ];
+
+    function renderActivities() {
+      const activitiesList = document.getElementById('activities-list');
+      activitiesList.innerHTML = ''; // Limpa a lista existente
+
+      const filterCategory = document.getElementById('filter-category').value;
+      const filterSearch = document.getElementById('filter-search').value.toLowerCase();
+
+      const filteredActivities = activitiesDatabase.filter(activity => {
+        const matchesCategory = (filterCategory === '' || activity.category === filterCategory);
+        const matchesSearch = (activity.title.toLowerCase().includes(filterSearch) || 
+                               activity.objectives.toLowerCase().includes(filterSearch) ||
+                               (activity.materials && activity.materials.toLowerCase().includes(filterSearch)));
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filteredActivities.length === 0) {
+        activitiesList.innerHTML = '<p style="text-align: center; margin-top: 20px;">Nenhuma atividade encontrada com os filtros aplicados.</p>';
+        return;
+      }
+
+      filteredActivities.forEach(activity => {
+        activitiesList.innerHTML += `
+          <div class="activity-card">
+            <div class="activity-header">
+              <h3>${activity.title}</h3>
+              <span class="activity-category">${activity.category}</span>
+            </div>
+            <div class="activity-body">
+              <div class="activity-info">
+                <i class="fas fa-clock"></i>
+                <span>Duração: ${activity.duration}</span>
+              </div>
+              <div class="activity-info">
+                <i class="fas fa-bullseye"></i>
+                <span>Objetivo: ${activity.objectives}</span>
+              </div>
+              <div class="activity-info">
+                <i class="fas fa-tools"></i>
+                <span>Materiais: ${activity.materials || 'Não especificados'}</span>
+              </div>
+            </div>
+            <div class="activity-footer">
+              <button class="btn btn-secondary" onclick="viewActivityDetails(${activity.id})">
+                <i class="fas fa-eye"></i> Detalhes
+              </button>
+              <button class="btn btn-primary" onclick="useActivityInPlan(${activity.id})">
+                <i class="fas fa-calendar-plus"></i> Adicionar ao Plano
+              </button>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function viewActivityDetails(activityId) {
+      const activity = activitiesDatabase.find(a => a.id === activityId);
+      if (activity) {
+        alert(`Detalhes da Atividade:\n\nTítulo: ${activity.title}\nCategoria: ${activity.category}\nDuração: ${activity.duration}\nObjetivos: ${activity.objectives}\nMateriais: ${activity.materials || 'N/A'}`);
+      }
+    }
+
+    function useActivityInPlan(activityId) {
+      const activity = activitiesDatabase.find(a => a.id === activityId);
+      if (activity) {
+          // Salva a atividade selecionada no LocalStorage para ser usada no Plano de Atividades
+          localStorage.setItem('selectedActivityForPlan', JSON.stringify(activity));
+          alert(`Atividade "${activity.title}" selecionada para o Plano de Atividades. Você será redirecionado.`);
+          window.location.href = "plano_atividades.html"; // Redireciona para a página de plano
+      }
+    }
+
+    // Funcionalidades de Cadastro de Nova Atividade Lúdica
+    document.getElementById('form-ludica').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const title = document.getElementById('new-activity-title').value;
+        const category = document.getElementById('new-activity-category').value;
+        const duration = document.getElementById('new-activity-duration').value;
+        const objectives = document.getElementById('new-activity-objectives').value;
+        const materials = document.getElementById('new-activity-materials').value;
+
+        if (!title || !category || !duration || !objectives) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+
+        const newLudicActivity = {
+            id: activitiesDatabase.length > 0 ? Math.max(...activitiesDatabase.map(a => a.id)) + 1 : 1,
+            title,
+            category,
+            duration,
+            objectives,
+            materials
+        };
+
+        activitiesDatabase.push(newLudicActivity);
+        saveActivitiesToLocalStorage(); // Salva no LocalStorage
+
+        alert('Nova atividade lúdica cadastrada com sucesso!');
+        document.getElementById('form-ludica').reset();
+        
+        // Retorna para a aba de listar atividades após cadastrar
+        const listarAtividadesTabBtn = document.querySelector('.tab-buttons button[onclick*="listar-atividades"]');
+        openTab({ currentTarget: listarAtividadesTabBtn }, 'listar-atividades');
+    });
+
+    // Funções para armazenamento local
+    function saveActivitiesToLocalStorage() {
+      localStorage.setItem('ludicActivitiesDatabase', JSON.stringify(activitiesDatabase));
+    }
+    
+    function loadActivitiesFromLocalStorage() {
+      const savedActivities = localStorage.getItem('ludicActivitiesDatabase');
+      if (savedActivities) {
+        activitiesDatabase = JSON.parse(savedActivities);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        loadActivitiesFromLocalStorage(); // Carrega atividades lúdicas salvas
+        renderActivities(); // Renderiza as atividades ao carregar a página
+
+        // Ativa a aba "Listar Atividades" por padrão
+        openTab(null, 'listar-atividades');
+    });
+  </script>
+</body>
+</html>

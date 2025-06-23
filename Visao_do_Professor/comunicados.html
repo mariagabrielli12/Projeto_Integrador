@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comunicados - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+  <div class="sidebar">
+   <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item">
+          <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+          <span>Início</span></a>
+        </div>
+
+        <div class="menu-item has-submenu">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Planejamento</span>
+        </div>
+        <div class="submenu">
+          <div class="menu-item">
+            <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+            <span>Plano de Atividades</span></a>
+          </div>
+          <div class="menu-item">
+            <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+            <span>Atividades Lúdicas</span></a>
+          </div>
+          <div class="menu-item">
+            <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+            <span>Rotinas Diárias</span></a>
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu">
+          <i class="fas fa-child"></i>
+          <span>Acompanhamento</span>
+        </div>
+        <div class="submenu">
+          <div class="menu-item">
+            <a href="alimentacao.html"><i class="fas fa-utensils"></i>
+            <span>Alimentação</span></a>
+          </div>
+          <div class="menu-item">
+            <a href="tela_avaliações_professor.html"><i class="fas fa-chart-line"></i>
+            <span>Acompanhamento</span></a>
+          </div>
+           <div class="menu-item">
+            <a href="tela_ocorrencia_professor.html"><i class="fas fa-exclamation-triangle"></i>
+            <span>Ocorrências</span></a>
+          </div>
+           <div class="menu-item">
+            <a href="tela_diariodebordo.html"><i class="fas fa-book-open"></i>
+            <span>Diário de Bordo</span></a>
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu">
+          <i class="fas fa-users"></i>
+          <span>Turmas</span>
+        </div>
+        <div class="submenu">
+          <div class="menu-item">
+            <a href="minhas_turmas.html"><i class="fas fa-chalkboard"></i>
+            <span>Minhas Turmas</span></a>
+          </div>
+          <div class="menu-item">
+            <a href="criancas_por_turma.html"><i class="fas fa-child"></i>
+            <span>Crianças por Turma</span></a>
+          </div>
+        </div>
+        
+        <div class="menu-item active">
+          <a href="comunicados.html"><i class="fas fa-bullhorn"></i>
+          <span>Comunicados</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+         <div class="menu-item">
+          <a href="#"><i class="fas fa-cogs"></i>
+          <span>Configurações</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="#"><i class="fas fa-sign-out-alt"></i>
+          <span>Sair</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+   <div class="main-content">
+  <div class="content-container">
+    <div class="header">
+      <div class="header-left">
+            <h2><i class="fas fa-bullhorn"></i> Novo Comunicado</h2>
+          </div>
+          <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Professor</span>
+      </div>
+    </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Lista de Comunicados</h3>
+      <button class="btn btn-primary" onclick="window.location.href='criar_comunicado.html'">
+      <i class="fas fa-plus"></i> Novo Comunicado
+  </button>
+      </div>
+      <div class="card-body">
+        <div class="filter-grid">
+          <div class="form-group">
+            <label>Filtrar por Status</label>
+            <select>
+              <option>Todos</option>
+              <option>Lido</option>
+              <option>Não Lido</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Buscar por Assunto</label>
+            <input type="text" placeholder="Assunto do comunicado">
+          </div>
+          <div class="filter-actions">
+            <button class="btn btn-primary" onclick="alert('Filtros aplicados!')">Aplicar Filtros</button>
+            <button class="btn btn-secondary" onclick="alert('Filtros limpos!')">Limpar</button>
+          </div>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Assunto</th>
+              <th>Remetente</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20/06/2025</td>
+              <td>Reunião de Pais - Berçário II</td>
+              <td>Secretaria</td>
+              <td><span class="status-badge active">Lido</span></td>
+              <td>
+                <button class="btn-icon" title="Visualizar" onclick="alert('Visualizando comunicado: Reunião de Pais - Berçário II')"><i class="fas fa-eye"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>18/06/2025</td>
+              <td>Calendário de Férias</td>
+              <td>Diretoria</td>
+              <td><span class="status-badge active">Lido</span></td>
+              <td>
+                <button class="btn-icon" title="Visualizar" onclick="alert('Visualizando comunicado: Calendário de Férias')"><i class="fas fa-eye"></i></button>
+          
+              </td>
+            </tr>
+            <tr>
+              <td>15/06/2025</td>
+              <td>Lembrete: Documentação pendente</td>
+              <td>Maria Clara Oliveira</td>
+              <td><span class="status-badge inactive">Não lido</span></td>
+              <td>
+                <button class="btn-icon" title="Visualizar" onclick="alert('Visualizando comunicado: Lembrete: Documentação pendente')"><i class="fas fa-eye"></i></button>
+               
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <div class="pagination-info">Página 1 de 2</div>
+          <div class="pagination-controls">
+            <button class="pagination-btn" disabled onclick="alert('Página Anterior (ainda não implementado)')">Anterior</button>
+            <button class="pagination-btn" onclick="alert('Próxima Página (ainda não implementado)')">Próxima</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Comunicados</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

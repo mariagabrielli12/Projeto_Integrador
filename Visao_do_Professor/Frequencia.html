@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro de Frequência - Professor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+ <link rel="stylesheet" href="Css/style_professor.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <!-- Mesmo sidebar do dashboard -->
+    <!-- ... -->
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-calendar-check"></i>
+        <h2>Registro de Frequência</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Prof. Silva</span>
+        <i class="fas fa-sign-out-alt" title="Sair"></i>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <div class="filter-label">Turma:</div>
+            <div class="filter-input">
+              <select>
+                <option>9º Ano A</option>
+                <option>9º Ano B</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-label">Data:</div>
+            <div class="filter-input">
+              <input type="date" value="2025-06-15">
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="filter-label">Disciplina:</div>
+            <div class="filter-input">
+              <select>
+                <option>Matemática</option>
+                <option>Português</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-primary">Carregar</button>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h4 style="margin-bottom: 15px; color: var(--primary);">Frequência - 15/06/2025 - 9º Ano A - Matemática</h4>
+        
+        <div class="table-container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nº</th>
+                <th>Aluno</th>
+                <th>Presença</th>
+                <th>Justificativa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Ana Carolina Silva</td>
+                <td>
+                  <select style="width: 100px;">
+                    <option value="presente">Presente</option>
+                    <option value="falta">Falta</option>
+                  </select>
+                </td>
+                <td><input type="text" placeholder="Motivo (se faltou)"></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Bruno Oliveira Santos</td>
+                <td>
+                  <select style="width: 100px;">
+                    <option value="presente">Presente</option>
+                    <option value="falta" selected>Falta</option>
+                  </select>
+                </td>
+                <td><input type="text" placeholder="Motivo (se faltou)" value="Atestado médico"></td>
+              </tr>
+              <!-- Mais linhas... -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-secondary">Cancelar</button>
+          <button class="btn btn-primary">Registrar Frequência</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Frequência</div>
+      <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+    </div>
+  </div>
+</body>
+</html>

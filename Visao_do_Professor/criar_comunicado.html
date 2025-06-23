@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novo Comunicado - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+  <style>
+    /* Estilos para o campo de destinatários melhorado */
+    .destinatarios-container {
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      min-height: 38px; /* Altura mínima para o campo */
+      background-color: white; /* Garante fundo branco */
+    }
+
+    .destinatarios-container.error {
+      border-color: var(--danger-dark);
+    }
+
+    .destinatario-tag {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--primary-light);
+      color: white;
+      padding: 5px 8px;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    .destinatario-tag .remove-tag {
+      margin-left: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .destinatarios-input {
+      flex-grow: 1;
+      border: none;
+      outline: none;
+      padding: 0;
+      font-size: 1em;
+      min-width: 150px; /* Garante que o input não fique muito pequeno */
+    }
+
+    .autocomplete-list {
+      border: 1px solid var(--border);
+      border-top: none;
+      max-height: 200px;
+      overflow-y: auto;
+      background-color: white;
+      position: absolute;
+      width: calc(100% - 30px); /* Ajusta à largura do card, considerando padding */
+      z-index: 100; /* Garante que apareça sobre outros elementos */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: none; /* Escondido por padrão */
+    }
+
+    .autocomplete-list div {
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    .autocomplete-list div:hover {
+      background-color: var(--primary-light);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+   <div class="sidebar">
+ <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Início</span></a>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item ">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+
+      <div class="menu-item active">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+      <div class="menu-item">
+                    <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+    </div>
+  </div>
+    <div class="main-content">
+      <div class="content-container">
+        <div class="header">
+          <div class="header-left">
+            <h2><i class="fas fa-bullhorn"></i> Novo Comunicado</h2>
+          </div>
+          <div class="header-right">
+            <span>Professor(a) [Nome do Professor]</span>
+            <i class="fas fa-user-circle"></i>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Detalhes do Comunicado</h3>
+          </div>
+          <div class="card-body">
+            <form id="novo-comunicado-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="data-envio">Data de Envio</label>
+                  <input type="date" id="data-envio" required>
+                </div>
+                <div class="form-group">
+                  <label for="remetente">Remetente</label>
+                  <input type="text" id="remetente" value="Professor(a) [Seu Nome]" readonly>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="assunto">Assunto do Comunicado</label>
+                <input type="text" id="assunto" placeholder="Ex: Reunião de pais, evento escolar..." required>
+              </div>
+                                <div class="form-group">
+                  <label for="destinatario">Destinatário:</label>
+                  <select id="destinatario">
+                    <option value="">Selecione o destinatário</option>
+                    <option value="Todos os Pais/Responsáveis">Todos os Pais/Responsáveis</option>
+                    <option value="Turma Berçário I">Turma Berçário I</option>
+                    <option value="Turma Maternal I">Turma Maternal I</option>
+                    <option value="Turma Jardim I">Turma Jardim I</option>
+                    <option value="Professor João Silva">Professor João Silva</option>
+                    <option value="Coordenadora Pedagógica">Coordenadora Pedagógica</option>
+                    </select>
+                </div>
+                <div class="autocomplete-list" id="autocomplete-list"></div>
+                <small>Comece a digitar o nome de um pai/responsável ou turma. Pressione Enter para adicionar.</small>
+              </div>
+
+              <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" rows="8" placeholder="Escreva o conteúdo do comunicado aqui..." required></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                  <i class="fas fa-times"></i> Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Enviar Comunicado
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="footer-path">Portal do Professor > Comunicados > Novo Comunicado</div>
+          <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+
+      // Lógica para preencher a data de envio automaticamente com a data atual
+      const dataEnvioInput = document.getElementById('data-envio');
+      if (dataEnvioInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dataEnvioInput.value = today;
+      }
+
+      // --- Melhoria do campo de Destinatários ---
+      const destinatariosInput = document.getElementById('destinatarios-input');
+      const destinatariosContainer = document.getElementById('destinatarios-container');
+      const autocompleteList = document.getElementById('autocomplete-list');
+      let selectedDestinatarios = [];
+
+      // Dados de exemplo (você pode carregar isso de um backend real)
+      const todosDestinatariosDisponiveis = [
+        "Todos os Pais/Responsáveis",
+        "Pais/Responsáveis - Berçário II",
+        "Pais/Responsáveis - Maternal I",
+        "Pai/Responsável: João Silva (Filho: Pedro)",
+        "Pai/Responsável: Maria Souza (Filha: Ana)",
+        "Pai/Responsável: Carlos Ferreira (Filho: Sofia)",
+        // Adicione mais pais/turmas aqui conforme necessário
+      ];
+
+      function renderizarTagsDestinatarios() {
+        destinatariosContainer.innerHTML = ''; // Limpa tudo, exceto o input
+        selectedDestinatarios.forEach(destinatario => {
+          const tag = document.createElement('span');
+          tag.className = 'destinatario-tag';
+          tag.innerHTML = `${destinatario} <span class="remove-tag" data-value="${destinatario}">&times;</span>`;
+          destinatariosContainer.insertBefore(tag, destinatariosInput); // Adiciona a tag antes do input
+        });
+        destinatariosContainer.appendChild(destinatariosInput); // Garante que o input esteja no final
+      }
+
+      function adicionarDestinatario(destinatario) {
+        if (destinatario && !selectedDestinatarios.includes(destinatario)) {
+          selectedDestinatarios.push(destinatario);
+          renderizarTagsDestinatarios();
+          destinatariosInput.value = ''; // Limpa o input após adicionar
+          autocompleteList.style.display = 'none'; // Esconde a lista de autocomplete
+        }
+      }
+
+      function removerDestinatario(destinatario) {
+        selectedDestinatarios = selectedDestinatarios.filter(item => item !== destinatario);
+        renderizarTagsDestinatarios();
+      }
+
+      destinatariosContainer.addEventListener('click', function(e) {
+        if (e.target.classList.contains('remove-tag')) {
+          removerDestinatario(e.target.dataset.value);
+        }
+        destinatariosInput.focus(); // Foca no input ao clicar no container
+      });
+
+      destinatariosInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        autocompleteList.innerHTML = '';
+        const filtered = todosDestinatariosDisponiveis.filter(dest => 
+          dest.toLowerCase().includes(query) && !selectedDestinatarios.includes(dest)
+        );
+
+        if (query && filtered.length > 0) {
+          filtered.forEach(dest => {
+            const div = document.createElement('div');
+            div.textContent = dest;
+            div.addEventListener('click', () => adicionarDestinatario(dest));
+            autocompleteList.appendChild(div);
+          });
+          autocompleteList.style.display = 'block';
+        } else {
+          autocompleteList.style.display = 'none';
+        }
+      });
+
+      destinatariosInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && this.value.trim() !== '') {
+          e.preventDefault(); // Evita o submit do form
+          adicionarDestinatario(this.value.trim());
+        } else if (e.key === 'Backspace' && this.value === '' && selectedDestinatarios.length > 0) {
+          // Remove a última tag se Backspace for pressionado e o input estiver vazio
+          removerDestinatario(selectedDestinatarios[selectedDestinatarios.length - 1]);
+        }
+      });
+
+      // Esconder a lista de autocomplete ao clicar fora
+      document.addEventListener('click', function(e) {
+        if (!destinatariosContainer.contains(e.target) && !autocompleteList.contains(e.target)) {
+          autocompleteList.style.display = 'none';
+        }
+      });
+      // --- Fim da Melhoria do campo de Destinatários ---
+
+
+      // Lógica de envio do formulário
+      const form = document.getElementById('novo-comunicado-form');
+      form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Impede o envio padrão do formulário
+
+        // Validar se há pelo menos um destinatário selecionado
+        if (selectedDestinatarios.length === 0) {
+          alert('Por favor, selecione pelo menos um destinatário.');
+          destinatariosContainer.classList.add('error'); // Adiciona classe para destaque visual de erro
+          destinatariosInput.focus();
+          return;
+        } else {
+          destinatariosContainer.classList.remove('error');
+        }
+
+        const dataEnvio = document.getElementById('data-envio').value;
+        const remetente = document.getElementById('remetente').value;
+        const assunto = document.getElementById('assunto').value;
+        const mensagem = document.getElementById('mensagem').value;
+
+        console.log({
+          dataEnvio,
+          remetente,
+          assunto,
+          destinatarios: selectedDestinatarios, // Agora envia a array de destinatários
+          mensagem
+        });
+
+        alert('Comunicado enviado com sucesso! (Verifique o console para os dados)');
+        window.location.href = 'comunicados.html'; // Redireciona de volta para a lista
+      });
+    });
+  </script>
+</body>
+</html>

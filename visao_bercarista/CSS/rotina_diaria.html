@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Rotina - Berçarista</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="CSS_Bercarista/Style_bercarista.css" />
+  <style>
+    /* Estilos específicos para a página de Rotina Diária */
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .form-group.inline {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .form-group.inline label {
+        margin-bottom: 0;
+        min-width: 60px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Estilos para a tabela */
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .table th, .table td {
+      padding: 12px 15px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .table th {
+      background-color: var(--table-header);
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .table tbody tr:nth-child(even) {
+      background-color: var(--secondary);
+    }
+
+    .table tbody tr:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Estilos para os botões de ação na tabela */
+    .action-buttons {
+        display: flex;
+        gap: 5px;
+    }
+
+    .action-buttons .btn {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    /* Estilos para as abas */
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.3s ease;
+      position: relative;
+      top: 1px;
+    }
+    .tab-btn:hover {
+      color: var(--primary-light);
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item">
+          <a href="index_bercarista.html"><i class="fas fa-home"></i><span>Início</span></a>
+        </div>
+        <div class="menu-item active">
+          <a href="rotina_diaria.html"><i class="fas fa-clipboard-list"></i><span>Registro de Rotina</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="ocorrencias_bercarista.html"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="perfil_crianca_bercarista.html"><i class="fas fa-user-friends"></i><span>Perfis alunos</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="avisos_bercarista.html"><i class="fas fa-bell"></i><span>Avisos</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="presenca_bercarista.html"><i class="fas fa-check-circle"></i><span>Controle de Presença</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="../../tela_login/telabercarista.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-book-open"></i>
+        <h2>Registro de Rotina Diária</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">BR</div>
+        <span>Berçarista</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="card">
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="openTab(event, 'novo-registro-rotina')">
+            <i class="fas fa-plus-circle"></i> Novo Registro de Rotina
+          </button>
+          <button class="tab-btn" onclick="openTab(event, 'historico-rotina')">
+            <i class="fas fa-history"></i> Histórico de Registros
+          </button>
+        </div>
+
+        <div id="novo-registro-rotina" class="tab-content active">
+          <div class="card-header">
+           
+          </div>
+          <div class="card-body">
+            <form id="form-rotina">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="turma-rotina">Turma*</label>
+                  <select id="turma-rotina" required onchange="popularAlunosRotina()">
+                    <option value="">Selecione a Turma</option>
+                    <option value="Maternal I - A">Maternal I - A</option>
+                    <option value="Maternal II - B">Maternal II - B</option>
+                    <option value="Jardim I - C">Jardim I - C</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="aluno-rotina">Aluno*</label>
+                  <select id="aluno-rotina" required disabled>
+                    <option value="">Selecione o Aluno</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="tipo-registro">Tipo de Registro*</label>
+                  <select id="tipo-registro" required>
+                    <option value="">Selecione o Tipo</option>
+                    <option value="Alimentação">Alimentação</option>
+                    <option value="Sono">Sono</option>
+                    <option value="Troca de Fralda">Troca de Fralda</option>
+                    <option value="Medicamento">Medicamento</option>
+                    <option value="Atividade">Atividade</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="hora-registro">Hora*</label>
+                  <input type="time" id="hora-registro" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="observacoes-rotina">Observações</label>
+                <textarea id="observacoes-rotina" placeholder="Detalhes do registro (ex: tipo de alimento, duração do sono, etc.)" rows="3"></textarea>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-secondary" type="reset">
+                  <i class="fas fa-times"></i> Limpar
+                </button>
+                <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-save"></i> Registrar Atividade
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="historico-rotina" class="tab-content">
+          <div class="card-header">
+           
+          </div>
+          <div class="card-body">
+            <div class="filter-grid">
+              <div class="form-group">
+                <label for="filter-turma-rotina">Turma</label>
+                <select id="filter-turma-rotina" onchange="aplicarFiltroRegistros()">
+                  <option value="">Todas as Turmas</option>
+                  <option value="Maternal I - A">Maternal I - A</option>
+                  <option value="Maternal II - B">Maternal II - B</option>
+                  <option value="Jardim I - C">Jardim I - C</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="filter-aluno-rotina">Aluno</label>
+                <input type="text" id="filter-aluno-rotina" placeholder="Nome do aluno" onkeyup="aplicarFiltroRegistros()">
+              </div>
+              <div class="form-group">
+                <label for="filter-tipo-rotina">Tipo</label>
+                <select id="filter-tipo-rotina" onchange="aplicarFiltroRegistros()">
+                  <option value="">Todos os Tipos</option>
+                  <option value="Alimentação">Alimentação</option>
+                  <option value="Sono">Sono</option>
+                  <option value="Troca de Fralda">Troca de Fralda</option>
+                  <option value="Medicamento">Medicamento</option>
+                  <option value="Atividade">Atividade</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+              <div class="filter-actions">
+                <button class="btn btn-outline" onclick="limparFiltroRegistros()">
+                  <i class="fas fa-eraser"></i> Limpar Filtros
+                </button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Turma</th>
+                    <th>Aluno</th>
+                    <th>Tipo</th>
+                    <th>Observação</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="registros-rotina">
+                  <tr data-turma="Maternal I - A" data-aluno="Lucas Oliveira" data-tipo="Alimentação">
+                    <td>22/06/2025</td>
+                    <td>09:00</td>
+                    <td>Maternal I - A</td>
+                    <td>Lucas Oliveira</td>
+                    <td>Alimentação</td>
+                    <td>Mamadeira (180ml de leite).</td>
+                    <td class="action-buttons">
+                      <button class="btn btn-info btn-sm" onclick="visualizarRegistro(this)"><i class="fas fa-eye"></i></button>
+                      <button class="btn btn-warning btn-sm" onclick="editarRegistro(this)"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-danger btn-sm" onclick="removerRegistro(this)"><i class="fas fa-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr data-turma="Maternal II - B" data-aluno="Maria Silva" data-tipo="Sono">
+                    <td>22/06/2025</td>
+                    <td>13:30</td>
+                    <td>Maternal II - B</td>
+                    <td>Maria Silva</td>
+                    <td>Sono</td>
+                    <td>Dormiu por 2 horas no berço.</td>
+                    <td class="action-buttons">
+                      <button class="btn btn-info btn-sm" onclick="visualizarRegistro(this)"><i class="fas fa-eye"></i></button>
+                      <button class="btn btn-warning btn-sm" onclick="editarRegistro(this)"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-danger btn-sm" onclick="removerRegistro(this)"><i class="fas fa-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr data-turma="Maternal I - A" data-aluno="Gabriel Costa" data-tipo="Troca de Fralda">
+                    <td>22/06/2025</td>
+                    <td>11:45</td>
+                    <td>Maternal I - A</td>
+                    <td>Gabriel Costa</td>
+                    <td>Troca de Fralda</td>
+                    <td>Fralda suja (cocô).</td>
+                    <td class="action-buttons">
+                      <button class="btn btn-info btn-sm" onclick="visualizarRegistro(this)"><i class="fas fa-eye"></i></button>
+                      <button class="btn btn-warning btn-sm" onclick="editarRegistro(this)"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-danger btn-sm" onclick="removerRegistro(this)"><i class="fas fa-trash"></i></button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="footer">
+    <div class="footer-path">M:\\visim</div>
+    <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+  </div> -->
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+
+    const alunosPorTurmaRotina = {
+      "Maternal I - A": ["Lucas Oliveira", "Sofia Pereira", "Gabriel Costa"],
+      "Maternal II - B": ["Maria Silva", "João Santos", "Laura Fernandes"],
+      "Jardim I - C": ["Pedro Almeida", "Isabela Lima", "Daniel Rocha"]
+    };
+
+    function popularAlunosRotina() {
+      const turmaSelect = document.getElementById('turma-rotina');
+      const alunoSelect = document.getElementById('aluno-rotina');
+      const selectedTurma = turmaSelect.value;
+
+      alunoSelect.innerHTML = '<option value="">Selecione o Aluno</option>';
+      alunoSelect.disabled = true;
+
+      if (selectedTurma && alunosPorTurmaRotina[selectedTurma]) {
+        alunosPorTurmaRotina[selectedTurma].forEach(aluno => {
+          const option = document.createElement('option');
+          option.value = aluno;
+          option.textContent = aluno;
+          alunoSelect.appendChild(option);
+        });
+        alunoSelect.disabled = false;
+      }
+    }
+
+    function registrarAtividade(e) {
+      e.preventDefault(); 
+      
+      const turma = document.getElementById('turma-rotina').value;
+      const aluno = document.getElementById('aluno-rotina').value;
+      const tipo = document.getElementById('tipo-registro').value;
+      const hora = document.getElementById('hora-registro').value;
+      const observacoes = document.getElementById('observacoes-rotina').value;
+
+      if (!turma || !aluno || !tipo || !hora) {
+        alert('Por favor, preencha todos os campos obrigatórios para registrar a atividade.');
+        return;
+      }
+
+      const dataAtual = new Date().toLocaleDateString('pt-BR'); 
+
+      const tableBody = document.getElementById('registros-rotina');
+      const newRow = tableBody.insertRow(0); 
+      newRow.setAttribute('data-turma', turma);
+      newRow.setAttribute('data-aluno', aluno); 
+      newRow.setAttribute('data-tipo', tipo);
+
+      newRow.innerHTML = `
+        <td>${dataAtual}</td>
+        <td>${hora}</td>
+        <td>${turma}</td>
+        <td>${aluno}</td>
+        <td>${tipo}</td>
+        <td>${observacoes || 'N/A'}</td>
+        <td class="action-buttons">
+          <button class="btn btn-info btn-sm" onclick="visualizarRegistro(this)"><i class="fas fa-eye"></i></button>
+          <button class="btn btn-warning btn-sm" onclick="editarRegistro(this)"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-danger btn-sm" onclick="removerRegistro(this)"><i class="fas fa-trash"></i></button>
+        </td>
+      `;
+
+      alert(`Atividade de Rotina registrada com sucesso para ${aluno} da turma ${turma}!`);
+      
+      document.getElementById('form-rotina').reset();
+      document.getElementById('aluno-rotina').innerHTML = '<option value="">Selecione o Aluno</option>';
+      document.getElementById('aluno-rotina').disabled = true;
+
+      const historicoTabBtn = document.querySelector('.tab-buttons .tab-btn:nth-child(2)');
+      openTab({ currentTarget: historicoTabBtn }, 'historico-rotina');
+    }
+
+    function visualizarRegistro(button) {
+      const row = button.closest('tr');
+      const data = row.cells[0].textContent;
+      const hora = row.cells[1].textContent;
+      const turma = row.cells[2].textContent;
+      const aluno = row.cells[3].textContent;
+      const tipo = row.cells[4].textContent;
+      const observacao = row.cells[5].textContent;
+
+      alert(`Detalhes do Registro:\n\nData: ${data}\nHora: ${hora}\nTurma: ${turma}\nAluno: ${aluno}\nTipo: ${tipo}\nObservação: ${observacao}`);
+    }
+
+    function editarRegistro(button) {
+      alert('Funcionalidade de edição não implementada nesta simulação.');
+    }
+
+    function removerRegistro(button) {
+      if (confirm('Tem certeza que deseja excluir este registro?')) {
+        const row = button.closest('tr');
+        row.remove();
+        alert('Registro excluído com sucesso!');
+      }
+    }
+
+    function aplicarFiltroRegistros() {
+      const filterTurma = document.getElementById('filter-turma-rotina').value.toLowerCase();
+      const filterAluno = document.getElementById('filter-aluno-rotina').value.toLowerCase(); 
+      const filterTipo = document.getElementById('filter-tipo-rotina').value.toLowerCase();   
+      const rows = document.querySelectorAll('#registros-rotina tr');
+
+      rows.forEach(row => {
+        const turma = row.getAttribute('data-turma').toLowerCase();
+        const aluno = row.getAttribute('data-aluno').toLowerCase(); 
+        const tipo = row.getAttribute('data-tipo').toLowerCase();
+
+        const matchTurma = (filterTurma === '' || turma.includes(filterTurma));
+        const matchAluno = (filterAluno === '' || aluno.includes(filterAluno));
+        const matchTipo = (filterTipo === '' || tipo === filterTipo); 
+
+        if (matchTurma && matchAluno && matchTipo) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    }
+
+    function limparFiltroRegistros() {
+      document.getElementById('filter-turma-rotina').value = '';
+      document.getElementById('filter-aluno-rotina').value = ''; 
+      document.getElementById('filter-tipo-rotina').value = '';   
+      aplicarFiltroRegistros(); 
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Abre a primeira aba por padrão
+      document.querySelector('.tab-btn.active').click();
+      
+      popularAlunosRotina(); 
+      document.getElementById('form-rotina').addEventListener('submit', registrarAtividade);
+    });
+  </script>
+</body>
+</html>

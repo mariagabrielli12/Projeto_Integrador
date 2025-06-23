@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rede Educacional - Listagem de Atestados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="CSS_Secretario/Style_Secretario.css" />
+    <style>
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            margin: 0 3px;
+            color: #555;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .btn-icon:hover {
+            color: #007bff;
+        }
+        
+        .btn-icon.fa-trash:hover {
+            color: #dc3545;
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+  <div class="menu-section">
+    <div class="menu-item">
+      <i class="fas fa-user-cog"></i>
+      <span><a href="index.html" style="color:inherit; text-decoration:none;">Início</a></span>
+    </div>
+
+    <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Cadastros</span>
+    </div>
+    <div class="submenu open">
+      <!-- Listagens -->
+      <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Alunos.html" style="color:inherit; text-decoration:none;">Cadastro de Alunos</a></span>
+      </div>
+        <div class="menu-item">
+        <i class="fas fa-users"></i>
+        <span><a href="Listagem_Responsavel.html" style="color:inherit; text-decoration:none;">Cadastro de Responsavel</a></span>
+      </div>
+      <div class="menu-item active">
+        <i class="fas fa-file-medical"></i>
+        <span><a href="Listagem_Atestado.html" style="color:inherit; text-decoration:none;">Cadastro de Atestados</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <span><a href="Listagem_Turma.html" style="color:inherit; text-decoration:none;">Cadastro de Turmas</a></span>
+      </div>
+      
+      <div class="menu-item">
+        <i class="fas fa-door-open"></i>
+        <span><a href="Listagem_Sala.html" style="color:inherit; text-decoration:none;">Cadastro de Salas</a></span>
+      </div>
+      
+
+</div>
+      <div class="menu-item has-submenu open">
+      <i class="fas fa-user-cog"></i>
+      <span>Gerenciamento</span>
+    </div>
+     <div class="submenu open">
+      <!-- Operações -->
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Troca_Turma.html" style="color:inherit; text-decoration:none;">Troca de Turma</a></span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-exchange-alt"></i>
+        <span><a href="Listagem_Ocorrencia.html" style="color:inherit; text-decoration:none;">Ocorrências</a></span>
+      </div>
+      </div>
+    </div>
+  <div class="menu-item">
+            <a href="avisos_secretario.html" style="color:inherit; text-decoration:none;"><i class="fas fa-bell"></i><span>Avisos</span></a>
+          </div>
+  <div class="menu-item">
+                    <a href="../../tela_login/telasecretario.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+</div>
+  </div>
+    <div class="main-content">
+        <div class="header">
+            <div class="page-title">
+                <i class="fas fa-file-medical"></i>
+                <h2>Listagem de Atestados</h2>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar">AD</div>
+                <span>Admin</span>
+            </div>
+        </div>
+
+        <div class="content-container">
+            <div class="filter-section">
+                <div class="filter-grid">
+                    <div class="filter-row">
+                        <span class="filter-label">Aluno</span>
+                        <div class="filter-input">
+                            <input type="text" placeholder="Nome do aluno" id="filtro-aluno" />
+                        </div>
+                    </div>
+                    <div class="filter-row">
+                        <span class="filter-label">Data do Atestado</span>
+                        <div class="filter-input">
+                            <input type="date" id="filtro-data" />
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="btn btn-secondary" id="btn-limpar">Limpar</button>
+                        <button class="btn btn-primary" id="btn-pesquisar">Pesquisar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-settings">
+                    <div class="results-per-page">10 resultados por página</div>
+                </div>
+
+                <table class="table" id="tabela-atestados">
+                    <thead>
+                        <tr>
+                            <th>Aluno</th>
+                            <th>Matrícula</th>
+                            <th>Data do Atestado</th>
+                            <th>Período</th>
+                            <th>Motivo</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-id="1">
+                            <td>Maria Silva</td>
+                            <td>12345</td>
+                            <td>20/04/2025</td>
+                            <td>18/04/2025 - 22/04/2025</td>
+                            <td>Gripe</td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon btn-excluir" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr data-id="2">
+                            <td>João Souza</td>
+                            <td>67890</td>
+                            <td>15/03/2025</td>
+                            <td>14/03/2025 - 18/03/2025</td>
+                            <td>Consulta médica</td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-editar" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon btn-excluir" title="Excluir"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <div class="pagination-info">Mostrando 1 até 2 de 2 registros</div>
+                    <div class="pagination-controls">
+                        <button class="btn-cadastrar">
+                            <i class="fas fa-plus"></i> 
+                            <a href="Cadastro_Atestado.html">Cadastrar Novo Atestado</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <!-- <div class="footer">
+                <div class="footer-path">M:\visim</div>
+                <div>Copyright © 2025 Rede Educacional. Todos os direitos reservados.</div>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Menu expansivo
+            const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+            menuItems.forEach((item) => {
+                item.addEventListener('click', function (e) {
+                    if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+                    const submenu = this.nextElementSibling;
+                    this.classList.toggle('open');
+                    submenu.classList.toggle('open');
+                });
+            });
+
+            // Função para filtrar atestados
+            function filtrarAtestados() {
+                const filtroAluno = document.getElementById('filtro-aluno').value.toLowerCase();
+                const filtroData = document.getElementById('filtro-data').value;
+                
+                const linhas = document.querySelectorAll('#tabela-atestados tbody tr');
+                let totalVisiveis = 0;
+                
+                linhas.forEach(linha => {
+                    const nomeAluno = linha.cells[0].textContent.toLowerCase();
+                    const dataAtestado = linha.cells[2].textContent;
+                    
+                    const correspondeAluno = nomeAluno.includes(filtroAluno);
+                    const correspondeData = !filtroData || dataAtestado.includes(filtroData.split('-').reverse().join('/'));
+                    
+                    if (correspondeAluno && correspondeData) {
+                        linha.style.display = '';
+                        totalVisiveis++;
+                    } else {
+                        linha.style.display = 'none';
+                    }
+                });
+                
+                document.querySelector('.pagination-info').textContent = 
+                    `Mostrando 1 até ${totalVisiveis} de ${totalVisiveis} registros`;
+            }
+
+            // Eventos dos botões de filtro
+            document.getElementById('btn-pesquisar').addEventListener('click', filtrarAtestados);
+            document.getElementById('btn-limpar').addEventListener('click', function() {
+                document.getElementById('filtro-aluno').value = '';
+                document.getElementById('filtro-data').value = '';
+                filtrarAtestados();
+            });
+
+            // Função para editar atestado
+            function editarAtestado(btn) {
+                const idAtestado = btn.closest('tr').getAttribute('data-id');
+                alert(`Editando atestado ID: ${idAtestado}`);
+                window.location.href = "Listagem_Atestado.html";
+            }
+
+            // Função para excluir atestado
+            function excluirAtestado(btn) {
+                if (confirm('Tem certeza que deseja excluir este atestado?')) {
+                    const linha = btn.closest('tr');
+                    const idAtestado = linha.getAttribute('data-id');
+                    
+                    // Simulação de exclusão - remover a linha da tabela
+                    linha.remove();
+                    
+                    // Atualizar contagem de registros
+                    const totalLinhas = document.querySelectorAll('#tabela-atestados tbody tr').length;
+                    document.querySelector('.pagination-info').textContent = 
+                        `Mostrando 1 até ${totalLinhas} de ${totalLinhas} registros`;
+                    
+                    alert(`Atestado ID: ${idAtestado} excluído com sucesso!`);
+                }
+            }
+
+            // Adicionar eventos aos botões de ação
+            document.querySelectorAll('.btn-editar').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    editarAtestado(this);
+                });
+            });
+
+            document.querySelectorAll('.btn-excluir').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    excluirAtestado(this);
+                });
+            });
+
+            // Permitir filtrar ao pressionar Enter nos campos
+            document.getElementById('filtro-aluno').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') filtrarAtestados();
+            });
+        });
+    </script>
+</body>
+</html>

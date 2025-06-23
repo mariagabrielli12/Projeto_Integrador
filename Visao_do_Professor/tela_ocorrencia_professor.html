@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocorrências - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+ <div class="sidebar">
+ <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+      <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Início</span></a>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <a href="alimentacao.html"><i class="fas fa-utensils"></i>
+        <span>Alimentação</span></a>
+      </div>
+
+      <div class="menu-item active">
+        <a href="tela_ocorrencia_professor.html"><i class="fas fa-exclamation-triangle"></i>
+        <span>Ocorrências</span></a>
+      </div>
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+    <div class="menu-item">
+                    <a href="../tela_login/telaprofessor.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+    </div>
+  </div>
+</div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h2>Ocorrências</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Professor</span>
+       
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="welcome-banner">
+        <h3>Registro de Ocorrências</h3>
+        <p>Registre eventos relevantes ou situações que necessitem de atenção especial</p>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <label class="filter-label">Turma:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todas as turmas</option>
+                <option>Berçário I</option>
+                <option>Berçário II</option>
+                <option>Maternal I</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <label class="filter-label">Tipo:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todos</option>
+                <option>Comportamental</option>
+                <option>Saúde</option>
+                <option>Acidente</option>
+                <option>Outros</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <label class="filter-label">Período:</label>
+            <div class="filter-input">
+              <input type="date">
+              <span>até</span>
+              <input type="date">
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary">Limpar</button>
+          <button class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h4><i class="fas fa-plus-circle"></i> Nova Ocorrência</h4>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Turma</label>
+            <select>
+              <option>Berçário II</option>
+              <option>Berçário I</option>
+              <option>Maternal I</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Criança</label>
+            <select>
+              <option>Selecione uma criança...</option>
+              <option>João Pedro Silva</option>
+              <option>Maria Clara Oliveira</option>
+              <option>Lucas Mendes</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Data</label>
+            <input type="date" value="2025-06-18">
+          </div>
+          <div class="form-group">
+            <label>Horário</label>
+            <input type="time">
+          </div>
+          <div class="form-group">
+            <label>Tipo de Ocorrência</label>
+            <select>
+              <option>Comportamental</option>
+              <option>Saúde</option>
+              <option>Acidente</option>
+              <option>Outros</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Descrição</label>
+          <textarea rows="5" placeholder="Descreva detalhadamente a ocorrência"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Ações Tomadas</label>
+          <textarea rows="3" placeholder="Descreva as ações realizadas em resposta à ocorrência"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Comunicado aos Pais?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="comunicado" value="sim"> Sim</label>
+            <label><input type="radio" name="comunicado" value="nao" checked> Não</label>
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button class="btn btn-secondary">Cancelar</button>
+          <button class="btn btn-primary">Registrar Ocorrência</button>
+        </div>
+      </div>
+
+      <div class="table-container" style="margin-top: 30px;">
+        <h4><i class="fas fa-history"></i> Ocorrências Registradas</h4>
+        <div class="table-settings">
+          <div class="results-per-page">Mostrando 1-5 de 12 ocorrências</div>
+        </div>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Criança</th>
+              <th>Turma</th>
+              <th>Tipo</th>
+              <th>Descrição</th>
+              <th>Status</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>17/06/2025</td>
+              <td>João Pedro Silva</td>
+              <td>Berçário II</td>
+              <td>Saúde</td>
+              <td>Febre de 38.5°C após o almoço</td>
+              <td><span class="status-badge resolved">Resolvido</span></td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>15/06/2025</td>
+              <td>Maria Clara Oliveira</td>
+              <td>Berçário II</td>
+              <td>Comportamental</td>
+              <td>Dificuldade em compartilhar brinquedos</td>
+              <td><span class="status-badge pending">Pendente</span></td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>10/06/2025</td>
+              <td>Lucas Mendes</td>
+              <td>Maternal I</td>
+              <td>Acidente</td>
+              <td>Queda no parquinho - pequeno arranhão no joelho</td>
+              <td><span class="status-badge resolved">Resolvido</span></td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <div class="pagination-info">Página 1 de 3</div>
+          <div class="pagination-controls">
+            <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-path">Portal do Professor > Ocorrências</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

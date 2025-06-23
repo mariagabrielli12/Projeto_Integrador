@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil da Criança</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/Style.css">
+</head>
+<body>
+     <div class="sidebar">
+ <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+    <div class="menu">
+    <div class="menu-section">
+       <div class="menu-item">
+          <a href="Index.html"><i class="fas fa-home"></i><span>Página Inicial</span></a>
+        </div>
+
+        <div class="menu-item active">
+          <a href="perfil_crianca.html"><i class="fas fa-child"></i><span>Perfil da Criança</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios_responsavel.html"><i class="fas fa-file-alt"></i><span>Relatórios</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="avisos_responsavel.html"><i class="fas fa-bell"></i><span>Avisos</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atestados_responsavel.html"><i class="fas fa-notes-medical"></i><span>Atestados</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="ocorrencias_responsavel.html"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+        </div>
+      </div>
+
+        <div class="menu-item">
+          <a href="../tela_login/telaaluno.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-child"></i>
+        <h2>Perfil da Criança</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">RA</div>
+        <span>Responsável</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="card">
+        <div class="card-header">
+          <div class="profile-header">
+            <h3 class="section-title">Lucas Oliveira</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 class="section-title">Informações Pessoais</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome-crianca">Nome</label>
+              <input type="text" id="nome-crianca" value="Lucas Oliveira" readonly>
+            </div>
+            <div class="form-group">
+              <label for="nascimento-crianca">Data de Nascimento</label>
+              <input type="text" id="nascimento-crianca" value="15/03/2020" readonly>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="turma-crianca">Turma</label>
+              <input type="text" id="turma-crianca" value="Maternal I - A" readonly>
+            </div>
+            <div class="form-group">
+              <label for="turno-crianca">Turno</label>
+              <input type="text" id="turno-crianca" value="Manhã" readonly>
+            </div>
+          </div>
+          
+          <h3 class="section-title">Informações Adicionais</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="alergias">Alergias</label>
+              <input type="text" id="alergias" value="Nenhuma registrada" readonly>
+            </div>
+            <div class="form-group">
+              <label for="medicamentos">Medicamentos</label>
+              <input type="text" id="medicamentos" value="Nenhum" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group full-width">
+                <label for="observacoes-saude">Observações de Saúde</label>
+                <textarea id="observacoes-saude" readonly>Criança saudável, sem restrições. Gosta de brincar ao ar livre.</textarea>
+            </div>
+          </div>
+
+          <h3 class="section-title">Informações de Contato de Emergência</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contato-emergencia-nome">Nome</label>
+              <input type="text" id="contato-emergencia-nome" value="Ana Paula (Mãe)" readonly>
+            </div>
+            <div class="form-group">
+              <label for="contato-emergencia-telefone">Telefone</label>
+              <input type="text" id="contato-emergencia-telefone" value="(11) 98765-4321" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+             <div class="form-group">
+              <label for="contato-emergencia-nome2">Nome (Opcional)</label>
+              <input type="text" id="contato-emergencia-nome2" value="Carlos Silva (Pai)" readonly>
+            </div>
+            <div class="form-group">
+              <label for="contato-emergencia-telefone2">Telefone (Opcional)</label>
+              <input type="text" id="contato-emergencia-telefone2" value="(11) 91234-5678" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

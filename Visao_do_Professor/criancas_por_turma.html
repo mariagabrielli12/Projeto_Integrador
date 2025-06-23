@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crianças por Turma - Professor Creche</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style_professor.css">
+</head>
+<body>
+ <div class="sidebar">
+ <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+  
+  <div class="menu">
+    <div class="menu-section">
+       <div class="menu-item">
+        <a href="tela_principal_professor.html"><i class="fas fa-home"></i>
+        <span>Início</span></a>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-calendar-alt"></i>
+        <span>Planejamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="plano_atividades.html"><i class="fas fa-calendar-day"></i>
+          <span>Plano de Atividades</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atividades_ludicas.html"><i class="fas fa-puzzle-piece"></i>
+          <span>Atividades Lúdicas</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotinas_diarias.html"><i class="fas fa-clipboard-list"></i>
+          <span>Rotinas Diárias</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu open">
+        <i class="fas fa-child"></i>
+        <span>Turmas</span>
+      </div>
+      <div class="submenu open">
+        <div class="menu-item">
+          <a href="minhas_turmas.html"><i class="fas fa-baby-carriage"></i>
+          <span>Minhas Turmas</span></a>
+        </div>
+        <div class="menu-item active">
+          <a href="criancas_por_turma.html"><i class="fas fa-user-friends"></i>
+          <span>Crianças por Turma</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item has-submenu">
+        <i class="fas fa-chart-line"></i>
+        <span>Acompanhamento</span>
+      </div>
+      <div class="submenu">
+        <div class="menu-item">
+          <a href="tela_avaliações_professor.html"><i class="fas fa-notes-medical"></i>
+          <span>Desenvolvimento</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="relatorios.html"><i class="fas fa-file-alt"></i>
+          <span>Relatórios</span></a>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <a href="comunicados.html"><i class="fas fa-comment-dots"></i>
+        <span>Comunicados</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-user-friends"></i>
+        <h2>Crianças por Turma</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">PR</div>
+        <span>Professor</span>
+      </div>
+
+    <div class="content-container">
+      <div class="welcome-banner">
+        <h3>Crianças por Turma</h3>
+        <p>Gerencie as crianças matriculadas em suas turmas</p>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-grid">
+          <div class="filter-row">
+            <label class="filter-label">Turma:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todas as turmas</option>
+                <option>Berçário I</option>
+                <option>Berçário II</option>
+                <option>Maternal I</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-row">
+            <label class="filter-label">Status:</label>
+            <div class="filter-input">
+              <select>
+                <option>Todas</option>
+                <option>Ativas</option>
+                <option>Inativas</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-secondary">Limpar</button>
+          <button class="btn btn-primary">Filtrar</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <div class="table-settings">
+          <div class="results-per-page">Mostrando 1-10 de 25 crianças</div>
+
+        </div>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Idade</th>
+              <th>Turma</th>
+              <th>Responsável</th>
+              <th>Contato</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>João Pedro Silva</td>
+              <td>1 ano</td>
+              <td>Berçário II</td>
+              <td>Maria Silva</td>
+              <td>(11) 99999-9999</td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Perfil"><i class="fas fa-user"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Maria Clara Oliveira</td>
+              <td>1 ano e 3 meses</td>
+              <td>Berçário II</td>
+              <td>Ana Oliveira</td>
+              <td>(11) 98888-8888</td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Perfil"><i class="fas fa-user"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Lucas Mendes</td>
+              <td>2 anos</td>
+              <td>Maternal I</td>
+              <td>Carlos Mendes</td>
+              <td>(11) 97777-7777</td>
+              <td>
+                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn-icon" title="Perfil"><i class="fas fa-user"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination">
+          <div class="pagination-info">Página 1 de 3</div>
+          <div class="pagination-controls">
+            <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+            <button class="pagination-btn active">1</button>
+            <button class="pagination-btn">2</button>
+            <button class="pagination-btn">3</button>
+            <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="footer">
+      <div class="footer-path">Portal do Professor > Turmas > Crianças por Turma</div>
+      <div>Copyright © 2025 Creche Feliz. Todos os direitos reservados.</div>
+    </div> -->
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Menu dropdown
+      const menuItems = document.querySelectorAll('.menu-item.has-submenu');
+      menuItems.forEach((item) => {
+        item.addEventListener('click', function(e) {
+          if (e.target.tagName === 'I' || e.target.tagName === 'SPAN') return;
+          const submenu = this.nextElementSibling;
+          this.classList.toggle('open');
+          submenu.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

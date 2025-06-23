@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Relatório - Portal do Responsável</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/Style.css"> <style>
+    /* Estilos específicos para o detalhe do relatório, se necessário */
+    .report-detail-section {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border);
+    }
+    .report-detail-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .report-detail-section h4 {
+        color: var(--primary-dark);
+        margin-bottom: 15px;
+        font-size: 1.15em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .report-detail-section h4 i {
+        color: var(--primary-light);
+    }
+    .report-content p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+        color: var(--text);
+    }
+    .report-content ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 15px;
+    }
+    .report-content ul li {
+        margin-bottom: 5px;
+        color: var(--text);
+    }
+    .recommendations {
+        background-color: var(--action-card-bg-light); /* Usando uma cor clara de fundo */
+        border: 1px solid var(--action-card-border);
+        border-left: 5px solid var(--primary-light); /* Borda lateral para destaque */
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    .recommendations h5 {
+        color: var(--primary-dark);
+        margin-bottom: 10px;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .recommendations p {
+        font-size: 0.9em;
+        line-height: 1.5;
+        color: #555;
+    }
+    .teacher-signature {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px dashed var(--border);
+        text-align: right;
+        font-style: italic;
+        color: #7f8c8d;
+    }
+    .teacher-signature span {
+        display: block;
+        font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item">
+          <a href="Index.html"><i class="fas fa-home"></i><span>Página Inicial</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="perfil_crianca.html"><i class="fas fa-child"></i><span>Perfil da Criança</span></a>
+        </div>
+        <div class="menu-item active"> <a href="relatorios_responsavel.html"><i class="fas fa-file-alt"></i><span>Relatórios</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="avisos_responsavel.html"><i class="fas fa-bell"></i><span>Avisos</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="atestados_responsavel.html"><i class="fas fa-notes-medical"></i><span>Atestados</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="ocorrencias_responsavel.html"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+        </div>
+      </div>
+
+      <div class="menu-section bottom-menu">
+        <div class="menu-item">
+          <a href="#"><i class="fas fa-cogs"></i><span>Configurações</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="#"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-file-alt"></i>
+        <h2>Detalhes do Relatório</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">RA</div>
+        <span>Responsável</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="card">
+        <div class="card-header">
+            <i class="fas fa-child"></i>
+            <h3 class="section-title">Relatório de Desenvolvimento - Lucas Oliveira</h3>
+        </div>
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Período</label>
+                    <input type="text" value="Trimestre 1 - 2025 (Março a Junho)" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Data de Emissão</label>
+                    <input type="text" value="10/06/2025" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Autor</label>
+                    <input type="text" value="Prof.ª Maria Costa" readonly>
+                </div>
+                 <div class="form-group">
+                    <label>Situação</label>
+                    <input type="text" value="Concluído" readonly>
+                </div>
+            </div>
+
+            <div class="report-detail-section">
+                <h4><i class="fas fa-pencil-alt"></i> Desempenho Cognitivo e Linguagem</h4>
+                <div class="report-content">
+                    <p>Lucas demonstra grande curiosidade e interesse em novas atividades. Sua linguagem tem evoluído de forma notável, com a formação de frases mais complexas e o aumento do vocabulário. Ele interage ativamente em rodas de conversa e mostra compreensão de comandos de duas etapas.</p>
+                    <ul>
+                        <li>**Reconhecimento de Cores:** Identifica as cores primárias com facilidade.</li>
+                        <li>**Contagem:** Começa a contar até 5 de forma consistente.</li>
+                        <li>**Expressão de Ideias:** Consegue expressar suas necessidades e desejos de forma clara.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="report-detail-section">
+                <h4><i class="fas fa-running"></i> Desenvolvimento Motor</h4>
+                <div class="report-content">
+                    <p>No aspecto motor, Lucas é uma criança muito ativa e com boa coordenação. Ele corre, pula e sobe em obstáculos com segurança. Sua coordenação motora fina está em desenvolvimento, e ele se empenha em atividades que exigem precisão, como encaixes e manuseio de massinha.</p>
+                    <ul>
+                        <li>**Grossa:** Participa ativamente de brincadeiras no pátio e jogos com bola.</li>
+                        <li>**Fina:** Apresenta progresso no uso de tesouras infantis e no desenho de formas simples.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="report-detail-section">
+                <h4><i class="fas fa-users"></i> Socialização e Comportamento</h4>
+                <div class="report-content">
+                    <p>Lucas é bastante sociável e busca interagir com outras crianças. Ele tem demonstrado maior capacidade de compartilhar brinquedos e aguardar sua vez em atividades em grupo. Em alguns momentos, pode mostrar resistência a transições, mas com o apoio da professora, adapta-se bem.</p>
+                    <ul>
+                        <li>**Interação:** Faz amigos facilmente e gosta de brincar em grupo.</li>
+                        <li>**Regras:** Compreende e segue a maioria das regras da sala.</li>
+                        <li>**Autonomia:** Demonstra independência em tarefas como guardar brinquedos e se alimentar.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recommendations">
+                <h5><i class="fas fa-lightbulb"></i> Sugestões para o Desenvolvimento em Casa</h5>
+                <p>Para continuar estimulando o desenvolvimento de Lucas, sugerimos:</p>
+                <ul>
+                    <li>Incentivar a leitura de livros infantis com histórias mais elaboradas.</li>
+                    <li>Propor brincadeiras que envolvam contagem e reconhecimento de números.</li>
+                    <li>Oferecer atividades de desenho e pintura para aprimorar a coordenação motora fina.</li>
+                    <li>Continuar estimulando a autonomia em pequenas tarefas diárias.</li>
+                </ul>
+            </div>
+
+            <div class="teacher-signature">
+                <span>Atenciosamente,</span>
+                <span>Prof.ª Maria Costa</span>
+                <span>Coordenação Pedagógica</span>
+            </div>
+
+            <div class="form-actions" style="margin-top: 30px;">
+                <a href="relatorios_responsavel.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Voltar para Relatórios</a>
+                <button class="btn btn-primary" onclick="alert('Download do PDF iniciado.')"><i class="fas fa-download"></i> Baixar Relatório (PDF)</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
