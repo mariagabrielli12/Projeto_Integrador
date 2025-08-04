@@ -17,27 +17,29 @@
   <div class="menu-section">
     <div class="menu-item">
       <i class="fas fa-user-cog"></i>
-      <span>Início</span>
+           <li class="menu-item active">
+          
+            <span><a href="cadastrogerais.html" style="color:inherit; text-decoration:none;">Início</a></span>
+        </li>
     </div>
 
-    <div class="menu-item has-submenu open">
-      <i class="fas fa-user-cog"></i>
-      <span>Cadastros</span>
-    </div>
     <div class="submenu open">
       <!-- Listagens -->
-      <div class="menu-item">
-        <i class="fas fa-users"></i>
-        <span><a href="listagem_Secretario.html" style="color:inherit; text-decoration:none;">Cadastro de Secretário</a></span>
-      </div>
-      <div class="menu-item">
-        <i class="fas fa-users"></i>
-        <span><a href="Listagem_Professor.html" style="color:inherit; text-decoration:none;">Cadastro de Professor</a></span>
-      </div>
-      <div class="menu-item">
-        <i class="fas fa-users"></i>
-        <span><a href="Listagem_Bercarista.html" style="color:inherit; text-decoration:none;">Cadastro de Berçaristas</a></span>
-      </div>
+           <ul class="submenu">
+            <li class="menu-item">
+                <i class="fas fa-user-tie"></i>
+                <span><a href="listagem_Secretario.html" style="color:inherit; text-decoration:none;">Secretários</a></span>
+            </li>
+            <li class="menu-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span><a href="Listagem_Professor.html" style="color:inherit; text-decoration:none;">Professores</a></span>
+            </li>
+            <li class="menu-item">
+                <i class="fas fa-baby"></i>
+                <span><a href="Listagem_Bercarista.html" style="color:inherit; text-decoration:none;">Berçaristas</a></span>
+            </li>
+        </ul>
+
 
         </div>
       <div class="menu-item has-submenu open">
@@ -208,40 +210,58 @@
                 });
             });
 
-            // // Máscara para CPF
-            // const cpfInputs = document.querySelectorAll('input[placeholder="000.000.000-00"]');
-            // cpfInputs.forEach(input => {
-            //     input.addEventListener('input', function(e) {
-            //         let value = e.target.value.replace(/\D/g, '');
-            //         if (value.length > 11) value = value.slice(0, 11);
-                    
-            //         if (value.length > 9) {
-            //             value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-            //         } else if (value.length > 6) {
-            //             value = value.replace(/(\d{3})(\d{3})(\d+)/, '$1.$2.$3');
-            //         } else if (value.length > 3) {
-            //             value = value.replace(/(\d{3})(\d+)/, '$1.$2');
-            //         }
-            //         e.target.value = value;
-            //     });
-            // });
-
-            // // Máscara para telefone
-            // const phoneInputs = document.querySelectorAll('input[type="tel"]');
-            // phoneInputs.forEach(input => {
-            //     input.addEventListener('input', function(e) {
-            //         let value = e.target.value.replace(/\D/g, '');
-            //         if (value.length > 11) value = value.slice(0, 11);
-                    
-            //         if (value.length > 10) {
-            //             value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-            //         } else if (value.length > 6) {
-            //             value = value.replace(/(\d{2})(\d{4})(\d+)/, '($1) $2-$3');
-            //         }
-            //         e.target.value = value;
-            //     });
-            // });
+       
         });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Ativar menu conforme a página atual
+    const currentPage = window.location.pathname.split('/').pop();
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    // Desativar todos os itens primeiro
+    menuItems.forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Ativar item correspondente à página atual
+    menuItems.forEach(item => {
+        const link = item.querySelector('a');
+        if (link && link.getAttribute('href') === currentPage) {
+            item.classList.add('active');
+            
+            // Abrir submenu pai se existir
+            const submenu = item.closest('.submenu');
+            if (submenu) {
+                submenu.classList.add('open');
+                submenu.previousElementSibling.classList.add('open');
+            }
+        }
+    });
+    
+    // Controle de submenus
+    const hasSubmenuItems = document.querySelectorAll('.menu-item.has-submenu');
+    hasSubmenuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Não fechar se clicar no ícone ou no texto
+            if (e.target.tagName === 'I' || e.target.tagName === 'SPAN' || e.target.tagName === 'A') return;
+            
+            const submenu = this.nextElementSibling;
+            const isOpen = submenu.classList.contains('open');
+            
+            // Fechar todos os outros submenus primeiro
+            document.querySelectorAll('.submenu').forEach(sm => {
+                if (sm !== submenu) sm.classList.remove('open');
+            });
+            document.querySelectorAll('.menu-item.has-submenu').forEach(mi => {
+                if (mi !== this) mi.classList.remove('open');
+            });
+            
+            // Alternar estado do submenu atual
+            submenu.classList.toggle('open');
+            this.classList.toggle('open');
+        });
+    });
+});
     </script>
 </body>
 </html>
