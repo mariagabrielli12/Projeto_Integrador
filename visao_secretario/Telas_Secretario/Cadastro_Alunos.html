@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -96,7 +97,8 @@
 
         <div class="content-container">
             <!-- Formulário de Cadastro -->
-            <div class="form-container">
+            <form class="form-container" action="cadastro_alunos.php" method="POST">
+
                 <h3 class="section-title">Dados do Aluno</h3>
                 
                 <div class="form-row">
@@ -113,35 +115,36 @@
                     
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" id="nome" placeholder="Nome completo" required><span id="campoNome"></span> 
+                        <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+
                     </div>
                     
                     <div class="form-group">
                         <label for="student-rg">RG</label>
-                        <input type="text" id="student-rg" placeholder="Número do RG"required>
+                        <input type="text" id="student-rg" name="student-rg" placeholder="Número do RG"required>
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="student-cpf">CPF</label>
-                        <input type="text" id="student-cpf" placeholder="000.000.000-00" required>
+                        <input type="text" id="student-cpf" name="student-cpf" placeholder="000.000.000-00" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-birth">Data de Nascimento</label>
-                        <input type="text" id="student-birth" placeholder="dd/mm/aaaa" required>
+                        <input type="text" id="student-birth" name="student-birth" placeholder="dd/mm/aaaa" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-phone">Telefone (Responsável)</label>
-                        <input type="tel" id="student-phone" placeholder="(00) 00000-0000" required>
+                        <input type="tel" id="student-phone" name="student-phone" placeholder="(00) 00000-0000" required>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="student-email">E-mail (Responsável)</label>
-                    <input type="email" id="student-email" placeholder="exemplo@email.com" required>
+                    <input type="email" id="student-email" name="student-email" placeholder="exemplo@email.com" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
@@ -159,17 +162,17 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="student-cep">CEP</label>
-                        <input type="text" id="student-cep" placeholder="00000-000" required>
+                        <input type="text" id="student-cep" name="student-cep" placeholder="00000-000" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-address">Logradouro</label>
-                        <input type="text" id="student-address" placeholder="Rua, Avenida, etc." required>
+                        <input type="text" id="student-address" name="student-address" placeholder="Rua, Avenida, etc." required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-number">Número</label>
-                        <input type="text" id="student-number" placeholder="Número" required>
+                        <input type="text" id="student-number" name="student-number" placeholder="Número" required>
                     </div>
                     
                     <div class="form-group">
@@ -186,17 +189,17 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="student-city">Cidade</label>
-                        <input type="text" id="student-city" placeholder="Cidade" required>
+                        <input type="text" id="student-city" name="student-city" placeholder="Cidade" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-district">Bairro</label>
-                        <input type="text" id="student-district" placeholder="Bairro" required>
+                        <input type="text" id="student-district" name="student-district" placeholder="Bairro" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="student-complement">Complemento</label>
-                        <input type="text" id="student-complement" placeholder="Complemento" required>
+                        <input type="text" id="student-complement" name="student-complement" placeholder="Complemento" required>
                     </div>
                 </div>
                 
@@ -208,7 +211,7 @@
                     <i class="fas fa-save"></i> Salvar Cadastro
                     </button>
                 </div>
-            </div>
+            </form>
       
             
             <!-- Footer -->
@@ -305,9 +308,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (valido) {
-            // Enviar dados ou redirecionar
-            window.location.href = "Listagem_Alunos.html";
-        }
+        document.querySelector("form").submit();
+    }
     });
 });
 </script>

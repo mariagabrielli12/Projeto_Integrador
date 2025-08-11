@@ -90,49 +90,49 @@
         </div>
 
         <div class="content-container">
-            <div class="form-container">
+            <form class="form-container" action="cadastro_atestado.php" method="POST">
                 <h3 class="section-title">Dados do Atestado</h3>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="student-name">Aluno*</label>
-                        <input type="text" id="student-name" placeholder="Nome do aluno" required />
+                        <input type="text" id="student-name" name="student-name" placeholder="Nome do aluno" required />
                     </div>
                     <div class="form-group">
                         <label for="student-id">Matrícula*</label>
-                        <input type="text" id="student-id" placeholder="Número da matrícula" required />
+                        <input type="text" id="student-id" name="student-id" placeholder="Número da matrícula" required />
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="atestado-date">Data do Atestado*</label>
-                        <input type="date" id="atestado-date" required />
+                        <input type="date" id="atestado-date" name="atestado-date" required />
                     </div>
                     <div class="form-group">
                         <label for="period-from">Período (Início)*</label>
-                        <input type="date" id="period-from" required />
+                        <input type="date" id="period-from" name="period-from" required />
                     </div>
                     <div class="form-group">
                         <label for="period-to">Período (Fim)*</label>
-                        <input type="date" id="period-to" required />
+                        <input type="date" id="period-to" name="period-to" required />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="atestado-reason">Motivo*</label>
-                    <textarea id="atestado-reason" placeholder="Descreva o motivo do atestado" required></textarea>
+                    <textarea id="atestado-reason" name="atestado-reason" placeholder="Descreva o motivo do atestado" required></textarea>
                 </div>
 
                 <div class="form-actions">
-                    <button class="btn btn-secondary" type="reset">
-                        <i class="fas fa-times"></i> Cancelar
-                    </button>
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fas fa-save"></i> Salvar Atestado
-                    </button>
-                </div>
-            </div>
+            <button class="btn btn-secondary" type="reset">
+            <i class="fas fa-times"></i> Cancelar
+              </button>
+             <button class="btn btn-primary" type="submit">
+              <i class="fas fa-save"></i> Salvar Atestado
+           </button>
+          </div>
+              </form>
 
             <!-- Footer -->
             <!-- <div class="footer">

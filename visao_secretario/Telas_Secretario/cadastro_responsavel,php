@@ -1,0 +1,65 @@
+<?php
+// Configurações do banco
+$host = 'localhost';
+$dbname = 'rede_educacional';
+$user = 'root'; // ajuste conforme seu usuário do MySQL
+$pass = '';     // ajuste conforme sua senha do MySQL
+
+// Conexão com PDO
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão: " . $e->getMessage());
+}
+
+// Verifica se o formulário foi enviado via POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Recebe e sanitiza dados
+    $nome = trim($_POST['nome'] ?? '');
+    $rg = trim($_POST['responsavel-rg'] ?? '');
+    $cpf = trim($_POST['responsavel-cpf'] ?? '');
+    $telefone = trim($_POST['responsavel-phone'] ?? '');
+    $email = trim($_POST['responsavel-email'] ?? '');
+    $cep = trim($_POST['responsavel-cep'] ?? '');
+    $logradouro = trim($_POST['responsavel-address'] ?? '');
+    $numero = trim($_POST['responsavel-number'] ?? '');
+    $estado = trim($_POST['responsavel-state'] ?? '');
+    $cidade = trim($_POST['responsavel-city'] ?? '');
+    $bairro = trim($_POST['responsavel-district'] ?? '');
+    $complemento = trim($_POST['responsavel-complement'] ?? '');
+
+    // Aqui você poderia fazer validações básicas
+
+    // Insere no banco
+    $sql = "INSERT INTO responsaveis (nome, rg, cpf, telefone, email, cep, logradouro, numero, estado, cidade, bairro, complemento)
+            VALUES (:nome, :rg, :cpf, :telefone, :email, :cep, :logradouro, :numero, :estado, :cidade, :bairro, :complemento)";
+    $stmt = $pdo->prepare($sql);
+
+    try {
+        $stmt->execute([
+            ':nome' => $nome,
+            ':rg' => $rg,
+            ':cpf' => $cpf,
+            ':telefone' => $telefone,
+            ':email' => $email,
+            ':cep' => $cep,
+            ':logradouro' => $logradouro,
+            ':numero' => $numero,
+            ':estado' => $estado,
+            ':cidade' => $cidade,
+            ':bairro' => $bairro,
+            ':complemento' => $complemento,
+        ]);
+        // Redireciona após sucesso
+        header("Location: Listagem_Responsavel.html");
+        exit;
+    } catch (PDOException $e) {
+        die("Erro ao inserir no banco: " . $e->getMessage());
+    }
+} else {
+    // Se acessar direto o PHP, redireciona para o formulário
+    header("Location: Cadastro_Responsavel.html");
+    exit;
+}
+?>
