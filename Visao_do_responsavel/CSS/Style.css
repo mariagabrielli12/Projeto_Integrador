@@ -1615,3 +1615,95 @@ a{
         width: 100%;
     }
 }
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    border: 1px solid transparent;
+    font-size: 14px; /* Aumenta um pouco a fonte para melhor leitura */
+}
+
+.alert.success {
+    color: #155724; /* Texto verde escuro */
+    background-color: #d4edda; /* Fundo verde claro */
+    border-color: #c3e6cb;
+}
+
+.alert.error {
+    color: #721c24; /* Texto vermelho escuro */
+    background-color: #f8d7da; /* Fundo vermelho claro */
+    border-color: #f5c6cb;
+}
+
+
+/* Estilos específicos para o detalhe do relatório */
+.report-detail-section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+.report-detail-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.report-detail-section h4 {
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-size: 1.15em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.report-detail-section h4 i {
+    color: var(--primary-light);
+}
+.report-content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: var(--text);
+}
+.report-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+.report-content ul li {
+    margin-bottom: 5px;
+    color: var(--text);
+}
+.recommendations {
+    background-color: var(--action-card-bg-light);
+    border: 1px solid var(--action-card-border);
+    border-left: 5px solid var(--primary-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.recommendations h5 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.recommendations p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    color: #555;
+}
+.teacher-signature {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+    text-align: right;
+    font-style: italic;
+    color: #7f8c8d;
+}
+.teacher-signature span {
+    display: block;
+    font-size: 0.9em;
+}
