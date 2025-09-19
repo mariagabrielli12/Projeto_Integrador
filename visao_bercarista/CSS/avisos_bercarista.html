@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avisos - Berçarista</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS_Bercarista/Style_bercarista.css">
+  <style>
+    /* Estilos para as abas, se não estiverem já em Style_bercarista.css */
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.3s ease;
+      position: relative;
+      top: 1px; /* Para alinhar com a borda inferior */
+    }
+    .tab-btn:hover {
+      color: var(--primary-light);
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary-light);
+    }
+    .tab-content {
+      display: none; /* Esconde todas as abas por padrão */
+      padding-top: 10px;
+    }
+    .tab-content.active {
+      display: block; /* Mostra apenas a aba ativa */
+    }
+
+    /* Estilos para cards de aviso */
+    .notice-card {
+        background: white;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .notice-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    }
+    .notice-card .card-title {
+        font-size: 16px;
+        color: var(--primary);
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .notice-card .card-title i {
+        color: var(--primary-light);
+    }
+    .notice-card .card-meta {
+        font-size: 12px;
+        color: #7f8c8d;
+        margin-bottom: 10px;
+        display: flex;
+        gap: 15px;
+    }
+    .notice-card .card-meta span i {
+        margin-right: 5px;
+    }
+    .notice-card .card-text {
+        font-size: 14px;
+        color: var(--text);
+        line-height: 1.5;
+    }
+    .notice-card.urgent .card-title i { color: var(--danger); }
+    .notice-card.event .card-title i { color: var(--info); }
+    .notice-card.general .card-title i { color: var(--warning); }
+  </style>
+</head>
+<body>
+ <div class="sidebar">
+   <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>Rede Educacional</h1>
+        </div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item">
+          <a href="index_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-home"></i><span>Início</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="rotina_diaria.html" style="color:inherit; text-decoration:none;"><i class="fas fa-clipboard-list"></i><span>Registro de Rotina</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="ocorrencias_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="perfil_crianca_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-user-friends"></i><span>Perfis alunos</span></a>
+        </div>
+        
+        <div class="menu-item active">
+          <a href="avisos_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-bell"></i><span>Avisos</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="presenca_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-check-circle"></i><span>Controle de Presença</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="../../tela_login/telabercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-bell"></i>
+        <h2>Avisos</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">BA</div>
+        <span>Berçarista</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="card">
+        <div class="tab-buttons">
+          <button class="tab-btn active" onclick="openTab(event, 'historico-avisos')">Histórico de Avisos</button>
+          <button class="tab-btn" onclick="openTab(event, 'novo-aviso')">Novo Aviso</button>
+        </div>
+
+        <div id="historico-avisos" class="tab-content active">
+          <div class="card-header">
+            
+          </div>
+          <div class="card-body">
+            <div class="notice-card general">
+                <h3 class="card-title"><i class="fas fa-info-circle"></i> Reunião de Equipe</h3>
+                <p class="card-meta"><span><i class="fas fa-calendar-alt"></i> Data: 25/06/2025</span> <span><i class="fas fa-tag"></i> Categoria: Interno</span></p>
+                <p class="card-text">Lembrete: Reunião de equipe semanal na sala de reuniões às 10h. Pauta: Avaliação do desenvolvimento dos alunos.</p>
+            </div>
+            <div class="notice-card event">
+                <h3 class="card-title"><i class="fas fa-calendar-check"></i> Festa Junina da Creche</h3>
+                <p class="card-meta"><span><i class="fas fa-calendar-alt"></i> Data: 21/06/2025</span> <span><i class="fas fa-tag"></i> Categoria: Evento</span></p>
+                <p class="card-text">Festa Junina amanhã! Pedimos a colaboração de todos para que as crianças venham com trajes típicos. Horário: 14h-17h.</p>
+            </div>
+            <div class="notice-card urgent">
+                <h3 class="card-title"><i class="fas fa-exclamation-circle"></i> Treinamento de Primeiros Socorros</h3>
+                <p class="card-meta"><span><i class="fas fa-calendar-alt"></i> Data: 18/06/2025</span> <span><i class="fas fa-tag"></i> Categoria: Urgente</span></p>
+                <p class="card-text">Treinamento obrigatório de primeiros socorros para toda a equipe. Verifiquem seus e-mails para detalhes e horários específicos.</p>
+            </div>
+            <div class="notice-card general">
+                <h3 class="card-title"><i class="fas fa-info-circle"></i> Atualização de Rotinas</h3>
+                <p class="card-meta"><span><i class="fas fa-calendar-alt"></i> Data: 10/06/2025</span> <span><i class="fas fa-tag"></i> Categoria: Interno</span></p>
+                <p class="card-text">As novas diretrizes para o registro de rotinas diárias já estão disponíveis no mural da sala dos professores. Favor consultar.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="novo-aviso" class="tab-content">
+          <div class="card-header">
+            
+          </div>
+          <div class="card-body">
+            <form id="form-novo-aviso">
+              <div class="form-group">
+                <label for="titulo-aviso">Título do Aviso *</label>
+                <input type="text" id="titulo-aviso" placeholder="Ex: Lanche da tarde, Saída Antecipada" required>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="categoria-aviso">Categoria *</label>
+                  <select id="categoria-aviso" required>
+                    <option value="">Selecione a categoria</option>
+                    <option value="Geral">Geral</option>
+                    <option value="Evento">Evento</option>
+                    <option value="Urgente">Urgente</option>
+                    <option value="Interno">Interno (Apenas Equipe)</option>
+                    <option value="Saúde">Saúde</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="data-aviso">Data do Aviso *</label>
+                  <input type="date" id="data-aviso" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mensagem-aviso">Mensagem *</label>
+                <textarea id="mensagem-aviso" rows="5" placeholder="Descreva o aviso detalhadamente..." required></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="reset" class="btn btn-secondary"><i class="fas fa-times"></i> Limpar</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar Aviso</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      // Declara todas as variáveis
+      let i, tabcontent, tablinks;
+
+      // Pega todos os elementos com class="tab-content" e os esconde
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+
+      // Pega todos os elementos com class="tab-btn" e remove a classe "active"
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+
+      // Mostra a aba atual e adiciona a classe "active" ao botão que abriu a aba
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Abre a primeira aba por padrão ao carregar a página
+      document.querySelector('.tab-btn').click();
+
+      // Simulação de envio de formulário para o novo aviso
+      document.getElementById('form-novo-aviso').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const titulo = document.getElementById('titulo-aviso').value;
+        const categoria = document.getElementById('categoria-aviso').value;
+        const data = document.getElementById('data-aviso').value;
+        const mensagem = document.getElementById('mensagem-aviso').value;
+
+        if (!titulo || !categoria || !data || !mensagem) {
+          alert('Por favor, preencha todos os campos obrigatórios.');
+          return;
+        }
+
+        alert(`Novo Aviso Registrado com Sucesso!\n\nTítulo: ${titulo}\nCategoria: ${categoria}\nData: ${data}\nMensagem: ${mensagem}`);
+        
+        // Limpa o formulário
+        this.reset();
+        
+        // Opcional: Voltar para a aba de histórico após o envio
+        const historicoTabBtn = document.querySelector('.tab-buttons .tab-btn:first-child');
+        openTab({ currentTarget: historicoTabBtn }, 'historico-avisos');
+      });
+    });
+  </script>
+</body>
+</html>

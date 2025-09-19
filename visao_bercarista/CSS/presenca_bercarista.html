@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Presença - Berçarista</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS_Bercarista/Style_bercarista.css">
+  <style>
+    /* Estilos específicos para a página de Controle de Presença */
+    .attendance-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    @media (min-width: 1200px) {
+      .attendance-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .attendance-filter {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding: 15px;
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    
+    .attendance-stats {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 10px;
+    }
+    
+    .stat-card {
+      text-align: center;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    .stat-card.present {
+      background-color: var(--success-light);
+      color: var(--success-dark);
+      border: 1px solid var(--success);
+    }
+    
+    .stat-card.absent {
+      background-color: var(--danger-light);
+      color: var(--danger-dark);
+      border: 1px solid var(--danger);
+    }
+    
+    .stat-card.justified {
+      background-color: var(--warning-light);
+      color: var(--warning-dark);
+      border: 1px solid var(--warning);
+    }
+    
+    .stat-card .stat-value {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .attendance-filter .form-group {
+      margin-bottom: 0;
+      min-width: 180px;
+      flex-grow: 1;
+    }
+    
+    .attendance-filter .form-group label {
+      font-weight: 600;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .attendance-filter button {
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .attendance-list .table-responsive {
+      margin-top: 20px;
+    }
+
+    .attendance-status-select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background-color: white;
+      font-size: 13px;
+    }
+    
+    .attendance-status-select.present {
+      background-color: var(--success-light);
+      color: var(--success-dark);
+      border-color: var(--success);
+    }
+    
+    .attendance-status-select.absent {
+      background-color: var(--danger-light);
+      color: var(--danger-dark);
+      border-color: var(--danger);
+    }
+    
+    .attendance-status-select.justified {
+      background-color: var(--warning-light);
+      color: var(--warning-dark);
+      border-color: var(--warning);
+    }
+
+    .action-buttons-bottom {
+      display: flex;
+      justify-content: flex-end;
+      padding: 15px 0;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+    
+    .history-container {
+      background-color: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+    }
+    
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    
+    .history-table th, .history-table td {
+      padding: 10px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    
+    .history-table th {
+      background-color: var(--table-header);
+    }
+    
+    .history-table tr:nth-child(even) {
+      background-color: var(--secondary);
+    }
+    
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.3s ease;
+      position: relative;
+      top: 1px;
+    }
+    
+    .tab-btn:hover {
+      color: var(--primary-light);
+    }
+    
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h1>Rede Educacional</h1>
+    </div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item">
+          <a href="index_bercarista.html"><i class="fas fa-home"></i><span>Início</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="rotina_diaria.html"><i class="fas fa-clipboard-list"></i><span>Registro de Rotina</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="ocorrencias_bercarista.html"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="perfil_crianca_bercarista.html"><i class="fas fa-user-friends"></i><span>Perfis alunos</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="avisos_bercarista.html"><i class="fas fa-bell"></i><span>Avisos</span></a>
+        </div>
+        <div class="menu-item active">
+          <a href="presenca_bercarista.html"><i class="fas fa-check-circle"></i><span>Controle de Presença</span></a>
+        </div>
+        <div class="menu-item">
+          <a href="../../tela_login/telabercarista.html"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="main-content">
+    <div class="header">
+      <div class="page-title">
+        <i class="fas fa-user-check"></i>
+        <h2>Controle de Presença</h2>
+      </div>
+      <div class="user-info">
+        <div class="user-avatar">BR</div>
+        <span>Berçarista</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="openTab(event, 'registrar-presenca')">
+          <i class="fas fa-edit"></i> Registrar Presença
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'historico-presenca')">
+          <i class="fas fa-history"></i> Histórico
+        </button>
+      </div>
+      
+      <div id="registrar-presenca" class="tab-content active">
+        <div class="attendance-filter">
+          <div class="form-group">
+            <label for="attendance-date">Data da Presença:</label>
+            <input type="date" id="attendance-date" class="form-control" value="">
+          </div>
+          <div class="form-group">
+            <label for="attendance-class">Selecionar Turma:</label>
+            <select id="attendance-class" class="form-control">
+              <option value="">Selecione uma Turma</option>
+              <option value="Maternal I A">Maternal I A</option>
+              <option value="Maternal I B">Maternal I B</option>
+              <option value="Berçário I">Berçário I</option>
+              <option value="Berçário II">Berçário II</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="loadAttendance()">
+            <i class="fas fa-search"></i> Carregar Presença
+          </button>
+        </div>
+        
+        <div class="attendance-stats" id="attendance-stats" style="display: none;">
+          <h3>Resumo da Presença</h3>
+          <div class="stats-grid" id="stats-grid">
+            <!-- Preenchido dinamicamente pelo JavaScript -->
+          </div>
+        </div>
+
+        <div class="card attendance-list">
+          <div class="card-header">
+            <h3 class="section-title">Lista de Crianças</h3>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Nome da Criança</th>
+                    <th>Status de Presença</th>
+                    <th>Observações</th>
+                  </tr>
+                </thead>
+                <tbody id="attendance-table-body">
+                </tbody>
+              </table>
+            </div>
+            <div class="action-buttons-bottom">
+              <button class="btn btn-primary" onclick="saveAttendance()">
+                <i class="fas fa-save"></i> Salvar Presença
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="historico-presenca" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+
+          </div>
+          <div class="card-body">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="history-class">Turma:</label>
+                <select id="history-class" class="form-control">
+                  <option value="">Todas as Turmas</option>
+                  <option value="Maternal I A">Maternal I A</option>
+                  <option value="Maternal I B">Maternal I B</option>
+                  <option value="Berçário I">Berçário I</option>
+                  <option value="Berçário II">Berçário II</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="history-start-date">Data Início:</label>
+                <input type="date" id="history-start-date" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="history-end-date">Data Fim:</label>
+                <input type="date" id="history-end-date" class="form-control">
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary" onclick="loadHistory()">
+                  <i class="fas fa-search"></i> Buscar
+                </button>
+              </div>
+            </div>
+            
+            <div class="history-container">
+              <table class="history-table">
+                <thead>
+                  <tr>
+                    <th>Data</th>
+                    <th>Turma</th>
+                    <th>Presentes</th>
+                    <th>Ausentes</th>
+                    <th>Justificados</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="history-table-body">
+                  <!-- Preenchido dinamicamente pelo JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Dados de exemplo para crianças, incluindo a turma
+    const allChildrenData = [
+      { id: 1, name: "Maria Clara", class: "Maternal I A", status: "presente", notes: "" },
+      { id: 2, name: "João Pedro", class: "Maternal I A", status: "ausente", notes: "Com febre" },
+      { id: 3, name: "Laura Souza", class: "Maternal I A", status: "presente", notes: "" },
+      { id: 4, name: "Lucas Silva", class: "Maternal I B", status: "justificada", notes: "Consulta médica" },
+      { id: 5, name: "Ana Beatriz", class: "Maternal I B", status: "presente", notes: "" },
+      { id: 6, name: "Miguel Santos", class: "Berçário I", status: "ausente", notes: "" },
+      { id: 7, name: "Sofia Lima", class: "Berçário I", status: "presente", notes: "" },
+      { id: 8, name: "Davi Rocha", class: "Berçário II", status: "presente", notes: "" },
+    ];
+    
+    // Dados de histórico de exemplo
+    const attendanceHistory = [
+      { date: "2025-06-22", class: "Maternal I A", present: 15, absent: 2, justified: 1 },
+      { date: "2025-06-21", class: "Maternal I A", present: 14, absent: 3, justified: 0 },
+      { date: "2025-06-20", class: "Maternal I A", present: 16, absent: 1, justified: 1 },
+      { date: "2025-06-22", class: "Maternal I B", present: 12, absent: 1, justified: 2 },
+      { date: "2025-06-21", class: "Berçário I", present: 8, absent: 0, justified: 0 },
+      { date: "2025-06-20", class: "Berçário II", present: 10, absent: 1, justified: 0 },
+    ];
+
+    function openTab(evt, tabName) {
+      const tabcontent = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      
+      const tablinks = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+      
+      // Se for a aba de histórico, carrega os dados padrão
+      if (tabName === 'historico-presenca') {
+        loadHistory();
+      }
+    }
+
+    function renderAttendanceTable(data) {
+      const tbody = document.getElementById('attendance-table-body');
+      tbody.innerHTML = ''; // Limpa a tabela
+
+      if (data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px;">Nenhuma criança encontrada para a turma e data selecionadas.</td></tr>';
+        document.getElementById('attendance-stats').style.display = 'none';
+        return;
+      }
+
+      // Contadores para estatísticas
+      let presentCount = 0;
+      let absentCount = 0;
+      let justifiedCount = 0;
+
+      data.forEach(child => {
+        const row = document.createElement('tr');
+        row.setAttribute('data-child-id', child.id);
+        row.setAttribute('data-child-class', child.class);
+        
+        // Atualiza contadores
+        if (child.status === 'presente') presentCount++;
+        else if (child.status === 'ausente') absentCount++;
+        else if (child.status === 'justificada') justifiedCount++;
+        
+        row.innerHTML = `
+          <td>${child.name}</td>
+          <td>
+            <select class="attendance-status-select ${child.status}" onchange="updateStatusClass(this)">
+              <option value="presente" ${child.status === 'presente' ? 'selected' : ''}>Presente</option>
+              <option value="ausente" ${child.status === 'ausente' ? 'selected' : ''}>Ausente</option>
+              <option value="justificada" ${child.status === 'justificada' ? 'selected' : ''}>Ausência Justificada</option>
+            </select>
+          </td>
+          <td>
+            <input type="text" class="form-control" value="${child.notes}" placeholder="Adicionar observação">
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+      
+      // Atualiza as estatísticas
+      updateStats(presentCount, absentCount, justifiedCount, data.length);
+    }
+    
+    function updateStats(present, absent, justified, total) {
+      const statsContainer = document.getElementById('attendance-stats');
+      const statsGrid = document.getElementById('stats-grid');
+      
+      statsGrid.innerHTML = `
+        <div class="stat-card present">
+          <div class="stat-label">Presentes</div>
+          <div class="stat-value">${present}</div>
+          <div class="stat-percent">${Math.round((present / total) * 100)}%</div>
+        </div>
+        <div class="stat-card absent">
+          <div class="stat-label">Ausentes</div>
+          <div class="stat-value">${absent}</div>
+          <div class="stat-percent">${Math.round((absent / total) * 100)}%</div>
+        </div>
+        <div class="stat-card justified">
+          <div class="stat-label">Justificados</div>
+          <div class="stat-value">${justified}</div>
+          <div class="stat-percent">${Math.round((justified / total) * 100)}%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total</div>
+          <div class="stat-value">${total}</div>
+          <div class="stat-percent">100%</div>
+        </div>
+      `;
+      
+      statsContainer.style.display = 'block';
+    }
+
+    function updateStatusClass(selectElement) {
+      selectElement.classList.remove('present', 'ausente', 'justificada');
+      selectElement.classList.add(selectElement.value);
+      
+      // Recalcula estatísticas quando um status é alterado
+      if (document.getElementById('attendance-stats').style.display !== 'none') {
+        const rows = document.querySelectorAll('#attendance-table-body tr:not([colspan])');
+        let present = 0, absent = 0, justified = 0;
+        
+        rows.forEach(row => {
+          const status = row.querySelector('.attendance-status-select').value;
+          if (status === 'presente') present++;
+          else if (status === 'ausente') absent++;
+          else if (status === 'justificada') justified++;
+        });
+        
+        updateStats(present, absent, justified, rows.length);
+      }
+    }
+
+    function loadAttendance() {
+      const selectedDate = document.getElementById('attendance-date').value;
+      const selectedClass = document.getElementById('attendance-class').value;
+
+      if (!selectedDate) {
+        alert('Por favor, selecione uma data.');
+        return;
+      }
+      if (!selectedClass) {
+        alert('Por favor, selecione uma turma.');
+        return;
+      }
+
+      // Simula a filtragem de dados pelo backend com base na turma
+      const filteredChildren = allChildrenData.filter(child => child.class === selectedClass);
+
+      console.log(`Carregando presença para a data: ${selectedDate} e turma: ${selectedClass}`);
+      renderAttendanceTable(filteredChildren);
+    }
+
+    function saveAttendance() {
+      const selectedDate = document.getElementById('attendance-date').value;
+      const selectedClass = document.getElementById('attendance-class').value;
+
+      if (!selectedDate || !selectedClass) {
+        alert('Por favor, selecione a data e a turma antes de salvar.');
+        return;
+      }
+
+      const attendanceRecords = [];
+      const rows = document.querySelectorAll('#attendance-table-body tr');
+      
+      if (rows.length === 0 || rows[0].querySelector('td[colspan]') !== null) {
+        alert('Não há crianças para salvar a presença. Carregue uma turma primeiro.');
+        return;
+      }
+
+      rows.forEach(row => {
+        const childId = row.getAttribute('data-child-id');
+        const childClass = row.getAttribute('data-child-class');
+        const status = row.querySelector('.attendance-status-select').value;
+        const notes = row.querySelector('input[type="text"]').value;
+        attendanceRecords.push({ childId, childClass, status, notes });
+      });
+
+      console.log('Dados de presença a serem salvos:', { date: selectedDate, class: selectedClass, records: attendanceRecords });
+      alert('Presença salva com sucesso!');
+      
+      // Atualiza o histórico (simulação)
+      const presentCount = attendanceRecords.filter(r => r.status === 'presente').length;
+      const absentCount = attendanceRecords.filter(r => r.status === 'ausente').length;
+      const justifiedCount = attendanceRecords.filter(r => r.status === 'justificada').length;
+      
+      // Adiciona ao histórico (simulação)
+      attendanceHistory.unshift({
+        date: selectedDate,
+        class: selectedClass,
+        present: presentCount,
+        absent: absentCount,
+        justified: justifiedCount
+      });
+    }
+    
+    function loadHistory() {
+      const selectedClass = document.getElementById('history-class').value;
+      const startDate = document.getElementById('history-start-date').value;
+      const endDate = document.getElementById('history-end-date').value;
+      
+      let filteredHistory = [...attendanceHistory];
+      
+      // Filtra por turma se selecionada
+      if (selectedClass) {
+        filteredHistory = filteredHistory.filter(item => item.class === selectedClass);
+      }
+      
+      // Filtra por período se datas informadas
+      if (startDate && endDate) {
+        filteredHistory = filteredHistory.filter(item => {
+          return item.date >= startDate && item.date <= endDate;
+        });
+      }
+      
+      renderHistoryTable(filteredHistory);
+    }
+    
+    function renderHistoryTable(data) {
+      const tbody = document.getElementById('history-table-body');
+      tbody.innerHTML = '';
+      
+      if (data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">Nenhum registro encontrado para os filtros selecionados.</td></tr>';
+        return;
+      }
+      
+      data.forEach(item => {
+        const row = document.createElement('tr');
+        const dateObj = new Date(item.date);
+        const formattedDate = dateObj.toLocaleDateString('pt-BR');
+        
+        row.innerHTML = `
+          <td>${formattedDate}</td>
+          <td>${item.class}</td>
+          <td>${item.present}</td>
+          <td>${item.absent}</td>
+          <td>${item.justified}</td>
+          <td>
+            <button class="btn btn-info btn-sm" onclick="viewDayDetails('${item.date}', '${item.class}')">
+              <i class="fas fa-eye"></i> Detalhes
+            </button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+    
+    function viewDayDetails(date, className) {
+      // Simula carregar os detalhes do dia específico
+      alert(`Detalhes da presença em ${new Date(date).toLocaleDateString('pt-BR')} para a turma ${className}\n\nEsta funcionalidade mostraria a lista completa de alunos e seus status naquela data.`);
+    }
+
+    // Inicialização da página
+    document.addEventListener('DOMContentLoaded', function() {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      
+      // Define a data atual como padrão nos campos de data
+      document.getElementById('attendance-date').value = `${year}-${month}-${day}`;
+      document.getElementById('history-start-date').value = `${year}-${month}-01`;
+      document.getElementById('history-end-date').value = `${year}-${month}-${day}`;
+      
+      // Renderiza a tabela vazia inicialmente
+      renderAttendanceTable([]);
+      
+      // Carrega o histórico inicial
+      loadHistory();
+    });
+  </script>
+</body>
+</html>

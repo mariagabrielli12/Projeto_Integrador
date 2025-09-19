@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ocorrências - Berçarista</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Css_Bercarista/Style_bercarista.css">
+  <style>
+    /* Estilos para botões de ação na tabela */
+    .action-buttons {
+        display: flex;
+        justify-content: center; /* Centraliza os botões */
+        gap: 5px; /* Espaçamento entre os botões */
+    }
+
+    .btn-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        margin: 0 3px;
+        color: #555;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    .btn-icon:hover {
+        color: var(--primary-light); /* Cor do hover para ícones */
+    }
+
+    .btn-icon.fa-check-circle:hover {
+        color: var(--success); /* Cor específica para o ícone de resolver */
+    }
+
+    /* Estilos para as abas, se não estiverem já em Style.css */
+    .tab-buttons {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.3s ease;
+      position: relative;
+      top: 1px; /* Para alinhar com a borda inferior */
+    }
+    .tab-btn:hover {
+      color: var(--primary-light);
+    }
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+    <div class="sidebar">
+   <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <h1>Rede Educacional</h1>
+        </div>
+    <div class="menu">
+      <div class="menu-section">
+        <div class="menu-item">
+          <a href="index_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-home"></i><span>Início</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="rotina_diaria.html" style="color:inherit; text-decoration:none;"><i class="fas fa-clipboard-list"></i><span>Registro de Rotina</span></a>
+        </div>
+
+        <div class="menu-item active">
+          <a href="ocorrencias_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="perfil_crianca_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-user-friends"></i><span>Perfis alunos</span></a>
+        </div>
+        
+        <div class="menu-item">
+          <a href="avisos_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-bell"></i><span>Avisos</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="presenca_bercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-check-circle"></i><span>Controle de Presença</span></a>
+        </div>
+
+        <div class="menu-item">
+          <a href="../../tela_login/telabercarista.html" style="color:inherit; text-decoration:none;"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h2><i class="fas fa-exclamation-triangle"></i> Ocorrências</h2>
+      <div class="user-info">
+   
+        <div class="user-avatar">BR</div>
+             <span>Berçarista</span>
+      </div>
+    </div>
+
+    <div class="content-container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="openTab(event, 'historico')">Histórico de Ocorrências</button>
+            <button class="tab-btn" onclick="openTab(event, 'nova-ocorrencia')">Registrar Nova Ocorrência</button>
+        </div>
+
+        <div id="historico" class="tab-content active">
+            <div class="card">
+            
+                <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Data</th>
+                            <th>Turma</th>
+                            <th>Aluno</th>
+                            <th>Ocorrência</th>
+                            <th>Observação</th>
+                            <th>Ações</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr data-id="1">
+                            <td>12/06/2025</td>
+                            <td>Maternal II - B</td>
+                            <td>Ana Clara Silva</td>
+                            <td>Saúde</td>
+                            <td>Chegou à creche com febre (38.2°C). Responsável foi comunicado.</td>
+                            <td class="action-buttons">
+                              <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                              <button class="btn-icon" title="Resolver"><i class="fas fa-check-circle"></i></button>
+                            </td>
+                          </tr>
+                           <tr data-id="2">
+                            <td>28/05/2025</td>
+                            <td>Berçário I - A</td>
+                            <td>João Pedro Souza</td>
+                            <td>Comportamento</td>
+                            <td>Não quis participar da atividade de pintura.</td>
+                            <td class="action-buttons">
+                              <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                              <button class="btn-icon" title="Resolver"><i class="fas fa-check-circle"></i></button>
+                            </td>
+                          </tr>
+                           <tr data-id="3">
+                            <td>15/05/2025</td>
+                            <td>Maternal I - C</td>
+                            <td>Maria Eduarda Costa</td>
+                            <td>Incidente</td>
+                            <td>Caiu no pátio, mas não se machucou. Apenas um pequeno arranhão no joelho.</td>
+                            <td class="action-buttons">
+                              <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+                              <button class="btn-icon" title="Resolver"><i class="fas fa-check-circle"></i></button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="nova-ocorrencia" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                </div>
+                <div class="card-body">
+                    <form id="form-ocorrencia">
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label for="turma-ocorrencia">Turma*</label>
+                            <select id="turma-ocorrencia" required>
+                              <option value="">Selecione a Turma</option>
+                              <option value="Berçário I - A">Berçário I - A</option>
+                              <option value="Berçário I - B">Berçário I - B</option>
+                              <option value="Maternal I - A">Maternal I - A</option>
+                              <option value="Maternal I - B">Maternal I - B</option>
+                              <option value="Maternal II - A">Maternal II - A</option>
+                              <option value="Maternal II - B">Maternal II - B</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="aluno-ocorrencia">Aluno(a)*</label>
+                            <select id="aluno-ocorrencia" required>
+                              <option value="">Selecione a Turma Primeiro</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="form-group">
+                            <label for="tipo-ocorrencia">Tipo de Ocorrência*</label>
+                            <select id="tipo-ocorrencia" required>
+                              <option value="">Selecione</option>
+                              <option value="saude">Saúde</option>
+                              <option value="comportamento">Comportamento</option>
+                              <option value="incidente">Incidente</option>
+                              <option value="outros">Outros</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="data-ocorrencia">Data da Ocorrência*</label>
+                            <input type="date" id="data-ocorrencia" required>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="observacoes-ocorrencia">Observações Detalhadas*</label>
+                            <textarea id="observacoes-ocorrencia" rows="5" placeholder="Descreva o que aconteceu de forma detalhada..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="arquivo-ocorrencia">Anexar Documento/Foto (Opcional)</label>
+                            <div class="file-upload">
+                                <input type="file" id="arquivo-ocorrencia" accept="image/*,.pdf">
+                                <label for="arquivo-ocorrencia" class="file-upload-label">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Clique para anexar ou arraste e solte</span>
+                                </label>
+                                <div class="file-info" id="file-info-ocorrencia">Nenhum arquivo selecionado</div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="reset" class="btn btn-secondary"><i class="fas fa-times"></i> Limpar</button>
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Registrar Ocorrência</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    // Função para gerenciar as abas
+    function openTab(evt, tabName) {
+      const tabContents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = "none";
+        tabContents[i].classList.remove("active");
+      }
+
+      const tabButtons = document.getElementsByClassName("tab-btn");
+      for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove("active");
+      }
+      
+      document.getElementById(tabName).style.display = "block";
+      document.getElementById(tabName).classList.add("active"); // Adiciona a classe 'active'
+      evt.currentTarget.classList.add("active");
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializa a primeira aba como ativa ao carregar a página
+      document.querySelector('.tab-btn.active').click();
+
+      // Dados de exemplo para alunos por turma
+      const alunosPorTurma = {
+        "Berçário I - A": ["Lucas Ferreira", "Sofia Martins", "Gabriel Neves"],
+        "Berçário I - B": ["Isabela Costa", "Enzo Ribeiro", "Laura Oliveira"],
+        "Maternal I - A": ["Pedro Almeida", "Alice Santos", "Rafael Sousa"],
+        "Maternal I - B": ["Manuela Pereira", "Daniel Rodrigues", "Beatriz Lima"],
+        "Maternal II - A": ["Gustavo Fernandes", "Julia Gomes", "Felipe Dias"],
+        "Maternal II - B": ["Ana Clara Silva", "João Pedro Souza", "Maria Eduarda Costa"]
+      };
+
+      const turmaSelect = document.getElementById('turma-ocorrencia');
+      const alunoSelect = document.getElementById('aluno-ocorrencia');
+
+      // Atualiza a lista de alunos quando a turma é selecionada
+      turmaSelect.addEventListener('change', function() {
+        const turmaSelecionada = this.value;
+        alunoSelect.innerHTML = '<option value="">Selecione o Aluno(a)</option>'; // Limpa e adiciona opção padrão
+
+        if (turmaSelecionada && alunosPorTurma[turmaSelecionada]) {
+          alunosPorTurma[turmaSelecionada].forEach(aluno => {
+            const option = document.createElement('option');
+            option.value = aluno;
+            option.textContent = aluno;
+            alunoSelect.appendChild(option);
+          });
+          alunoSelect.disabled = false; // Habilita o select de alunos
+        } else {
+          alunoSelect.disabled = true; // Desabilita se nenhuma turma for selecionada
+        }
+      });
+
+      // Funcionalidade de upload de arquivo
+      document.getElementById('arquivo-ocorrencia').addEventListener('change', function(e) {
+        const fileInfo = document.getElementById('file-info-ocorrencia');
+        if (this.files.length > 0) {
+          fileInfo.innerHTML = `<i class="fas fa-file-alt"></i> ${this.files[0].name}`;
+        } else {
+          fileInfo.innerHTML = 'Nenhum arquivo selecionado';
+        }
+      });
+
+      // Simulação de envio de formulário para a nova ocorrência
+      document.getElementById('form-ocorrencia').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const turma = document.getElementById('turma-ocorrencia').value;
+        const aluno = document.getElementById('aluno-ocorrencia').value;
+        const tipo = document.getElementById('tipo-ocorrencia').value;
+        const data = document.getElementById('data-ocorrencia').value;
+        const observacoes = document.getElementById('observacoes-ocorrencia').value;
+        const arquivo = document.getElementById('arquivo-ocorrencia').files[0];
+
+        if (!turma || !aluno || !tipo || !data || !observacoes) {
+          alert('Por favor, preencha todos os campos obrigatórios para registrar a ocorrência.');
+          return;
+        }
+
+        // Adiciona uma nova linha à tabela (simulação)
+        const tableBody = document.querySelector('#historico .table tbody');
+        const newRow = document.createElement('tr');
+        const newData = new Date(data + 'T00:00:00'); // Garante que a data seja interpretada corretamente
+        const formattedDate = newData.toLocaleDateString('pt-BR');
+
+        newRow.innerHTML = `
+          <td>${formattedDate}</td>
+          <td>${turma}</td>
+          <td>${aluno}</td>
+          <td>${tipo.charAt(0).toUpperCase() + tipo.slice(1)}</td>
+          <td>${observacoes}</td>
+          <td class="action-buttons">
+            <button class="btn-icon" title="Visualizar"><i class="fas fa-eye"></i></button>
+            <button class="btn-icon" title="Resolver"><i class="fas fa-check-circle"></i></button>
+          </td>
+        `;
+        tableBody.prepend(newRow); // Adiciona no topo da tabela para mostrar o mais recente
+
+        alert(`Nova ocorrência registrada com sucesso!\nTurma: ${turma}\nAluno: ${aluno}\nTipo: ${tipo}\nData: ${formattedDate}\nObservações: ${observacoes}\nArquivo: ${arquivo ? arquivo.name : 'Nenhum'}`);
+        
+        // Limpa o formulário e volta para a aba de histórico
+        document.getElementById('form-ocorrencia').reset();
+        document.getElementById('file-info-ocorrencia').innerHTML = 'Nenhum arquivo selecionado';
+        alunoSelect.innerHTML = '<option value="">Selecione a Turma Primeiro</option>';
+        alunoSelect.disabled = true;
+
+        const historicoTabBtn = document.querySelector('.tab-buttons .tab-btn:first-child');
+        openTab({ currentTarget: historicoTabBtn }, 'historico');
+      });
+
+      // Simulação de ações dos botões "Visualizar" e "Resolver"
+      document.querySelectorAll('.table').forEach(table => {
+        table.addEventListener('click', function(e) {
+          if (e.target.closest('.btn-icon')) {
+            const button = e.target.closest('.btn-icon');
+            const row = button.closest('tr');
+            const rowData = Array.from(row.children).map(cell => cell.textContent.trim());
+
+            if (button.title === 'Visualizar') {
+              alert('Visualizar Ocorrência:\n' +
+                    'Data: ' + rowData[0] + '\n' +
+                    'Turma: ' + rowData[1] + '\n' +
+                    'Aluno: ' + rowData[2] + '\n' +
+                    'Tipo: ' + rowData[3] + '\n' +
+                    'Observação: ' + rowData[4]);
+            } else if (button.title === 'Resolver') {
+              if (confirm('Tem certeza que deseja marcar esta ocorrência como resolvida?')) {
+                // Altera a cor da linha para indicar que foi resolvida (opcional)
+                row.style.backgroundColor = 'var(--status-resolved-bg)'; // Você pode definir --status-resolved-bg no seu CSS
+                row.style.color = 'var(--status-resolved-text)';
+                alert('Ocorrência marcada como resolvida!');
+                // Remover ou desabilitar botões após resolver (opcional)
+                button.disabled = true;
+                button.style.opacity = '0.5';
+                const visualizeButton = button.previousElementSibling;
+                if (visualizeButton && visualizeButton.title === 'Visualizar') {
+                    visualizeButton.disabled = true;
+                    visualizeButton.style.opacity = '0.5';
+                }
+              }
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
