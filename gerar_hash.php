@@ -48,3 +48,33 @@ echo "Use esta senha para fazer o login: <strong>" . $senha_do_responsavel . "</
 echo "Copie e cole este HASH no comando SQL abaixo:<br>";
 echo '<textarea rows="3" cols="70" readonly>' . $hash_da_senha . '</textarea>';
 ?>
+
+<?php
+
+// --- DEFINA A SENHA QUE VOCÊ QUER USAR AQUI ---
+$senha_para_o_diretor = 'diretor123';
+$senha_para_o_secretario = 'secretario123';
+
+
+// --- GERAÇÃO DOS HASHES ---
+
+// Hash para o Diretor
+$hash_diretor = password_hash($senha_para_o_diretor, PASSWORD_DEFAULT);
+
+// Hash para o Secretário
+$hash_secretario = password_hash($senha_para_o_secretario, PASSWORD_DEFAULT);
+
+
+// --- EXIBIÇÃO NA TELA ---
+
+echo "<h1>Hashes de Senha Gerados com Sucesso!</h1>";
+echo "<p>Use os hashes abaixo para atualizar seu banco de dados. A senha do Diretor será <b>'".$senha_para_o_diretor."'</b> e a do Secretário será <b>'".$senha_para_o_secretario."'</b>.</p>";
+
+echo "<h3>Para o Diretor (matrícula: diretor01):</h3>";
+echo "<textarea rows='3' cols='80' readonly onclick='this.select();'>".$hash_diretor."</textarea>";
+echo "<hr>";
+
+echo "<h3>Para o Secretário (matrícula: secretario01):</h3>";
+echo "<textarea rows='3' cols='80' readonly onclick='this.select();'>".$hash_secretario."</textarea>";
+
+?>

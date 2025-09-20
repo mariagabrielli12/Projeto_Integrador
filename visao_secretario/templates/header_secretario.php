@@ -104,7 +104,7 @@ function is_active($page_name) {
                 <a href="avisos_secretario.php"><i class="fas fa-bell"></i><span>Avisos</span></a>
             </div>
             <div class="menu-item">
-                <a href="../tela_login/logout.php"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+                <a href="../../tela_login/logout.php"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
             </div>
         </div>
     </div>
