@@ -78,3 +78,29 @@ echo "<h3>Para o Secretário (matrícula: secretario01):</h3>";
 echo "<textarea rows='3' cols='80' readonly onclick='this.select();'>".$hash_secretario."</textarea>";
 
 ?>
+
+
+<br><br>
+<br>
+<br>
+
+<?php
+
+// --- DEFINA A SENHA QUE VOCÊ QUER USAR AQUI ---
+$senha_para_novo_responsavel = 'senha123';
+
+
+// --- GERAÇÃO DO HASH ---
+$hash_responsavel = password_hash($senha_para_novo_responsavel, PASSWORD_DEFAULT);
+
+
+// --- EXIBIÇÃO NA TELA ---
+echo "<h1>Hash de Senha Gerado com Sucesso!</h1>";
+echo "<p>Use a senha <b>'".$senha_para_novo_responsavel."'</b> para fazer o login do novo responsável.</p>";
+
+echo "<hr>";
+echo "<h3>Para o Novo Responsável:</h3>";
+echo "<p>Copie o hash completo abaixo para usar no próximo passo:</p>";
+echo "<textarea rows='3' cols='80' readonly onclick='this.select();'>".$hash_responsavel."</textarea>";
+
+?>

@@ -39,7 +39,7 @@ if ($result_avisos) {
 <div class="welcome-banner">
     <h3>Bem-vindo(a), <?php echo htmlspecialchars($nome_professor_logado); ?></h3>
     <p>
-        Hoje é <span><?php echo date('d \d\e F \d\e Y'); ?></span> | 
+       
         <?php if ($proxima_atividade): ?>
             Próxima atividade: <?php echo htmlspecialchars($proxima_atividade['titulo']); ?> (<?php echo htmlspecialchars($proxima_atividade['nome_turma']); ?>) em <?php echo date('d/m H:i', strtotime($proxima_atividade['data_atividade'])); ?>
         <?php else: ?>
@@ -86,35 +86,35 @@ if ($result_avisos) {
     <div class="card-body">
         <div class="shortcut-grid">
             <a href="minhas_turmas.php" class="shortcut-card">
-                <i class="fas fa-child blue"></i>
+                <i class="fas fa-child" style="color: #3498db;"></i>
                 <span>Minhas Turmas</span>
             </a>
             <a href="desenvolvimento_aluno.php" class="shortcut-card">
-                <i class="fas fa-chart-line green"></i>
+                <i class="fas fa-chart-line" style="color: #2ecc71;"></i>
                 <span>Acompanhamento</span>
             </a>
             <a href="diario_bordo.php" class="shortcut-card">
-                <i class="fas fa-book purple"></i>
+                <i class="fas fa-book" style="color: #9b59b6;"></i>
                 <span>Diário de Bordo</span>
             </a>
             <a href="ocorrencias_professor.php" class="shortcut-card">
-                <i class="fas fa-exclamation-triangle orange"></i>
+                <i class="fas fa-exclamation-triangle" style="color: #f39c12;"></i>
                 <span>Ocorrências</span>
             </a>
             <a href="plano_atividades.php" class="shortcut-card">
-                <i class="fas fa-calendar-day teal"></i>
+                <i class="fas fa-calendar-day" style="color: #1abc9c;"></i>
                 <span>Plano de Atividades</span>
             </a>
             <a href="atividades_ludicas.php" class="shortcut-card">
-                <i class="fas fa-puzzle-piece red"></i>
+                <i class="fas fa-puzzle-piece" style="color: #e74c3c;"></i>
                 <span>Atividades Lúdicas</span>
             </a>
             <a href="comunicados_professor.php" class="shortcut-card">
-                <i class="fas fa-comment-dots grey"></i>
+                <i class="fas fa-comment-dots" style="color: #7f8c8d;"></i>
                 <span>Comunicados</span>
             </a>
             <a href="relatorios_professor.php" class="shortcut-card">
-                <i class="fas fa-file-alt blue"></i>
+                <i class="fas fa-file-alt" style="color: #3498db;"></i>
                 <span>Relatórios</span>
             </a>
         </div>
