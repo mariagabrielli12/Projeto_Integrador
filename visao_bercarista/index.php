@@ -1,80 +1,51 @@
 <?php
-$page_title = 'Início - Berçarista';
-$page_icon = 'fas fa-home';
+$page_title = 'Dashboard do Berçarista';
+$page_icon = 'fas fa-tachometer-alt';
+// Inclui o cabeçalho do template, que já tem a sessão e a conexão
 require_once 'templates/header_bercarista.php';
-
-// --- LÓGICA DO DASHBOARD ---
-$ocorrencias_count = 0;
-$stmt_ocorrencias = $conexao->prepare(
-    "SELECT COUNT(o.id_ocorrencia) as total 
-     FROM ocorrencias o
-     JOIN alunos a ON o.id_aluno = a.id_aluno
-     JOIN turmas t ON a.id_turma = t.id_turma
-     WHERE t.id_bercarista = ? AND o.status = 'Pendente'"
-);
-if ($stmt_ocorrencias) {
-    $stmt_ocorrencias->bind_param("i", $id_bercarista_logado);
-    $stmt_ocorrencias->execute();
-    $result = $stmt_ocorrencias->get_result();
-    if ($result) {
-        $ocorrencias_count = $result->fetch_assoc()['total'];
-    }
-    $stmt_ocorrencias->close();
-}
-
-$avisos_recentes = $conexao->query("
-    SELECT titulo, descricao, data_aviso 
-    FROM avisos 
-    WHERE destinatario IN ('GERAL', 'FUNCIONARIOS') 
-    ORDER BY data_aviso DESC 
-    LIMIT 3
-");
 ?>
 
-<div class="summary-cards">
-    <a href="registro_diario.php" class="summary-card blue">
-      <div class="card-icon"><i class="fas fa-clipboard-list"></i></div>
-      <div class="card-content"><h3>Registros do Dia</h3><p>Anotar rotina diária</p></div>
-    </a>
-    <a href="presenca_bercarista.php" class="summary-card orange">
-        <div class="card-icon"><i class="fas fa-check-circle"></i></div>
-        <div class="card-content"><h3>Presença</h3><p>Realizar a chamada</p></div>
-    </a>
-    <a href="ocorrencias_bercarista.php" class="summary-card red">
-      <div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
-      <div class="card-content"><h3>Ocorrências</h3><p><?php echo $ocorrencias_count; ?> pendente(s)</p></div>
-    </a>
-    <a href="avisos_bercarista.php" class="summary-card green">
-      <div class="card-icon"><i class="fas fa-bell"></i></div>
-      <div class="card-content"><h3>Avisos</h3><p>Ver o mural</p></div>
-    </a>
+<div class="card">
+    <div class="card-header"><h3 class="section-title">Rotina Diária</h3></div>
+    <div class="card-body">
+        <div class="shortcut-grid">
+            <a href="registro_diario.php" class="shortcut-card blue-bg">
+                <i class="fas fa-clipboard-list"></i>
+                <span>Registro de Rotina</span>
+            </a>
+            <a href="presenca_bercarista.php" class="shortcut-card green-bg">
+                <i class="fas fa-check-circle"></i>
+                <span>Controle de Presença</span>
+            </a>
+            <a href="ocorrencias_bercarista.php" class="shortcut-card orange-bg">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Ocorrências</span>
+            </a>
+            <a href="relatorio_diario_individual.php" class="shortcut-card purple-bg">
+                <i class="fas fa-file-alt"></i>
+                <span>Relatório Diário</span>
+            </a>
+        </div>
+    </div>
 </div>
 
-<div class="card">
-    <div class="card-header"><h3 class="section-title">Avisos Recentes da Gestão</h3></div>
+<div class="card" style="margin-top: 20px;">
+    <div class="card-header"><h3 class="section-title">Gestão de Crianças</h3></div>
     <div class="card-body">
-        <?php if ($avisos_recentes && $avisos_recentes->num_rows > 0): ?>
-            <?php while($aviso = $avisos_recentes->fetch_assoc()): ?>
-                <div class="notice-card">
-                    <div class="notice-title" style="font-weight: bold; display: flex; align-items: center; gap: 8px;">
-                        <i class="fas fa-info-circle"></i>
-                        <span><?php echo htmlspecialchars($aviso['titulo']); ?></span>
-                    </div>
-                    <p class="notice-text" style="margin-left: 25px;"><?php echo htmlspecialchars($aviso['descricao']); ?></p>
-                    <div class="notice-meta" style="font-size: 12px; color: #777; margin-left: 25px;">
-                        <span><i class="far fa-clock"></i> <?php echo date("d/m/Y", strtotime($aviso['data_aviso'])); ?></span>
-                    </div>
-                </div>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <p>Nenhum aviso recente.</p>
-        <?php endif; ?>
-        <div class="card-actions" style="margin-top:15px; text-align: right;">
-            <a href="avisos_bercarista.php" class="btn btn-primary">Ver Todos os Avisos</a>
+        <div class="shortcut-grid">
+            <a href="perfil_crianca_bercarista.php" class="shortcut-card teal-bg">
+                <i class="fas fa-user-friends"></i>
+                <span>Perfis das Crianças</span>
+            </a>
+            <a href="avisos_bercarista.php" class="shortcut-card red-bg">
+                <i class="fas fa-bell"></i>
+                <span>Avisos</span>
+            </a>
         </div>
     </div>
 </div>
 
 <?php
+// Inclui o rodapé do template
 require_once 'templates/footer_bercarista.php';
 ?>

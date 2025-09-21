@@ -69,7 +69,7 @@ function is_active($page_names) {
       </li>
     </ul>
     <div class="logout">
-        <a href="../tela_login/logout.php"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
+            <a href="../tela_login/logout.php"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
     </div>
   </div>
   <div class="main-content">

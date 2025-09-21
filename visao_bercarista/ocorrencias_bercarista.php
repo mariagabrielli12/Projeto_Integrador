@@ -35,11 +35,7 @@ if($result_ocorrencias) {
 $stmt_ocorrencias->close();
 ?>
 
-<div class="card">
-    <div class="tab-buttons">
-        <button class="tab-btn active" onclick="openTab(event, 'nova-ocorrencia')"><i class="fas fa-plus-circle"></i> Registrar Nova Ocorrência</button>
-        <button class="tab-btn" onclick="openTab(event, 'historico')"><i class="fas fa-history"></i> Histórico de Ocorrências</button>
-    </div>
+
 
     <div id="nova-ocorrencia" class="tab-content active">
         <div class="card-body">

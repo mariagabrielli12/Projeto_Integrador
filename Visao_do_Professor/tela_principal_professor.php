@@ -24,7 +24,7 @@ if ($result_agenda->num_rows > 0) {
 }
 $stmt_agenda->close();
 
-/$result_avisos = $conexao->query(
+$result_avisos = $conexao->query(
     "SELECT titulo, descricao FROM avisos 
      WHERE destinatario IN ('GERAL', 'FUNCIONARIOS') 
      ORDER BY data_aviso DESC LIMIT 3"
@@ -48,39 +48,77 @@ if ($result_avisos) {
     </p>
 </div>
 
-<div class="dashboard-grid">
-    <div class="dashboard-card calendar-card">
-      <h4><i class="fas fa-calendar-day"></i> Agenda do Dia</h4>
-      <div class="calendar-events">
-        <?php if ($proxima_atividade && date('Y-m-d', strtotime($proxima_atividade['data_atividade'])) == date('Y-m-d')): ?>
-            <div class="event"><span class="event-time"><?php echo date("H:i", strtotime($proxima_atividade['data_atividade'])); ?></span> <span class="event-title"><?php echo htmlspecialchars($proxima_atividade['titulo']); ?></span></div>
-        <?php else: ?>
-            <div class="event"><span class="event-title">Nenhuma atividade específica para hoje.</span></div>
-        <?php endif; ?>
-      </div>
-      <a href="plano_atividades.php" class="view-all">Ver agenda completa</a>
-    </div>
+<div class="card">
+    <div class="card-header"><h3 class="section-title">Agenda e Avisos</h3></div>
+    <div class="card-body">
+        <div class="dashboard-grid">
+            <div class="dashboard-card calendar-card">
+                <h4><i class="fas fa-calendar-day"></i> Agenda do Dia</h4>
+                <div class="calendar-events">
+                    <?php if ($proxima_atividade && date('Y-m-d', strtotime($proxima_atividade['data_atividade'])) == date('Y-m-d')): ?>
+                        <div class="event"><span class="event-time"><?php echo date("H:i", strtotime($proxima_atividade['data_atividade'])); ?></span> <span class="event-title"><?php echo htmlspecialchars($proxima_atividade['titulo']); ?></span></div>
+                    <?php else: ?>
+                        <div class="event"><span class="event-title">Nenhuma atividade específica para hoje.</span></div>
+                    <?php endif; ?>
+                </div>
+                <a href="plano_atividades.php" class="view-all">Ver agenda completa</a>
+            </div>
 
-    <div class="dashboard-card alerts-card">
-      <h4><i class="fas fa-bell"></i> Avisos Recentes da Secretaria</h4>
-      <div class="alert-list">
-        <?php if (!empty($avisos)): ?>
-            <?php foreach($avisos as $aviso): ?>
-                <div class="alert"><i class="fas fa-info-circle"></i> <span><strong><?php echo htmlspecialchars($aviso['titulo']); ?>:</strong> <?php echo htmlspecialchars($aviso['descricao']); ?></span></div>
-            <?php endforeach; ?>
-        <?php else: ?>
-             <div class="alert"><i class="fas fa-check-circle"></i> <span>Nenhum aviso novo.</span></div>
-        <?php endif; ?>
-      </div>
-      <a href="comunicados_professor.php" class="view-all">Ver todos os comunicados</a>
+            <div class="dashboard-card alerts-card">
+                <h4><i class="fas fa-bell"></i> Avisos Recentes da Secretaria</h4>
+                <div class="alert-list">
+                    <?php if (!empty($avisos)): ?>
+                        <?php foreach($avisos as $aviso): ?>
+                            <div class="alert"><i class="fas fa-info-circle"></i> <span><strong><?php echo htmlspecialchars($aviso['titulo']); ?>:</strong> <?php echo htmlspecialchars($aviso['descricao']); ?></span></div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="alert"><i class="fas fa-check-circle"></i> <span>Nenhum aviso novo.</span></div>
+                    <?php endif; ?>
+                </div>
+                <a href="comunicados_professor.php" class="view-all">Ver todos os comunicados</a>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="shortcut-grid">
-    <a href="minhas_turmas.php" class="shortcut-card"><i class="fas fa-child"></i><span>Minhas Turmas</span></a>
-    <a href="desenvolvimento_aluno.php" class="shortcut-card"><i class="fas fa-chart-line"></i><span>Acompanhamento</span></a>
-    <a href="diario_bordo.php" class="shortcut-card"><i class="fas fa-book"></i><span>Diário de Bordo</span></a>
-    <a href="ocorrencias_professor.php" class="shortcut-card"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+<div class="card" style="margin-top: 20px;">
+    <div class="card-header"><h3 class="section-title">Acesso Rápido</h3></div>
+    <div class="card-body">
+        <div class="shortcut-grid">
+            <a href="minhas_turmas.php" class="shortcut-card">
+                <i class="fas fa-child blue"></i>
+                <span>Minhas Turmas</span>
+            </a>
+            <a href="desenvolvimento_aluno.php" class="shortcut-card">
+                <i class="fas fa-chart-line green"></i>
+                <span>Acompanhamento</span>
+            </a>
+            <a href="diario_bordo.php" class="shortcut-card">
+                <i class="fas fa-book purple"></i>
+                <span>Diário de Bordo</span>
+            </a>
+            <a href="ocorrencias_professor.php" class="shortcut-card">
+                <i class="fas fa-exclamation-triangle orange"></i>
+                <span>Ocorrências</span>
+            </a>
+            <a href="plano_atividades.php" class="shortcut-card">
+                <i class="fas fa-calendar-day teal"></i>
+                <span>Plano de Atividades</span>
+            </a>
+            <a href="atividades_ludicas.php" class="shortcut-card">
+                <i class="fas fa-puzzle-piece red"></i>
+                <span>Atividades Lúdicas</span>
+            </a>
+            <a href="comunicados_professor.php" class="shortcut-card">
+                <i class="fas fa-comment-dots grey"></i>
+                <span>Comunicados</span>
+            </a>
+            <a href="relatorios_professor.php" class="shortcut-card">
+                <i class="fas fa-file-alt blue"></i>
+                <span>Relatórios</span>
+            </a>
+        </div>
+    </div>
 </div>
 
 <?php

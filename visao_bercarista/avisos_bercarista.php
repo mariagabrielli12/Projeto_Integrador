@@ -16,6 +16,7 @@ $avisos = $conexao->query("
 <div class="card">
     <div class="card-header">
         <h3 class="section-title"><i class="fas fa-bullhorn"></i> Mural de Avisos da Gestão</h3>
+        <br>
     </div>
     <div class="card-body">
         <?php if (empty($avisos)): ?>
