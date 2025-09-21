@@ -6,6 +6,7 @@ $aluno_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $response = [];
 
 if ($aluno_id > 0) {
+    // Consulta para buscar dados do aluno e seu responsável principal
     $sql = "
         SELECT 
             a.nome_completo, 
@@ -15,10 +16,8 @@ if ($aluno_id > 0) {
             u.telefone as responsavel_contato
         FROM alunos a
         LEFT JOIN turmas t ON a.id_turma = t.id_turma
-        LEFT JOIN alunos_responsaveis ar ON a.id_aluno = ar.id_aluno
-        LEFT JOIN usuarios u ON ar.id_responsavel = u.id_usuario
+        LEFT JOIN usuarios u ON a.id_responsavel_principal = u.id_usuario
         WHERE a.id_aluno = ?
-        LIMIT 1
     ";
     
     $stmt = $conexao->prepare($sql);

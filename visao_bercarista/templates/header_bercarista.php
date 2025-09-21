@@ -10,7 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // ---- VERIFICAÇÃO DE SEGURANÇA ----
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || strtolower($_SESSION["perfil"]) !== 'bercarista') {
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION["perfil"] !== 'Bercarista') {
     header("location: ../../tela_login/index.php");
     exit;
 }
@@ -23,9 +23,12 @@ $id_bercarista_logado = $_SESSION['id_usuario'];
 $nome_bercarista_logado = $_SESSION['nome_completo'];
 
 // Função para verificar qual item do menu deve estar ativo
-function is_active($page_name) {
-    if (basename($_SERVER['PHP_SELF']) == $page_name) {
-        return 'active';
+function is_active($page_names) {
+    $pages = is_array($page_names) ? $page_names : [$page_names];
+    foreach ($pages as $page) {
+        if (basename($_SERVER['PHP_SELF']) == $page) {
+            return 'active';
+        }
     }
     return '';
 }
@@ -42,30 +45,31 @@ function is_active($page_name) {
 <body>
   <div class="sidebar">
     <div class="logo"><i class="fas fa-child"></i> <h1>Berçário</h1></div>
-    <div class="menu">
-      <div class="menu-section">
-        <div class="menu-item <?php echo is_active('index.php'); ?>">
-          <a href="index.php"><i class="fas fa-home"></i><span>Início</span></a>
-        </div>
-        <div class="menu-item <?php echo is_active('registro_diario.php'); ?>">
-          <a href="registro_diario.php"><i class="fas fa-clipboard-list"></i><span>Registo de Rotina</span></a>
-        </div>
-        <div class="menu-item <?php echo is_active('presenca_bercarista.php'); ?>">
-            <a href="presenca_bercarista.php"><i class="fas fa-check-circle"></i><span>Controlo de Presença</span></a>
-        </div>
-        <div class="menu-item <?php echo is_active('ocorrencias_bercarista.php'); ?>">
-          <a href="ocorrencias_bercarista.php"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
-        </div>
-        <div class="menu-item <?php echo is_active('relatorio_diario_individual.php'); ?>">
-            <a href="relatorio_diario_individual.php"><i class="fas fa-file-alt"></i><span>Relatório Diário</span></a>
-        </div>
-        <div class="menu-item <?php echo is_active('avisos_bercarista.php'); ?>">
-          <a href="avisos_bercarista.php"><i class="fas fa-bell"></i><span>Avisos</span></a>
-        </div>
-        <div class="menu-item">
-          <a href="../tela_login/logout.php"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
-        </div>
-      </div>
+    <ul class="menu">
+      <li class="menu-item <?php echo is_active('index.php'); ?>">
+        <a href="index.php"><i class="fas fa-home"></i><span>Início</span></a>
+      </li>
+      <li class="menu-item <?php echo is_active('registro_diario.php'); ?>">
+        <a href="registro_diario.php"><i class="fas fa-clipboard-list"></i><span>Registro de Rotina</span></a>
+      </li>
+      <li class="menu-item <?php echo is_active('presenca_bercarista.php'); ?>">
+          <a href="presenca_bercarista.php"><i class="fas fa-check-circle"></i><span>Controle de Presença</span></a>
+      </li>
+      <li class="menu-item <?php echo is_active('ocorrencias_bercarista.php'); ?>">
+        <a href="ocorrencias_bercarista.php"><i class="fas fa-exclamation-triangle"></i><span>Ocorrências</span></a>
+      </li>
+      <li class="menu-item <?php echo is_active('perfil_crianca_bercarista.php'); ?>">
+        <a href="perfil_crianca_bercarista.php"><i class="fas fa-user-friends"></i><span>Perfis das Crianças</span></a>
+      </li>
+      <li class="menu-item <?php echo is_active('relatorio_diario_individual.php'); ?>">
+        <a href="relatorio_diario_individual.php"><i class="fas fa-file-alt"></i><span>Relatório Diário</span></a>
+      </li>
+      <li class="menu-item <?php echo is_active('avisos_bercarista.php'); ?>">
+        <a href="avisos_bercarista.php"><i class="fas fa-bell"></i><span>Avisos</span></a>
+      </li>
+    </ul>
+    <div class="logout">
+        <a href="../tela_login/logout.php"><i class="fas fa-sign-out-alt"></i><span>Sair</span></a>
     </div>
   </div>
   <div class="main-content">
@@ -80,3 +84,13 @@ function is_active($page_name) {
       </div>
     </div>
     <div class="content-container">
+    <?php
+        if (isset($_SESSION['mensagem_sucesso'])) {
+            echo '<div class="alert success" style="margin-bottom: 20px;">' . htmlspecialchars($_SESSION['mensagem_sucesso']) . '</div>';
+            unset($_SESSION['mensagem_sucesso']);
+        }
+        if (isset($_SESSION['mensagem_erro'])) {
+            echo '<div class="alert error" style="margin-bottom: 20px;">' . htmlspecialchars($_SESSION['mensagem_erro']) . '</div>';
+            unset($_SESSION['mensagem_erro']);
+        }
+      ?>

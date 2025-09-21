@@ -3,8 +3,8 @@ $page_title = 'Registo de Rotina Diária';
 $page_icon = 'fas fa-clipboard-list';
 require_once 'templates/header_bercarista.php';
 
-// --- LÓGICA DA BASE DE DADOS ---
-// Busca as turmas associadas ao berçarista logado
+// --- LÓGICA DA PÁGINA ---
+// Busca as turmas associadas ao berçarista logado para popular o seletor
 $turmas = [];
 $stmt_turmas = $conexao->prepare("SELECT id_turma, nome_turma FROM turmas WHERE id_bercarista = ? ORDER BY nome_turma");
 $stmt_turmas->bind_param("i", $id_bercarista_logado);
@@ -18,7 +18,7 @@ $stmt_turmas->close();
 
 <div class="card">
     <div class="card-header">
-        <h3 class="section-title">Novo Registo de Rotina</h3>
+        <h3 class="section-title"><i class="fas fa-plus-circle"></i> Novo Registo de Rotina para o Dia de Hoje</h3>
     </div>
     <div class="card-body">
         <form id="form-rotina" method="POST" action="processa_registro_diario.php">
@@ -33,40 +33,43 @@ $stmt_turmas->close();
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="aluno_id">Aluno*</label>
+                    <label for="aluno_id">Criança*</label>
                     <select id="aluno_id" name="aluno_id" required disabled>
                         <option value="">Aguardando seleção de turma...</option>
                     </select>
                 </div>
             </div>
             
-            <h4 class="section-title" style="font-size: 1em; margin-top: 20px;">Detalhes do Dia</h4>
+            <hr style="margin: 20px 0;">
+            
+            <h4 class="section-title" style="font-size: 1.1em;">Detalhes do Dia</h4>
             <div class="form-group">
-                <label>Alimentação</label>
-                <textarea name="registros[Alimentação]" placeholder="Detalhes sobre as refeições (ex: comeu bem a sopa, aceitou a fruta, etc.)" rows="3"></textarea>
+                <label for="alimentacao">Alimentação</label>
+                <textarea id="alimentacao" name="registros[Alimentação]" placeholder="Ex: Comeu bem a sopa, aceitou a fruta, bebeu 150ml de leite..." rows="3"></textarea>
             </div>
             <div class="form-group">
-                <label>Sono</label>
-                <textarea name="registros[Sono]" placeholder="Detalhes sobre o sono (ex: dormiu por 1h30, acordou tranquilo)" rows="3"></textarea>
+                <label for="sono">Sono</label>
+                <textarea id="sono" name="registros[Sono]" placeholder="Ex: Dormiu por 1h30, acordou tranquilo..." rows="3"></textarea>
             </div>
             <div class="form-group">
-                <label>Higiene</label>
-                <textarea name="registros[Higiene]" placeholder="Detalhes sobre a higiene (ex: 3 trocas de fralda, xixi e cocó)" rows="3"></textarea>
+                <label for="higiene">Higiene</label>
+                <textarea id="higiene" name="registros[Higiene]" placeholder="Ex: 3 trocas de fralda, com xixi e cocó..." rows="3"></textarea>
             </div>
             <div class="form-group">
-                <label>Observações Gerais</label>
-                <textarea name="registros[Observações]" placeholder="Outras informações importantes sobre o dia da criança" rows="3"></textarea>
+                <label for="observacoes">Observações Gerais</label>
+                <textarea id="observacoes" name="registros[Observações]" placeholder="Outras informações importantes sobre o dia da criança (brincadeiras, interações, etc.)" rows="3"></textarea>
             </div>
 
             <div class="form-actions">
                 <button class="btn btn-secondary" type="reset"><i class="fas fa-times"></i> Limpar</button>
-                <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Registar Atividade</button>
+                <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Registar Rotina</button>
             </div>
         </form>
     </div>
 </div>
 
 <?php
+// Script JavaScript para carregar dinamicamente os alunos da turma selecionada
 $extra_js = '<script>
 function carregarAlunos(turmaId) {
     const alunoSelect = document.getElementById("aluno_id");
@@ -78,7 +81,7 @@ function carregarAlunos(turmaId) {
         return;
     }
 
-    fetch("api_get_alunos.php?turma_id=" + turmaId)
+    fetch(`api_get_alunos.php?turma_id=${turmaId}`)
         .then(response => response.json())
         .then(data => {
             alunoSelect.innerHTML = \'<option value="">Selecione uma criança</option>\';
@@ -96,6 +99,6 @@ function carregarAlunos(turmaId) {
         });
 }
 </script>';
-echo $extra_js; // Imprime o script no footer
+// Inclui o footer e o script JS
 require_once 'templates/footer_bercarista.php';
 ?>

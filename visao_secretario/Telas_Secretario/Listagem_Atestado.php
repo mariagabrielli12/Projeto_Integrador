@@ -3,35 +3,73 @@ $page_title = 'Listagem de Atestados';
 $page_icon = 'fas fa-file-medical';
 require_once '../templates/header_secretario.php';
 
-// --- LÓGICA DE EXCLUSÃO ATUALIZADA ---
+// --- LÓGICA DE FILTRO ---
+$filtro_turma_id = isset($_GET['turma_id']) ? (int)$_GET['turma_id'] : 0;
+
+// --- LÓGICA DE EXCLUSÃO ---
 if (isset($_GET['delete_id'])) {
     $id_atestado = $_GET['delete_id'];
     $stmt = $conexao->prepare("DELETE FROM atestados WHERE id_atestado = ?");
     $stmt->bind_param("i", $id_atestado);
     if ($stmt->execute()) {
-        header("Location: Listagem_Atestado.php?sucesso=Atestado excluído com sucesso!");
+        $_SESSION['mensagem_sucesso'] = "Atestado excluído com sucesso!";
     } else {
-        header("Location: Listagem_Atestado.php?erro=Erro ao excluir o atestado.");
+        $_SESSION['mensagem_erro'] = "Erro ao excluir o atestado.";
     }
     $stmt->close();
+    header("Location: Listagem_Atestado.php");
     exit();
 }
 
-// --- LÓGICA DE CONSULTA ATUALIZADA ---
+// --- LÓGICA DE CONSULTA COM FILTRO ---
 $sql = "SELECT atestado.id_atestado, aluno.nome_completo as nome_aluno, atestado.data_inicio, atestado.data_fim, atestado.motivo
         FROM atestados as atestado
-        JOIN alunos as aluno ON atestado.id_aluno = aluno.id_aluno
-        ORDER BY atestado.data_inicio DESC";
-$resultado = $conexao->query($sql);
+        JOIN alunos as aluno ON atestado.id_aluno = aluno.id_aluno";
+        
+if ($filtro_turma_id > 0) {
+    $sql .= " WHERE aluno.id_turma = ?";
+}
+$sql .= " ORDER BY atestado.data_inicio DESC";
+
+$stmt = $conexao->prepare($sql);
+if ($filtro_turma_id > 0) {
+    $stmt->bind_param("i", $filtro_turma_id);
+}
+$stmt->execute();
+$resultado = $stmt->get_result();
+
+// Busca todas as turmas para o dropdown do filtro
+$turmas = $conexao->query("SELECT id_turma, nome_turma FROM turmas ORDER BY nome_turma")->fetch_all(MYSQLI_ASSOC);
 ?>
 
-<div class="table-container">
+<div class="card">
+    <div class="card-header"><h3 class="section-title">Filtro de Busca</h3></div>
+    <div class="card-body">
+        <form method="GET" action="">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="turma_id">Filtrar por Turma</label>
+                    <select name="turma_id" id="turma_id" onchange="this.form.submit()">
+                        <option value="0">Todas as Turmas</option>
+                        <?php foreach ($turmas as $turma): ?>
+                            <option value="<?php echo $turma['id_turma']; ?>" <?php echo ($filtro_turma_id == $turma['id_turma']) ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars($turma['nome_turma']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="table-container" style="margin-top: 20px;">
     <div class="table-settings">
         <a href="Cadastro_Atestado.php" class="btn-cadastrar"><i class="fas fa-plus"></i> Cadastrar Novo Atestado</a>
     </div>
 
     <?php if(isset($_GET['sucesso'])): ?>
-        <div class="alert success" style="margin-top: 15px;"><?php echo htmlspecialchars($_GET['sucesso']); ?></div>
+        <div class="alert success"><?php echo htmlspecialchars($_GET['sucesso']); ?></div>
     <?php endif; ?>
 
     <table class="table">
@@ -59,7 +97,7 @@ $resultado = $conexao->query($sql);
                     </tr>
                 <?php endwhile; ?>
             <?php else: ?>
-                <tr><td colspan="5">Nenhum atestado cadastrado.</td></tr>
+                <tr><td colspan="5">Nenhum atestado encontrado para a turma selecionada.</td></tr>
             <?php endif; ?>
         </tbody>
     </table>

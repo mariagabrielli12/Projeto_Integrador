@@ -29,9 +29,9 @@ $stmt_turmas->close();
                 </select>
             </div>
             <div class="form-group">
-                <label for="select-aluno">Aluno</label>
+                <label for="select-aluno">Criança</label>
                 <select id="select-aluno" class="form-control" disabled onchange="verPerfil()">
-                    <option value="">Selecione um aluno</option>
+                    <option value="">Aguardando seleção de turma...</option>
                 </select>
             </div>
         </div>
@@ -41,7 +41,7 @@ $stmt_turmas->close();
 <div class="card" id="perfil-info-card" style="margin-top: 25px; display: none;">
     <div class="card-header"><h3 class="section-title">Informações da Criança</h3></div>
     <div class="card-body" id="perfil-body">
-        <p>A carregar perfil...</p>
+        <p class="text-center">Aguardando seleção de um aluno...</p>
     </div>
 </div>
 
@@ -59,7 +59,7 @@ $extra_js = '<script>
             return;
         }
 
-        fetch("api_get_alunos.php?turma_id=" + turmaId)
+        fetch(`api_get_alunos.php?turma_id=${turmaId}`)
             .then(response => response.json())
             .then(data => {
                 alunoSelect.innerHTML = \'<option value="">Selecione uma criança</option>\';
@@ -104,9 +104,9 @@ $extra_js = '<script>
                         <div class="form-row">
                             <div class="form-group"><label>Turma</label><input type="text" value="${data.nome_turma}" readonly></div>
                         </div>
-                        <h4 class="section-subtitle">Contato de Emergência</h4>
+                        <h4 class="section-title" style="font-size: 1.1em; margin-top: 20px;">Contato de Emergência</h4>
                         <div class="form-row">
-                            <div class="form-group"><label>Nome</label><input type="text" value="${data.responsavel_nome}" readonly></div>
+                            <div class="form-group"><label>Nome do Responsável</label><input type="text" value="${data.responsavel_nome}" readonly></div>
                             <div class="form-group"><label>Telefone</label><input type="text" value="${data.responsavel_contato}" readonly></div>
                         </div>
                     `;

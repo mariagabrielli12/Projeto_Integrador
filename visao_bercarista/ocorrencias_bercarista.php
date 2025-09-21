@@ -3,7 +3,7 @@ $page_title = 'Ocorrências';
 $page_icon = 'fas fa-exclamation-triangle';
 require_once 'templates/header_bercarista.php';
 
-// --- LÓGICA DA BASE DE DADOS ---
+// --- LÓGICA DA PÁGINA ---
 // Busca as turmas associadas ao berçarista logado
 $turmas = [];
 $stmt_turmas = $conexao->prepare("SELECT id_turma, nome_turma FROM turmas WHERE id_bercarista = ? ORDER BY nome_turma");
@@ -37,7 +37,7 @@ $stmt_ocorrencias->close();
 
 <div class="card">
     <div class="tab-buttons">
-        <button class="tab-btn active" onclick="openTab(event, 'nova-ocorrencia')"><i class="fas fa-plus-circle"></i> Registar Nova Ocorrência</button>
+        <button class="tab-btn active" onclick="openTab(event, 'nova-ocorrencia')"><i class="fas fa-plus-circle"></i> Registrar Nova Ocorrência</button>
         <button class="tab-btn" onclick="openTab(event, 'historico')"><i class="fas fa-history"></i> Histórico de Ocorrências</button>
     </div>
 
@@ -55,7 +55,7 @@ $stmt_ocorrencias->close();
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="aluno_id">Aluno(a)*</label>
+                        <label for="aluno_id">Criança*</label>
                         <select id="aluno_id" name="aluno_id" required disabled>
                             <option value="">Selecione a Turma Primeiro</option>
                         </select>
@@ -67,22 +67,22 @@ $stmt_ocorrencias->close();
                         <select id="tipo" name="tipo" required>
                             <option value="Saúde">Saúde</option>
                             <option value="Comportamento">Comportamento</option>
-                            <option value="Incidente">Incidente</option>
+                            <option value="Acidente">Acidente</option>
                             <option value="Outros">Outros</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="data_ocorrencia">Data da Ocorrência*</label>
+                        <label for="data_ocorrencia">Data e Hora*</label>
                         <input type="datetime-local" id="data_ocorrencia" name="data_ocorrencia" value="<?php echo date('Y-m-d\TH:i'); ?>" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="descricao">Observações Detalhadas*</label>
-                    <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva o que aconteceu de forma detalhada..." required></textarea>
+                    <label for="descricao">Descrição Detalhada*</label>
+                    <textarea id="descricao" name="descricao" rows="5" placeholder="Descreva o que aconteceu de forma clara e objetiva..." required></textarea>
                 </div>
                 <div class="form-actions">
                     <button type="reset" class="btn btn-secondary"><i class="fas fa-times"></i> Limpar</button>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Registar Ocorrência</button>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Registrar Ocorrência</button>
                 </div>
             </form>
         </div>
@@ -92,13 +92,13 @@ $stmt_ocorrencias->close();
         <div class="card-body">
             <div class="table-responsive">
               <table class="table">
-                <thead><tr><th>Data</th><th>Turma</th><th>Aluno</th><th>Ocorrência</th><th>Observação</th></tr></thead>
+                <thead><tr><th>Data</th><th>Turma</th><th>Aluno</th><th>Tipo</th><th>Descrição</th></tr></thead>
                 <tbody>
                     <?php if (empty($ocorrencias)): ?>
-                        <tr><td colspan="5">Nenhuma ocorrência registada para as suas turmas.</td></tr>
+                        <tr><td colspan="5">Nenhuma ocorrência registrada para as suas turmas.</td></tr>
                     <?php else: ?>
                         <?php foreach($ocorrencias as $oc): ?>
-                          <tr data-id="1">
+                          <tr>
                             <td><?php echo date('d/m/Y H:i', strtotime($oc['data_ocorrencia'])); ?></td>
                             <td><?php echo htmlspecialchars($oc['nome_turma']); ?></td>
                             <td><?php echo htmlspecialchars($oc['nome_aluno']); ?></td>
@@ -136,7 +136,7 @@ $extra_js = '<script>
             return;
         }
 
-        fetch("api_get_alunos.php?turma_id=" + turmaId)
+        fetch(`api_get_alunos.php?turma_id=${turmaId}`)
             .then(response => response.json())
             .then(data => {
                 alunoSelect.innerHTML = \'<option value="">Selecione uma criança</option>\';
@@ -155,7 +155,8 @@ $extra_js = '<script>
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-        openTab({currentTarget: document.querySelector(".tab-btn.active")}, "nova-ocorrencia");
+        // Garante que a primeira aba esteja ativa ao carregar
+        document.querySelector(".tab-btn.active").click();
     });
 </script>';
 echo $extra_js;

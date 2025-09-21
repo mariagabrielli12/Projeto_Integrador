@@ -1,5 +1,5 @@
 <?php
-$page_title = 'Controlo de Presença';
+$page_title = 'Controle de Presença';
 $page_icon = 'fas fa-user-check';
 require_once 'templates/header_bercarista.php';
 
@@ -16,10 +16,10 @@ $stmt_turmas->close();
 ?>
 
 <div class="card">
-    <div class="card-header"><h3 class="section-title">Registar Presença do Dia</h3></div>
+    <div class="card-header"><h3 class="section-title">Registrar Presença do Dia</h3></div>
     <div class="card-body">
         <form id="form-presenca" method="POST" action="processa_presenca.php">
-            <div class="attendance-filter">
+            <div class="form-row" style="align-items: flex-end;">
                 <div class="form-group">
                     <label for="data">Data da Presença:</label>
                     <input type="date" id="data" name="data" class="form-control" value="<?php echo date('Y-m-d'); ?>" required>
@@ -46,7 +46,7 @@ $stmt_turmas->close();
                 </table>
             </div>
 
-            <div class="action-buttons-bottom" style="display: flex; justify-content: flex-end; padding-top: 15px; border-top: 1px solid #eee; margin-top: 20px;">
+            <div class="form-actions" style="margin-top: 20px;">
                 <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Salvar Presença</button>
             </div>
         </form>
@@ -57,14 +57,14 @@ $stmt_turmas->close();
 $extra_js = '<script>
 function carregarAlunosPresenca(turmaId) {
     const tbody = document.getElementById("attendance-table-body");
-    tbody.innerHTML = \'<tr><td colspan="2">A carregar...</td></tr>\';
+    tbody.innerHTML = \'<tr><td colspan="2" style="text-align:center;">Carregando...</td></tr>\';
 
     if (!turmaId) {
         tbody.innerHTML = \'<tr><td colspan="2" style="text-align: center;">Selecione uma turma para carregar os alunos.</td></tr>\';
         return;
     }
 
-    fetch("api_get_alunos.php?turma_id=" + turmaId)
+    fetch(`api_get_alunos.php?turma_id=${turmaId}`)
         .then(response => response.json())
         .then(data => {
             tbody.innerHTML = ""; // Limpa a tabela
@@ -74,8 +74,10 @@ function carregarAlunosPresenca(turmaId) {
                     row.innerHTML = `
                         <td>${aluno.nome_completo}</td>
                         <td>
-                            <label style="margin-right: 15px;"><input type="radio" name="status[${aluno.id_aluno}]" value="presente" checked> Presente</label>
-                            <label><input type="radio" name="status[${aluno.id_aluno}]" value="ausente"> Ausente</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="status[${aluno.id_aluno}]" value="presente" checked> Presente</label>
+                                <label><input type="radio" name="status[${aluno.id_aluno}]" value="ausente"> Ausente</label>
+                            </div>
                         </td>
                     `;
                     tbody.appendChild(row);

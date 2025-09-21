@@ -113,7 +113,7 @@ function is_active($page_name) {
         <div class="header">
             <div class="page-title">
                 <i class="<?php echo isset($page_icon) ? $page_icon : 'fas fa-tachometer-alt'; ?>"></i>
-                <h2><?php echo isset($page_title) ? $page_title : 'Dashboard'; ?></h2>
+                <h2><?php echo isset($page_title) ? $page_title : 'Início'; ?></h2>
             </div>
             <div class="user-info">
                 <div class="user-avatar">SC</div>

@@ -3,8 +3,6 @@ session_start();
 define('PROJECT_ROOT', dirname(__DIR__));
 require_once PROJECT_ROOT . '/conexao.php';
 
-$id_bercarista_logado = $_SESSION['id_usuario'] ?? 0;
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $turma_id = (int)($_POST['turma_id'] ?? 0);
     $data = $_POST['data'] ?? '';
@@ -18,8 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $conexao->begin_transaction();
     try {
-        // Usamos ON DUPLICATE KEY UPDATE para inserir ou atualizar a presença do dia
-        $sql = "INSERT INTO registro_presenca (id_aluno, id_turma, data, presenca) VALUES (?, ?, ?, ?) ON DUPLICATE KEY UPDATE presenca = VALUES(presenca)";
+        // Usamos REPLACE INTO que deleta a entrada antiga (se houver) e insere a nova.
+        // Isso evita erros de chave duplicada e garante que a presença do dia seja sempre a última enviada.
+        $sql = "REPLACE INTO registro_presenca (id_aluno, id_turma, data, presenca) VALUES (?, ?, ?, ?)";
         $stmt = $conexao->prepare($sql);
 
         foreach ($presencas as $aluno_id => $status) {
@@ -29,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         $stmt->close();
         $conexao->commit();
-        $_SESSION['mensagem_sucesso'] = "Presença registada com sucesso para o dia " . date('d/m/Y', strtotime($data)) . "!";
+        $_SESSION['mensagem_sucesso'] = "Presença registrada com sucesso para o dia " . date('d/m/Y', strtotime($data)) . "!";
 
     } catch (Exception $e) {
         $conexao->rollback();
